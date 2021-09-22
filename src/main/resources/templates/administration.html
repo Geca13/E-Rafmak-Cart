@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rafmak</title>
+  <link rel="stylesheet" th:href="@{/css/administration.css}">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+ 
+    </style>
+</head>
+
+<body>
+
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<section class="main-section">
+  <div class="card color-teal">
+  <a  th:href="@{/create/newCoat}">
+   COAT
+  </a>
+  </div>
+  
+  <div class="card color-teal">
+  <a  th:href="@{/create/newHardener}">
+   HARDENER
+  </a>
+  </div>
+  
+  <div class="card color-teal">
+  <a  th:href="@{/create/newPrimer}">
+   PRIMER
+  </a>
+  </div>
+  
+  <div class="card color-teal">
+  <a  th:href="@{/create/newPutty}">
+   PUTTY
+  </a>
+  </div>
+  
+  <div class="card color-teal">
+  <a  th:href="@{/create/newThinner}">
+   THINNER
+  </a>
+  </div>
+  
+  <div class="card color-lime">
+  <a  th:href="@{/create/newSander}">
+   SANDER
+  </a>
+  </div>
+  
+  <div class="card color-lime">
+  <a  th:href="@{/create/newHelper}">
+   HELPER
+  </a>
+  </div>
+  
+  <div class="card color-lime">
+  <a  th:href="@{/create/newTool}">
+   TOOL
+  </a>
+  </div>
+  
+  <div class="card color-lime">
+  <a  th:href="@{/create/newSprayGun}">
+   SPRAY GUN
+  </a>
+  </div>
+  
+  <div class="card color-lime">
+  <a  th:href="@{/create/newNozzle}">
+   NOZLLE
+  </a>
+  </div>
+  
+  <div class="card color-pink">
+  <a  th:href="@{/create/newSafety}">
+   SAFETY
+  </a>
+  </div>
+  
+  <div class="card color-pink">
+  <a  th:href="@{/create/newPolish}">
+   POLISH
+  </a>
+  </div>
+  
+  <div class="card color-pink">
+  <a  th:href="@{/create/newPads}">
+   PADS
+  </a>
+  </div>
+  
+  <div class="card color-pink">
+  <a  th:href="@{/create/newExtras}">
+   EXTRAS
+  </a>
+  </div>
+  
+  <div class="card color-red">
+  <a  th:href="@{/administration/manufacturers}">
+   BRANDS
+  </a>
+  </div>
+</section>  
+
+
+
+<div th:replace="fragments/footer :: footer"></div>
+<script type="text/javascript" th:src="@{/js/js.js}"></script>
+</body>
+
+</html>
