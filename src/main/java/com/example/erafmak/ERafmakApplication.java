@@ -11,16 +11,21 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.erafmak.enums.Dimension;
 import com.example.erafmak.enums.Granulation;
+import com.example.erafmak.product.entity.Category;
 import com.example.erafmak.product.entity.GranulationQty;
 import com.example.erafmak.product.entity.Manufacturer;
 import com.example.erafmak.product.entity.Origin;
 import com.example.erafmak.product.entity.Product;
+import com.example.erafmak.product.entity.SubCategory;
+import com.example.erafmak.product.repository.CategoryRepository;
 import com.example.erafmak.product.repository.GranulationQtyRepository;
 import com.example.erafmak.product.repository.ManufacturerRepository;
 import com.example.erafmak.product.repository.OriginRepository;
 import com.example.erafmak.product.repository.ProductRepository;
 import com.example.erafmak.product.repository.SizeQtyRepository;
+import com.example.erafmak.product.repository.SubCategoryRepository;
 import com.example.erafmak.user.entity.Role;
 import com.example.erafmak.user.entity.RoleName;
 import com.example.erafmak.user.entity.RoleRepository;
@@ -50,9 +55,17 @@ public class ERafmakApplication {
 	@Autowired
 	RoleRepository roleRepository;
 	
+	@Autowired
+	CategoryRepository categoryRepository;
+	
+	@Autowired
+	SubCategoryRepository subRepository;
+	
 
 	
 	private final String IMAGE_URL = "/images/";
+	
+	private final String DESCRIPTION = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis";
 	
 	@Bean
 	public RestTemplate getRestTemplate() {
@@ -84,158 +97,214 @@ public class ERafmakApplication {
 			manufacturerRepository.save(new Manufacturer(5L, "Sata",originRepository.findById(5L).get() ,"sata@sata.com", IMAGE_URL));
 			manufacturerRepository.save(new Manufacturer(6L, "Spiralflex",originRepository.findById(3L).get() ,"spiralflex@spiralflex.com", IMAGE_URL));
 			
-			granulationQtyRepository.save(new GranulationQty(1L, true , 2300.00,null,10, Granulation.P80));
-			granulationQtyRepository.save(new GranulationQty(2L, true , 2000.00,null,10, Granulation.P100));
-			granulationQtyRepository.save(new GranulationQty(3L, true , 2000.00,null,10, Granulation.P120));
-			granulationQtyRepository.save(new GranulationQty(4L, true , 2000.00,null,10,Granulation.P150));
-			granulationQtyRepository.save(new GranulationQty(5L, true , 2000.00,null,10,Granulation.P180));
-			granulationQtyRepository.save(new GranulationQty(6L, true , 2000.00,null,10,Granulation.P240));
-			granulationQtyRepository.save(new GranulationQty(7L, true , 2000.00,null,10,Granulation.P320));
-			granulationQtyRepository.save(new GranulationQty(8L, true , 2000.00,null,10,Granulation.P400));
+			subRepository.save(new SubCategory(1L, "Disks", null , null));
+			subRepository.save(new SubCategory(2L, "Rolls", null , null));
+			subRepository.save(new SubCategory(3L, "Blocks", null , null));
+			subRepository.save(new SubCategory(4L, "WPF", null , null));
+			subRepository.save(new SubCategory(5L, "Softs", null , null));
 			
-			granulationQtyRepository.save(new GranulationQty(9L, true , 900.00,null,10, Granulation.P40));
-			granulationQtyRepository.save(new GranulationQty(10L, true , 850.00,null,10, Granulation.P60));
-			granulationQtyRepository.save(new GranulationQty(11L, true , 800.00,null,10, Granulation.P80));
-			granulationQtyRepository.save(new GranulationQty(12L, true , 750.00,null,10, Granulation.P100));
-			granulationQtyRepository.save(new GranulationQty(13L, true , 750.00,null,10, Granulation.P120));
-			granulationQtyRepository.save(new GranulationQty(14L, true , 750.00 ,null,10,Granulation.P150));
-			granulationQtyRepository.save(new GranulationQty(15L, true , 750.00 ,null,10,Granulation.P180));
-			granulationQtyRepository.save(new GranulationQty(16L, true , 750.00 ,null,10,Granulation.P240));
-			granulationQtyRepository.save(new GranulationQty(17L, true , 750.00 ,null,10,Granulation.P320));
+			subRepository.save(new SubCategory(6L, "Coats", null , null));
+			subRepository.save(new SubCategory(7L, "Primers", null , null));
+			subRepository.save(new SubCategory(8L, "Thinners", null , null));
+			subRepository.save(new SubCategory(9L, "Hardeners", null , null));
+			subRepository.save(new SubCategory(10L, "Putties", null , null));
 			
-			granulationQtyRepository.save(new GranulationQty(18L, true , 1200.00,null,10, Granulation.P1200));
-			granulationQtyRepository.save(new GranulationQty(19L, true , 1200.00,null,10, Granulation.P1500));
-			granulationQtyRepository.save(new GranulationQty(20L, true , 1200.00,null,10, Granulation.P2000));
-			granulationQtyRepository.save(new GranulationQty(21L, true , 1200.00 ,null,10,Granulation.P2500));
+			subRepository.save(new SubCategory(11L, "Polish", null , null));
+			subRepository.save(new SubCategory(12L, "Pad", null , null));
 			
-			granulationQtyRepository.save(new GranulationQty(22L, true , 1200.00,null,10, Granulation.P1200));
-			granulationQtyRepository.save(new GranulationQty(23L, true , 1200.00,null,10, Granulation.P1500));
-			granulationQtyRepository.save(new GranulationQty(24L, true , 1200.00,null,10, Granulation.P2000));
+			subRepository.save(new SubCategory(13L, "Hand Blocks", null , null));
+			subRepository.save(new SubCategory(14L, "Tools", null , null));
+			subRepository.save(new SubCategory(15L, "Safety", null , null));
+			subRepository.save(new SubCategory(16L, "Extra", null , null));
+			subRepository.save(new SubCategory(17L, "Spray Guns", null , null));
 			
-			granulationQtyRepository.save(new GranulationQty(25L, true , 1300.00,null,10, Granulation.P80));
-			granulationQtyRepository.save(new GranulationQty(26L, true , 1200.00,null,10, Granulation.P120));
-			granulationQtyRepository.save(new GranulationQty(27L, true , 1200.00 ,null,10,Granulation.P150));
-			granulationQtyRepository.save(new GranulationQty(28L, true , 1200.00 ,null,10,Granulation.P180));
-			granulationQtyRepository.save(new GranulationQty(29L, true , 1200.00 ,null,10,Granulation.P240));
-			granulationQtyRepository.save(new GranulationQty(30L, true , 1200.00 ,null,10,Granulation.P320));
-			granulationQtyRepository.save(new GranulationQty(31L, true , 1200.00 ,null,10,Granulation.P400));
 			
-			granulationQtyRepository.save(new GranulationQty(32L, true , 1300.00,null,10, Granulation.P80));
-			granulationQtyRepository.save(new GranulationQty(33L, true , 1200.00,null,10, Granulation.P120));
-			granulationQtyRepository.save(new GranulationQty(34L, true , 1200.00 ,null,10,Granulation.P150));
-			granulationQtyRepository.save(new GranulationQty(35L, true , 1200.00 ,null,10,Granulation.P180));
-			granulationQtyRepository.save(new GranulationQty(36L, true , 1200.00 ,null,10,Granulation.P240));
-			granulationQtyRepository.save(new GranulationQty(37L, true , 1200.00 ,null,10,Granulation.P320));
-			granulationQtyRepository.save(new GranulationQty(38L, true , 1200.00 ,null,10,Granulation.P400));
 			
-			granulationQtyRepository.save(new GranulationQty(39L, true , 2200.00, null,10,Granulation.P80));
-			granulationQtyRepository.save(new GranulationQty(40L, true , 1750.00, null,10,Granulation.P100));
-			granulationQtyRepository.save(new GranulationQty(41L, true , 1750.00, null,10,Granulation.P120));
-			granulationQtyRepository.save(new GranulationQty(42L, true , 1750.00 ,null,10,Granulation.P150));
-			granulationQtyRepository.save(new GranulationQty(43L, true , 1750.00 ,null,10,Granulation.P180));
-			granulationQtyRepository.save(new GranulationQty(44L, true , 1750.00 ,null,10,Granulation.P240));
-			granulationQtyRepository.save(new GranulationQty(45L, true , 1750.00 ,null,10,Granulation.P320));
-			granulationQtyRepository.save(new GranulationQty(46L, true , 1750.00 ,null,10,Granulation.P400));
-			granulationQtyRepository.save(new GranulationQty(47L, true , 1750.00 ,null,10,Granulation.P500));
-			granulationQtyRepository.save(new GranulationQty(48L, true , 1750.00 ,null,10,Granulation.P600));
-			granulationQtyRepository.save(new GranulationQty(49L, true , 2200.00 ,null,10,Granulation.P800));
-			granulationQtyRepository.save(new GranulationQty(50L, true , 2200.00 ,null,10,Granulation.P1000));
+			List<SubCategory> abrazive = new ArrayList<>();
+			abrazive.add(subRepository.findById(1L).get());
+			abrazive.add(subRepository.findById(2L).get());
+			abrazive.add(subRepository.findById(3L).get());
+			abrazive.add(subRepository.findById(4L).get());
+			abrazive.add(subRepository.findById(5L).get());
 			
-			granulationQtyRepository.save(new GranulationQty(51L, true , 1750.00 ,null,10,Granulation.P320));
-			granulationQtyRepository.save(new GranulationQty(52L, true , 1750.00 ,null,10,Granulation.P400));
-			granulationQtyRepository.save(new GranulationQty(53L, true , 1750.00 ,null,10,Granulation.P600));
-			granulationQtyRepository.save(new GranulationQty(54L, true , 2200.00 ,null,10,Granulation.P800));
+			List<SubCategory> coating = new ArrayList<>();
+			abrazive.add(subRepository.findById(6L).get());
+			abrazive.add(subRepository.findById(7L).get());
+			abrazive.add(subRepository.findById(8L).get());
+			abrazive.add(subRepository.findById(9L).get());
+			abrazive.add(subRepository.findById(10L).get());
 			
-			granulationQtyRepository.save(new GranulationQty(55L, true , 2400.00 ,null,10,Granulation.P180));
-			granulationQtyRepository.save(new GranulationQty(56L, true , 2400.00 ,null,10,Granulation.P360));
-			granulationQtyRepository.save(new GranulationQty(57L, true , 2400.00 ,null,10,Granulation.P500));
-			granulationQtyRepository.save(new GranulationQty(58L, true , 2400.00 ,null,10,Granulation.P1000));
-			granulationQtyRepository.save(new GranulationQty(59L, true , 2400.00 ,null,10,Granulation.P2000));
-			granulationQtyRepository.save(new GranulationQty(60L, true , 2400.00 ,null,10,Granulation.P3000));
-			granulationQtyRepository.save(new GranulationQty(61L, true , 2400.00 ,null,10,Granulation.P4000));
+			List<SubCategory> polishing = new ArrayList<>();
+			abrazive.add(subRepository.findById(11L).get());
+			abrazive.add(subRepository.findById(12L).get());
 			
-			granulationQtyRepository.save(new GranulationQty(62L, true , 1100.00 ,null,10,Granulation.P2000));
+			List<SubCategory> tools = new ArrayList<>();
+			abrazive.add(subRepository.findById(13L).get());
+			abrazive.add(subRepository.findById(14L).get());
+			abrazive.add(subRepository.findById(15L).get());
+			abrazive.add(subRepository.findById(16L).get());
+			abrazive.add(subRepository.findById(17L).get());
 			
-			granulationQtyRepository.save(new GranulationQty(63L, true , 950.00 ,null,10,Granulation.P220));
-			granulationQtyRepository.save(new GranulationQty(64L, true , 950.00 ,null,10,Granulation.P240));
-			granulationQtyRepository.save(new GranulationQty(65L, true , 950.00 ,null,10,Granulation.P280));
-			granulationQtyRepository.save(new GranulationQty(66L, true , 950.00 ,null,10,Granulation.P320));
-			granulationQtyRepository.save(new GranulationQty(67L, true , 950.00 ,null,10,Granulation.P360));
-			granulationQtyRepository.save(new GranulationQty(68L, true , 950.00 ,null,10,Granulation.P400));
-			granulationQtyRepository.save(new GranulationQty(69L, true , 950.00 ,null,10,Granulation.P500));
-			granulationQtyRepository.save(new GranulationQty(70L, true , 950.00 ,null,10,Granulation.P600));
-			granulationQtyRepository.save(new GranulationQty(71L, true , 950.00 ,null,10,Granulation.P800));
-			granulationQtyRepository.save(new GranulationQty(72L, true , 950.00 ,null,10,Granulation.P1000));
-			granulationQtyRepository.save(new GranulationQty(73L, true , 950.00 ,null,10,Granulation.P1200));
+			categoryRepository.save(new Category(1L, "Abrazive Materials" , null , abrazive));
+			categoryRepository.save(new Category(2L, "Coats & Primers" , null , coating));
+			categoryRepository.save(new Category(3L, "Tools & Equip" , null , tools));
+			categoryRepository.save(new Category(4L, "Polishing" , null , polishing));
+			 
 			
-			granulationQtyRepository.save(new GranulationQty(74L, true , 1350.00 ,null,10,Granulation.P1500));
-			granulationQtyRepository.save(new GranulationQty(75L, true , 1350.00 ,null,10,Granulation.P2000));
 			
-			granulationQtyRepository.save(new GranulationQty(76L, true , 3300.00,null,10, Granulation.P80));
-			granulationQtyRepository.save(new GranulationQty(77L, true , 3300.00,null,10, Granulation.P120));
-			granulationQtyRepository.save(new GranulationQty(78L, true , 3300.00 ,null,10,Granulation.P150));
-			granulationQtyRepository.save(new GranulationQty(79L, true , 3300.00 ,null,10,Granulation.P180));
-			granulationQtyRepository.save(new GranulationQty(80L, true , 3300.00 ,null,10,Granulation.P240));
-			granulationQtyRepository.save(new GranulationQty(81L, true , 3300.00 ,null,10,Granulation.P320));
-			granulationQtyRepository.save(new GranulationQty(82L, true , 3300.00 ,null,10,Granulation.P400));
-			granulationQtyRepository.save(new GranulationQty(83L, true , 3300.00 ,null,10,Granulation.P500));
 			
-			granulationQtyRepository.save(new GranulationQty(84L, true , 2300.00, null,10,Granulation.P80));
-			granulationQtyRepository.save(new GranulationQty(85L, true , 2200.00, null,10,Granulation.P120));
-			granulationQtyRepository.save(new GranulationQty(86L, true , 2200.00 ,null,10,Granulation.P150));
-			granulationQtyRepository.save(new GranulationQty(87L, true , 2200.00 ,null,10,Granulation.P180));
-			granulationQtyRepository.save(new GranulationQty(88L, true , 2200.00 ,null,10,Granulation.P240));
-			granulationQtyRepository.save(new GranulationQty(89L, true , 2200.00 ,null,10,Granulation.P320));
+			granulationQtyRepository.save(new GranulationQty(1L, true , 2300.00,null,10, Granulation.P80,null));
+			granulationQtyRepository.save(new GranulationQty(2L, true , 2000.00,null,10, Granulation.P100,null));
+			granulationQtyRepository.save(new GranulationQty(3L, true , 2000.00,null,10, Granulation.P120,null));
+			granulationQtyRepository.save(new GranulationQty(4L, true , 2000.00,null,10,Granulation.P150,null));
+			granulationQtyRepository.save(new GranulationQty(5L, true , 2000.00,null,10,Granulation.P180,null));
+			granulationQtyRepository.save(new GranulationQty(6L, true , 2000.00,null,10,Granulation.P240,null));
+			granulationQtyRepository.save(new GranulationQty(7L, true , 2000.00,null,10,Granulation.P320,null));
+			granulationQtyRepository.save(new GranulationQty(8L, true , 2000.00,null,10,Granulation.P400,null));
 			
-			granulationQtyRepository.save(new GranulationQty(90L, true , 2300.00, null,10,Granulation.P80));
-			granulationQtyRepository.save(new GranulationQty(91L, true , 2200.00, null,10,Granulation.P120));
-			granulationQtyRepository.save(new GranulationQty(92L, true , 2200.00 ,null,10,Granulation.P150));
-			granulationQtyRepository.save(new GranulationQty(93L, true , 2200.00 ,null,10,Granulation.P180));
-			granulationQtyRepository.save(new GranulationQty(94L, true , 2200.00 ,null,10,Granulation.P240));
-			granulationQtyRepository.save(new GranulationQty(95L, true , 2200.00 ,null,10,Granulation.P320));
+			granulationQtyRepository.save(new GranulationQty(9L, true , 900.00,null,10, Granulation.P40,null));
+			granulationQtyRepository.save(new GranulationQty(10L, true , 850.00,null,10, Granulation.P60,null));
+			granulationQtyRepository.save(new GranulationQty(11L, true , 800.00,null,10, Granulation.P80,null));
+			granulationQtyRepository.save(new GranulationQty(12L, true , 750.00,null,10, Granulation.P100,null));
+			granulationQtyRepository.save(new GranulationQty(13L, true , 750.00,null,10, Granulation.P120,null));
+			granulationQtyRepository.save(new GranulationQty(14L, true , 750.00 ,null,10,Granulation.P150,null));
+			granulationQtyRepository.save(new GranulationQty(15L, true , 750.00 ,null,10,Granulation.P180,null));
+			granulationQtyRepository.save(new GranulationQty(16L, true , 750.00 ,null,10,Granulation.P240,null));
+			granulationQtyRepository.save(new GranulationQty(17L, true , 750.00 ,null,10,Granulation.P320,null));
 			
-			granulationQtyRepository.save(new GranulationQty(96L, true , 2200.00, null,10,Granulation.P240));
-			granulationQtyRepository.save(new GranulationQty(97L, true , 2200.00 ,null,10,Granulation.P320));
-			granulationQtyRepository.save(new GranulationQty(98L, true , 2200.00 ,null,10,Granulation.P400));
-			granulationQtyRepository.save(new GranulationQty(99L, true , 2200.00 ,null,10,Granulation.P600));
-			granulationQtyRepository.save(new GranulationQty(100L, true , 2200.00 ,null,10,Granulation.P800));
+			granulationQtyRepository.save(new GranulationQty(18L, true , 1200.00,null,10, Granulation.P1200,null));
+			granulationQtyRepository.save(new GranulationQty(19L, true , 1200.00,null,10, Granulation.P1500,null));
+			granulationQtyRepository.save(new GranulationQty(20L, true , 1200.00,null,10, Granulation.P2000,null));
+			granulationQtyRepository.save(new GranulationQty(21L, true , 1200.00 ,null,10,Granulation.P2500,null));
 			
-			granulationQtyRepository.save(new GranulationQty(101L, true , 1100.00 ,null,10,Granulation.P60));
+			granulationQtyRepository.save(new GranulationQty(22L, true , 1200.00,null,10, Granulation.P1200,null));
+			granulationQtyRepository.save(new GranulationQty(23L, true , 1200.00,null,10, Granulation.P1500,null));
+			granulationQtyRepository.save(new GranulationQty(24L, true , 1200.00,null,10, Granulation.P2000,null));
 			
-			granulationQtyRepository.save(new GranulationQty(102L, true , 450.00 ,null,10,Granulation.P360));
+			granulationQtyRepository.save(new GranulationQty(25L, true , 1300.00,null,10, Granulation.P80,null));
+			granulationQtyRepository.save(new GranulationQty(26L, true , 1200.00,null,10, Granulation.P120,null));
+			granulationQtyRepository.save(new GranulationQty(27L, true , 1200.00 ,null,10,Granulation.P150,null));
+			granulationQtyRepository.save(new GranulationQty(28L, true , 1200.00 ,null,10,Granulation.P180,null));
+			granulationQtyRepository.save(new GranulationQty(29L, true , 1200.00 ,null,10,Granulation.P240,null));
+			granulationQtyRepository.save(new GranulationQty(30L, true , 1200.00 ,null,10,Granulation.P320,null));
+			granulationQtyRepository.save(new GranulationQty(31L, true , 1200.00 ,null,10,Granulation.P400,null));
 			
-			granulationQtyRepository.save(new GranulationQty(103L, true , 2250.00 ,null,10,Granulation.P80));
-			granulationQtyRepository.save(new GranulationQty(104L, true , 1950.00 ,null,10,Granulation.P100));
-			granulationQtyRepository.save(new GranulationQty(105L, true , 1950.00 ,null,10,Granulation.P120));
-			granulationQtyRepository.save(new GranulationQty(106L, true , 1950.00 ,null,10,Granulation.P150));
-			granulationQtyRepository.save(new GranulationQty(107L, true , 1950.00 ,null,10,Granulation.P180));
-			granulationQtyRepository.save(new GranulationQty(108L, true , 1950.00 ,null,10,Granulation.P220));
-			granulationQtyRepository.save(new GranulationQty(109L, true , 1950.00 ,null,10,Granulation.P240));
-			granulationQtyRepository.save(new GranulationQty(110L, true , 1950.00 ,null,10,Granulation.P280));
-			granulationQtyRepository.save(new GranulationQty(111L, true , 1950.00 ,null,10,Granulation.P320));
-			granulationQtyRepository.save(new GranulationQty(112L, true , 1950.00 ,null,10,Granulation.P360));
-			granulationQtyRepository.save(new GranulationQty(113L, true , 1950.00 ,null,10,Granulation.P400));
+			granulationQtyRepository.save(new GranulationQty(32L, true , 1300.00,null,10, Granulation.P80,null));
+			granulationQtyRepository.save(new GranulationQty(33L, true , 1200.00,null,10, Granulation.P120,null));
+			granulationQtyRepository.save(new GranulationQty(34L, true , 1200.00 ,null,10,Granulation.P150,null));
+			granulationQtyRepository.save(new GranulationQty(35L, true , 1200.00 ,null,10,Granulation.P180,null));
+			granulationQtyRepository.save(new GranulationQty(36L, true , 1200.00 ,null,10,Granulation.P240,null));
+			granulationQtyRepository.save(new GranulationQty(37L, true , 1200.00 ,null,10,Granulation.P320,null));
+			granulationQtyRepository.save(new GranulationQty(38L, true , 1200.00 ,null,10,Granulation.P400,null));
 			
-			granulationQtyRepository.save(new GranulationQty(114L, true , 2150.00 ,null,10,Granulation.P60));
-			granulationQtyRepository.save(new GranulationQty(115L, true , 2000.00 ,null,10,Granulation.P80));
-			granulationQtyRepository.save(new GranulationQty(116L, true , 1750.00 ,null,10,Granulation.P120));
-			granulationQtyRepository.save(new GranulationQty(117L, true , 1750.00 ,null,10,Granulation.P150));
-			granulationQtyRepository.save(new GranulationQty(118L, true , 1750.00 ,null,10,Granulation.P180));
-			granulationQtyRepository.save(new GranulationQty(119L, true , 1750.00 ,null,10,Granulation.P220));
-			granulationQtyRepository.save(new GranulationQty(120L, true , 1750.00 ,null,10,Granulation.P240));
-			granulationQtyRepository.save(new GranulationQty(121L, true , 1750.00 ,null,10,Granulation.P320));
-			granulationQtyRepository.save(new GranulationQty(122L, true , 1750.00 ,null,10,Granulation.P400));
+			granulationQtyRepository.save(new GranulationQty(39L, true , 2200.00, null,10,Granulation.P80,null));
+			granulationQtyRepository.save(new GranulationQty(40L, true , 1750.00, null,10,Granulation.P100,null));
+			granulationQtyRepository.save(new GranulationQty(41L, true , 1750.00, null,10,Granulation.P120,null));
+			granulationQtyRepository.save(new GranulationQty(42L, true , 1750.00 ,null,10,Granulation.P150,null));
+			granulationQtyRepository.save(new GranulationQty(43L, true , 1750.00 ,null,10,Granulation.P180,null));
+			granulationQtyRepository.save(new GranulationQty(44L, true , 1750.00 ,null,10,Granulation.P240,null));
+			granulationQtyRepository.save(new GranulationQty(45L, true , 1750.00 ,null,10,Granulation.P320,null));
+			granulationQtyRepository.save(new GranulationQty(46L, true , 1750.00 ,null,10,Granulation.P400,null));
+			granulationQtyRepository.save(new GranulationQty(47L, true , 1750.00 ,null,10,Granulation.P500,null));
+			granulationQtyRepository.save(new GranulationQty(48L, true , 1750.00 ,null,10,Granulation.P600,null));
+			granulationQtyRepository.save(new GranulationQty(49L, true , 2200.00 ,null,10,Granulation.P800,null));
+			granulationQtyRepository.save(new GranulationQty(50L, true , 2200.00 ,null,10,Granulation.P1000,null));
 			
-            granulationQtyRepository.save(new GranulationQty(123L, true , 1950.00 ,null,10,Granulation.P80));
-		    granulationQtyRepository.save(new GranulationQty(124L, true , 2150.00 ,null,10,Granulation.P120));
-			granulationQtyRepository.save(new GranulationQty(125L, true , 2000.00 ,null,10,Granulation.P150));
-			granulationQtyRepository.save(new GranulationQty(126L, true , 1750.00 ,null,10,Granulation.P180));
-			granulationQtyRepository.save(new GranulationQty(127L, true , 1750.00 ,null,10,Granulation.P240));
-			granulationQtyRepository.save(new GranulationQty(128L, true , 1750.00 ,null,10,Granulation.P320));
-			granulationQtyRepository.save(new GranulationQty(129L, true , 1750.00 ,null,10,Granulation.P400));
+			granulationQtyRepository.save(new GranulationQty(51L, true , 1750.00 ,null,10,Granulation.P320,null));
+			granulationQtyRepository.save(new GranulationQty(52L, true , 1750.00 ,null,10,Granulation.P400,null));
+			granulationQtyRepository.save(new GranulationQty(53L, true , 1750.00 ,null,10,Granulation.P600,null));
+			granulationQtyRepository.save(new GranulationQty(54L, true , 2200.00 ,null,10,Granulation.P800,null));
 			
-			granulationQtyRepository.save(new GranulationQty(130L, true , 1750.00 ,null,10,Granulation.P360));
-			granulationQtyRepository.save(new GranulationQty(131L, true , 1750.00 ,null,10,Granulation.P1500));
+			granulationQtyRepository.save(new GranulationQty(55L, true , 2400.00 ,null,10,Granulation.P180,null));
+			granulationQtyRepository.save(new GranulationQty(56L, true , 2400.00 ,null,10,Granulation.P360,null));
+			granulationQtyRepository.save(new GranulationQty(57L, true , 2400.00 ,null,10,Granulation.P500,null));
+			granulationQtyRepository.save(new GranulationQty(58L, true , 2400.00 ,null,10,Granulation.P1000,null));
+			granulationQtyRepository.save(new GranulationQty(59L, true , 2400.00 ,null,10,Granulation.P2000,null));
+			granulationQtyRepository.save(new GranulationQty(60L, true , 2400.00 ,null,10,Granulation.P3000,null));
+			granulationQtyRepository.save(new GranulationQty(61L, true , 2400.00 ,null,10,Granulation.P4000,null));
+			
+			granulationQtyRepository.save(new GranulationQty(62L, true , 1100.00 ,null,10,Granulation.P2000,null));
+			
+			granulationQtyRepository.save(new GranulationQty(63L, true , 950.00 ,null,10,Granulation.P220,null));
+			granulationQtyRepository.save(new GranulationQty(64L, true , 950.00 ,null,10,Granulation.P240,null));
+			granulationQtyRepository.save(new GranulationQty(65L, true , 950.00 ,null,10,Granulation.P280,null));
+			granulationQtyRepository.save(new GranulationQty(66L, true , 950.00 ,null,10,Granulation.P320,null));
+			granulationQtyRepository.save(new GranulationQty(67L, true , 950.00 ,null,10,Granulation.P360,null));
+			granulationQtyRepository.save(new GranulationQty(68L, true , 950.00 ,null,10,Granulation.P400,null));
+			granulationQtyRepository.save(new GranulationQty(69L, true , 950.00 ,null,10,Granulation.P500,null));
+			granulationQtyRepository.save(new GranulationQty(70L, true , 950.00 ,null,10,Granulation.P600,null));
+			granulationQtyRepository.save(new GranulationQty(71L, true , 950.00 ,null,10,Granulation.P800,null));
+			granulationQtyRepository.save(new GranulationQty(72L, true , 950.00 ,null,10,Granulation.P1000,null));
+			granulationQtyRepository.save(new GranulationQty(73L, true , 950.00 ,null,10,Granulation.P1200,null));
+			
+			granulationQtyRepository.save(new GranulationQty(74L, true , 1350.00 ,null,10,Granulation.P1500,null));
+			granulationQtyRepository.save(new GranulationQty(75L, true , 1350.00 ,null,10,Granulation.P2000,null));
+			
+			granulationQtyRepository.save(new GranulationQty(76L, true , 3300.00,null,10, Granulation.P80,null));
+			granulationQtyRepository.save(new GranulationQty(77L, true , 3300.00,null,10, Granulation.P120,null));
+			granulationQtyRepository.save(new GranulationQty(78L, true , 3300.00 ,null,10,Granulation.P150,null));
+			granulationQtyRepository.save(new GranulationQty(79L, true , 3300.00 ,null,10,Granulation.P180,null));
+			granulationQtyRepository.save(new GranulationQty(80L, true , 3300.00 ,null,10,Granulation.P240,null));
+			granulationQtyRepository.save(new GranulationQty(81L, true , 3300.00 ,null,10,Granulation.P320,null));
+			granulationQtyRepository.save(new GranulationQty(82L, true , 3300.00 ,null,10,Granulation.P400,null));
+			granulationQtyRepository.save(new GranulationQty(83L, true , 3300.00 ,null,10,Granulation.P500,null));
+			
+			granulationQtyRepository.save(new GranulationQty(84L, true , 2300.00, null,10,Granulation.P80,null));
+			granulationQtyRepository.save(new GranulationQty(85L, true , 2200.00, null,10,Granulation.P120,null));
+			granulationQtyRepository.save(new GranulationQty(86L, true , 2200.00 ,null,10,Granulation.P150,null));
+			granulationQtyRepository.save(new GranulationQty(87L, true , 2200.00 ,null,10,Granulation.P180,null));
+			granulationQtyRepository.save(new GranulationQty(88L, true , 2200.00 ,null,10,Granulation.P240,null));
+			granulationQtyRepository.save(new GranulationQty(89L, true , 2200.00 ,null,10,Granulation.P320,null));
+			
+			granulationQtyRepository.save(new GranulationQty(90L, true , 2300.00, null,10,Granulation.P80,null));
+			granulationQtyRepository.save(new GranulationQty(91L, true , 2200.00, null,10,Granulation.P120,null));
+			granulationQtyRepository.save(new GranulationQty(92L, true , 2200.00 ,null,10,Granulation.P150,null));
+			granulationQtyRepository.save(new GranulationQty(93L, true , 2200.00 ,null,10,Granulation.P180,null));
+			granulationQtyRepository.save(new GranulationQty(94L, true , 2200.00 ,null,10,Granulation.P240,null));
+			granulationQtyRepository.save(new GranulationQty(95L, true , 2200.00 ,null,10,Granulation.P320,null));
+			
+			granulationQtyRepository.save(new GranulationQty(96L, true , 2200.00, null,10,Granulation.P240,null));
+			granulationQtyRepository.save(new GranulationQty(97L, true , 2200.00 ,null,10,Granulation.P320,null));
+			granulationQtyRepository.save(new GranulationQty(98L, true , 2200.00 ,null,10,Granulation.P400,null));
+			granulationQtyRepository.save(new GranulationQty(99L, true , 2200.00 ,null,10,Granulation.P600,null));
+			granulationQtyRepository.save(new GranulationQty(100L, true , 2200.00 ,null,10,Granulation.P800,null));
+			
+			granulationQtyRepository.save(new GranulationQty(101L, true , 1100.00 ,null,10,Granulation.P60,null));
+			
+			granulationQtyRepository.save(new GranulationQty(102L, true , 450.00 ,null,10,Granulation.P360,null));
+			
+			granulationQtyRepository.save(new GranulationQty(103L, true , 2250.00 ,null,10,Granulation.P80,null));
+			granulationQtyRepository.save(new GranulationQty(104L, true , 1950.00 ,null,10,Granulation.P100,null));
+			granulationQtyRepository.save(new GranulationQty(105L, true , 1950.00 ,null,10,Granulation.P120,null));
+			granulationQtyRepository.save(new GranulationQty(106L, true , 1950.00 ,null,10,Granulation.P150,null));
+			granulationQtyRepository.save(new GranulationQty(107L, true , 1950.00 ,null,10,Granulation.P180,null));
+			granulationQtyRepository.save(new GranulationQty(108L, true , 1950.00 ,null,10,Granulation.P220,null));
+			granulationQtyRepository.save(new GranulationQty(109L, true , 1950.00 ,null,10,Granulation.P240,null));
+			granulationQtyRepository.save(new GranulationQty(110L, true , 1950.00 ,null,10,Granulation.P280,null));
+			granulationQtyRepository.save(new GranulationQty(111L, true , 1950.00 ,null,10,Granulation.P320,null));
+			granulationQtyRepository.save(new GranulationQty(112L, true , 1950.00 ,null,10,Granulation.P360,null));
+			granulationQtyRepository.save(new GranulationQty(113L, true , 1950.00 ,null,10,Granulation.P400,null));
+			
+			granulationQtyRepository.save(new GranulationQty(114L, true , 2150.00 ,null,10,Granulation.P60,null));
+			granulationQtyRepository.save(new GranulationQty(115L, true , 2000.00 ,null,10,Granulation.P80,null));
+			granulationQtyRepository.save(new GranulationQty(116L, true , 1750.00 ,null,10,Granulation.P120,null));
+			granulationQtyRepository.save(new GranulationQty(117L, true , 1750.00 ,null,10,Granulation.P150,null));
+			granulationQtyRepository.save(new GranulationQty(118L, true , 1750.00 ,null,10,Granulation.P180,null));
+			granulationQtyRepository.save(new GranulationQty(119L, true , 1750.00 ,null,10,Granulation.P220,null));
+			granulationQtyRepository.save(new GranulationQty(120L, true , 1750.00 ,null,10,Granulation.P240,null));
+			granulationQtyRepository.save(new GranulationQty(121L, true , 1750.00 ,null,10,Granulation.P320,null));
+			granulationQtyRepository.save(new GranulationQty(122L, true , 1750.00 ,null,10,Granulation.P400,null));
+			
+            granulationQtyRepository.save(new GranulationQty(123L, true , 1950.00 ,null,10,Granulation.P80,null));
+		    granulationQtyRepository.save(new GranulationQty(124L, true , 2150.00 ,null,10,Granulation.P120,null));
+			granulationQtyRepository.save(new GranulationQty(125L, true , 2000.00 ,null,10,Granulation.P150,null));
+			granulationQtyRepository.save(new GranulationQty(126L, true , 1750.00 ,null,10,Granulation.P180,null));
+			granulationQtyRepository.save(new GranulationQty(127L, true , 1750.00 ,null,10,Granulation.P240,null));
+			granulationQtyRepository.save(new GranulationQty(128L, true , 1750.00 ,null,10,Granulation.P320,null));
+			granulationQtyRepository.save(new GranulationQty(129L, true , 1750.00 ,null,10,Granulation.P400,null));
+			
+			granulationQtyRepository.save(new GranulationQty(130L, true , 1750.00 ,null,10,Granulation.P360,null));
+			granulationQtyRepository.save(new GranulationQty(131L, true , 1750.00 ,null,10,Granulation.P1500,null));
 			
 			List<GranulationQty> silverDisk = new ArrayList<>();
 			
@@ -436,50 +505,50 @@ public class ERafmakApplication {
             mirlonRoll.add(granulationQtyRepository.findById(131L).get());
             
             
-            productRepository.save(new Product(1L, "Silver Disk", 100, Dimension.D150, Type.PAPER, silverDisk , Condition.DRY, manufacturerRepository.findById(1L).get(), true ,ABRAZIVE + "silverDisk.jpg"));
-            productRepository.save(new Product(2L, "Deflex Disk", 50, Dimension.D125, Type.PAPER, deflexDisk , Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "deflexDisk.jpg"));
-            productRepository.save(new Product(3L, "Microstar Disk", 50, Dimension.D150, Type.PLASTIC, microStar150 , Condition.DRY, manufacturerRepository.findById(1L).get(),true ,ABRAZIVE +  "microStar.webp"));
-            productRepository.save(new Product(4L, "Microstar Disk", 50, Dimension.D77, Type.PLASTIC, microStar80, Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "microStar80.jpg"));
-            productRepository.save(new Product(5L, "Autonet Disk", 50, Dimension.D150, Type.WIRE ,autonet150, Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "autonet.webp"));
-            productRepository.save(new Product(6L, "Autonet Block", 50,Dimension.D70X198, Type.WIRE,autonet70x198, Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "autonet70x198.jpg"));
-            productRepository.save(new Product(7L, "Abranet Disk", 50,Dimension.D150, Type.WIRE,abranetDisk150, Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "abranet.jpg"));
-            productRepository.save(new Product(8L, "Abranet Disk", 50,Dimension.D77, Type.WIRE, abranetDisk80 , Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "abranet80.webp"));
-            productRepository.save(new Product(9L, "Abralon Disk", 20, Dimension.D150, Type.FOAM, abralonDisk150 , Condition.WET, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "abralon.jpg"));
-            productRepository.save(new Product(10L, "Abralon Disk", 20, Dimension.D77, Type.FOAM, abralonDisk80 , Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "abralon80.jpg"));
-            productRepository.save(new Product(11L, "WPF", 50,Dimension.DA4, Type.PAPER, wpf, Condition.WET, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "wpf220.jpg"));
-            productRepository.save(new Product(12L, "WPF", 50 ,Dimension.DA8, Type.PAPER, wpf1500 , Condition.WET, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "wpf1500.png"));
-            productRepository.save(new Product(13L, "Iridium Disk", 100, Dimension.D150, Type.PLASTIC, iridiumDisk , Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "iridium.jpg"));
-            productRepository.save(new Product(14L, "Silver Block", 50, Dimension.D70X420, Type.PAPER, qSilver , Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "rashpa.jpg"));
-            productRepository.save(new Product(15L, "Iridium Block", 100, Dimension.D70X400, Type.PLASTIC, qIridium , Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "iridiumRashpa.webp"));
-            productRepository.save(new Product(16L, "Gold Disk", 50 ,Dimension.D150, Type.PAPER,goldDisk, Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "goldDisk.jpg"));
-            productRepository.save(new Product(17L, "Mirlon Disk", 10,Dimension.D150, Type.WIRE,mirlonDisk, Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "mirlonDisk.jpg"));
-            productRepository.save(new Product(18L, "Goldflex Soft", 200 ,Dimension.D115X125, Type.FOAM, goldSoft , Condition.DRY, manufacturerRepository.findById(1L).get(), true ,ABRAZIVE + "goldSoft.jpg"));
-            productRepository.save(new Product(19L, "Silver Roll", 1, Dimension.D50X115, Type.PAPER, silverRoll , Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "silverRoll.webp"));
-            productRepository.save(new Product(20L, "Gold Roll", 1, Dimension.D50X115, Type.PAPER, goldRoll , Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "goldRoll.jpg"));
-            productRepository.save(new Product(21L, "Autonet Roll", 1, Dimension.D10X115, Type.WIRE, autonetRoll , Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "autonetRoll.jpg"));
-            productRepository.save(new Product(22L, "Mirlon Roll", 1, Dimension.D10X115, Type.WIRE, mirlonRoll, Condition.DRY, manufacturerRepository.findById(1L).get(),true , ABRAZIVE + "mirlonRoll.jpg"));
+            productRepository.save(new Product(1L, "Silver Disk",DESCRIPTION,null,null,null,null, Dimension.D150, true , IMAGE_URL + "silverDisk.jpg",null,  manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(2L, "Deflex Disk",DESCRIPTION,null,null,null,null, Dimension.D125,  true , IMAGE_URL + "deflexDisk.jpg",null,  manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(3L, "Microstar Disk", DESCRIPTION,null,null,null,null, Dimension.D150,  true ,IMAGE_URL +  "microStar.webp",null,  manufacturerRepository.findById(1L).get() ));
+            productRepository.save(new Product(4L, "Microstar Disk", DESCRIPTION,null,null,null,null, Dimension.D77,  true , IMAGE_URL + "microStar80.jpg",null,  manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(5L, "Autonet Disk", DESCRIPTION,null,null,null,null, Dimension.D150, true , IMAGE_URL + "autonet.webp",null,  manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(6L, "Autonet Block", DESCRIPTION,null,null,null,null,Dimension.D70X198, true , IMAGE_URL + "autonet70x198.jpg",null,  manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(7L, "Abranet Disk", DESCRIPTION,null,null,null,null,Dimension.D150, true , IMAGE_URL + "abranet.jpg", null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(8L, "Abranet Disk", DESCRIPTION,null,null,null,null,Dimension.D77,  true , IMAGE_URL + "abranet80.webp",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(9L, "Abralon Disk", DESCRIPTION,null,null,null,null, Dimension.D150, true , IMAGE_URL + "abralon.jpg",null,  manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(10L, "Abralon Disk", DESCRIPTION,null,null,null,null, Dimension.D77, true , IMAGE_URL + "abralon80.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(11L, "WPF", DESCRIPTION,null,null,null,null,Dimension.DA4, true , IMAGE_URL + "wpf220.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(12L, "WPF", DESCRIPTION,null,null,null,null,Dimension.DA8, true , IMAGE_URL + "wpf1500.png",null, manufacturerRepository.findById(1L).get() ));
+            productRepository.save(new Product(13L, "Iridium Disk", DESCRIPTION,null,null,null,null, Dimension.D150, true , IMAGE_URL + "iridium.jpg",null, manufacturerRepository.findById(1L).get() ));
+            productRepository.save(new Product(14L, "Silver Block", DESCRIPTION,null,null,null,null, Dimension.D70X420, true , IMAGE_URL + "rashpa.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(15L, "Iridium Block", DESCRIPTION,null,null,null,null, Dimension.D70X400, true , IMAGE_URL + "iridiumRashpa.webp",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(16L, "Gold Disk", DESCRIPTION,null,null,null,null,Dimension.D150, true , IMAGE_URL + "goldDisk.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(17L, "Mirlon Disk", DESCRIPTION,null,null,null,null,Dimension.D150, true , IMAGE_URL + "mirlonDisk.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(18L, "Goldflex Soft", DESCRIPTION,null,null,null,null,Dimension.D115X125, true ,IMAGE_URL + "goldSoft.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(19L, "Silver Roll", DESCRIPTION,null,null,null,null, Dimension.D50X115, true , IMAGE_URL + "silverRoll.webp",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(20L, "Gold Roll", DESCRIPTION,null,null,null,null, Dimension.D50X115, true , IMAGE_URL + "goldRoll.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(21L, "Autonet Roll", DESCRIPTION,null,null,null,null, Dimension.D10X115, true , IMAGE_URL + "autonetRoll.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(22L, "Mirlon Roll", DESCRIPTION,null,null,null,null, Dimension.D10X115, true , IMAGE_URL + "mirlonRoll.jpg",null, manufacturerRepository.findById(1L).get() ));
 
             
-            productRepository.save(new Product(1L, "SP2099 2K Hardener Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 600.00 ,Weigth.ONE, true , HARDENERS + "2099.png" , manufacturerRepository.findById(3L).get()));
-            productRepository.save(new Product(2L, "SP2299 2K Hardener Very Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 600.00 ,Weigth.ONE, true , HARDENERS + "2299.png" , manufacturerRepository.findById(3L).get()));
+            productRepository.save(new Product(1L, "SP2099 2K Hardener Medium" , 600.00 ,Weigth.ONE, true , IMAGE_URL + "2099.png" , manufacturerRepository.findById(3L).get()));
+            productRepository.save(new Product(2L, "SP2299 2K Hardener Very Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 600.00 ,Weigth.ONE, true , IMAGE_URL + "2299.png" , manufacturerRepository.findById(3L).get()));
 			
-            productRepository.save(new Product(3L, "SP2501 HS Hardener Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1750.00 ,Weigth.TWO, true , HARDENERS + "2501.png" , manufacturerRepository.findById(3L).get()));
-            productRepository.save(new Product(4L, "SP2511 HS Hardener Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1750.00 ,Weigth.TWO, true , HARDENERS + "2511.png" , manufacturerRepository.findById(3L).get()));
+            productRepository.save(new Product(3L, "SP2501 HS Hardener Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1750.00 ,Weigth.TWO, true , IMAGE_URL + "2501.png" , manufacturerRepository.findById(3L).get()));
+            productRepository.save(new Product(4L, "SP2511 HS Hardener Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1750.00 ,Weigth.TWO, true , IMAGE_URL + "2511.png" , manufacturerRepository.findById(3L).get()));
 			
-            productRepository.save(new Product(5L, "47-50 2K Hardener Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 ,Weigth.ONE, true , HARDENERS + "47-50.jpg" , manufacturerRepository.findById(2L).get()));
-            productRepository.save(new Product(6L, "47-40 2K Hardener Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 ,Weigth.ONE, true , HARDENERS + "47-40.jpg" , manufacturerRepository.findById(2L).get()));
-            productRepository.save(new Product(7L, "47-30 2K Hardener Very Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 , Weigth.ONE, true , HARDENERS + "47-30.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(5L, "47-50 2K Hardener Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 ,Weigth.ONE, true , IMAGE_URL + "47-50.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(6L, "47-40 2K Hardener Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 ,Weigth.ONE, true , IMAGE_URL + "47-40.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(7L, "47-30 2K Hardener Very Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 , Weigth.ONE, true , IMAGE_URL + "47-30.jpg" , manufacturerRepository.findById(2L).get()));
 			
-            productRepository.save(new Product(8L, "8-150 HS Hardener Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1020.00 ,Weigth.ONE, true , HARDENERS + "8-150.jpg" , manufacturerRepository.findById(2L).get()));
-            productRepository.save(new Product(9L, "8-140 HS Hardener Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1020.00 ,Weigth.ONE, true , HARDENERS + "8-140.png" , manufacturerRepository.findById(2L).get()));
-            productRepository.save(new Product(10L, "8-130 HS Hardener Very Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1020.00 ,Weigth.ONE, true , HARDENERS + "8-130.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(8L, "8-150 HS Hardener Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1020.00 ,Weigth.ONE, true , IMAGE_URL + "8-150.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(9L, "8-140 HS Hardener Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1020.00 ,Weigth.ONE, true , IMAGE_URL + "8-140.png" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(10L, "8-130 HS Hardener Very Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1020.00 ,Weigth.ONE, true , IMAGE_URL + "8-130.jpg" , manufacturerRepository.findById(2L).get()));
 			
-            productRepository.save(new Product(11L, "8-450 Air Dry HS420 Hardener Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1300.00 ,Weigth.ONE, true , HARDENERS + "8-450.jpg" , manufacturerRepository.findById(2L).get()));
-            productRepository.save(new Product(12L, "8-440 Air Dry HS420 Hardener Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1300.00 ,Weigth.ONE, true , HARDENERS + "8-440.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(11L, "8-450 Air Dry HS420 Hardener Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1300.00 ,Weigth.ONE, true , IMAGE_URL + "8-450.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(12L, "8-440 Air Dry HS420 Hardener Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1300.00 ,Weigth.ONE, true , IMAGE_URL + "8-440.jpg" , manufacturerRepository.findById(2L).get()));
 			
-            productRepository.save(new Product(13L, "1-70 Epoxy Primer Hardener" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 ,Weigth.ONE, true , HARDENERS + "1-70.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(13L, "1-70 Epoxy Primer Hardener" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 ,Weigth.ONE, true , IMAGE_URL + "1-70.jpg" , manufacturerRepository.findById(2L).get()));
 			
-            productRepository.save(new Product(14L, "1-10 Washprimer Hardener" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 570.00 ,Weigth.ONE, true , HARDENERS + "1-10.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(14L, "1-10 Washprimer Hardener" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 570.00 ,Weigth.ONE, true , IMAGE_URL + "1-10.jpg" , manufacturerRepository.findById(2L).get()));
 			
 			List<Product> ms = new ArrayList<>();
 			ms.add(hardenerRepository.findById(1L).get());

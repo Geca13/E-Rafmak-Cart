@@ -1,9 +1,14 @@
 package com.example.erafmak.product.entity;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.example.erafmak.enums.Granulation;
@@ -20,6 +25,7 @@ import lombok.NoArgsConstructor;
 public class GranulationQty {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private Boolean isAvailable;
@@ -32,5 +38,8 @@ public class GranulationQty {
 	
 	@Enumerated(EnumType.STRING)
 	private Granulation granulation;
+	
+	@ManyToOne
+	private Product product;
 
 }

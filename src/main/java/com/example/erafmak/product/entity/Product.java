@@ -48,21 +48,9 @@ public class Product {
 	@Enumerated(EnumType.STRING)
 	private Dimension dimension;
 	
-	@ManyToMany
-	private List<GranulationQty> granulationQty;
-	
-	@ManyToMany
-	private List<SizeQty> sizeQty;
-	
-	@ManyToMany
-	private List<NozzleQty> nozzleQty;
-	
 	private Boolean isAvailable;
 	
 	private String imageUrl;
-	
-	@ManyToOne
-	private Category category;
 	
 	@ManyToMany
 	private List<Product> products;
