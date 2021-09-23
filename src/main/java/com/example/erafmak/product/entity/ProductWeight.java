@@ -1,15 +1,17 @@
 package com.example.erafmak.product.entity;
 
-import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.example.erafmak.enums.Weigth;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,31 +21,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Product {
+public class ProductWeight {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String name;
-	
-	private String description;
-	
-    private Double price;
-    
-    private Double discountedPrice;
-    
-    private Integer stock;
-	
-	private Boolean isAvailable;
-	
-	private String imageUrl;
-	
-	@ManyToMany
-	private List<Product> products;
+	@Enumerated(EnumType.STRING)
+	private Weigth weigth;
 	
 	@ManyToOne
-	@JoinColumn(referencedColumnName = "id")
-	private Manufacturer manufacturer;
+	private Product product;
 
 }

@@ -505,240 +505,233 @@ public class ERafmakApplication {
             mirlonRoll.add(granulationQtyRepository.findById(131L).get());
             
             
-            productRepository.save(new Product(1L, "Silver Disk",DESCRIPTION,null,null,null,null, Dimension.D150, true , IMAGE_URL + "silverDisk.jpg",null,  manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(2L, "Deflex Disk",DESCRIPTION,null,null,null,null, Dimension.D125,  true , IMAGE_URL + "deflexDisk.jpg",null,  manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(3L, "Microstar Disk", DESCRIPTION,null,null,null,null, Dimension.D150,  true ,IMAGE_URL +  "microStar.webp",null,  manufacturerRepository.findById(1L).get() ));
-            productRepository.save(new Product(4L, "Microstar Disk", DESCRIPTION,null,null,null,null, Dimension.D77,  true , IMAGE_URL + "microStar80.jpg",null,  manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(5L, "Autonet Disk", DESCRIPTION,null,null,null,null, Dimension.D150, true , IMAGE_URL + "autonet.webp",null,  manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(6L, "Autonet Block", DESCRIPTION,null,null,null,null,Dimension.D70X198, true , IMAGE_URL + "autonet70x198.jpg",null,  manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(7L, "Abranet Disk", DESCRIPTION,null,null,null,null,Dimension.D150, true , IMAGE_URL + "abranet.jpg", null, manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(8L, "Abranet Disk", DESCRIPTION,null,null,null,null,Dimension.D77,  true , IMAGE_URL + "abranet80.webp",null, manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(9L, "Abralon Disk", DESCRIPTION,null,null,null,null, Dimension.D150, true , IMAGE_URL + "abralon.jpg",null,  manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(10L, "Abralon Disk", DESCRIPTION,null,null,null,null, Dimension.D77, true , IMAGE_URL + "abralon80.jpg",null, manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(11L, "WPF", DESCRIPTION,null,null,null,null,Dimension.DA4, true , IMAGE_URL + "wpf220.jpg",null, manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(12L, "WPF", DESCRIPTION,null,null,null,null,Dimension.DA8, true , IMAGE_URL + "wpf1500.png",null, manufacturerRepository.findById(1L).get() ));
-            productRepository.save(new Product(13L, "Iridium Disk", DESCRIPTION,null,null,null,null, Dimension.D150, true , IMAGE_URL + "iridium.jpg",null, manufacturerRepository.findById(1L).get() ));
-            productRepository.save(new Product(14L, "Silver Block", DESCRIPTION,null,null,null,null, Dimension.D70X420, true , IMAGE_URL + "rashpa.jpg",null, manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(15L, "Iridium Block", DESCRIPTION,null,null,null,null, Dimension.D70X400, true , IMAGE_URL + "iridiumRashpa.webp",null, manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(16L, "Gold Disk", DESCRIPTION,null,null,null,null,Dimension.D150, true , IMAGE_URL + "goldDisk.jpg",null, manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(17L, "Mirlon Disk", DESCRIPTION,null,null,null,null,Dimension.D150, true , IMAGE_URL + "mirlonDisk.jpg",null, manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(18L, "Goldflex Soft", DESCRIPTION,null,null,null,null,Dimension.D115X125, true ,IMAGE_URL + "goldSoft.jpg",null, manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(19L, "Silver Roll", DESCRIPTION,null,null,null,null, Dimension.D50X115, true , IMAGE_URL + "silverRoll.webp",null, manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(20L, "Gold Roll", DESCRIPTION,null,null,null,null, Dimension.D50X115, true , IMAGE_URL + "goldRoll.jpg",null, manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(21L, "Autonet Roll", DESCRIPTION,null,null,null,null, Dimension.D10X115, true , IMAGE_URL + "autonetRoll.jpg",null, manufacturerRepository.findById(1L).get()));
-            productRepository.save(new Product(22L, "Mirlon Roll", DESCRIPTION,null,null,null,null, Dimension.D10X115, true , IMAGE_URL + "mirlonRoll.jpg",null, manufacturerRepository.findById(1L).get() ));
+            productRepository.save(new Product(1L, "Silver Disk",DESCRIPTION,null,null,null, true , IMAGE_URL + "silverDisk.jpg",null,  manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(2L, "Deflex Disk",DESCRIPTION,null,null,null,  true , IMAGE_URL + "deflexDisk.jpg",null,  manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(3L, "Microstar Disk", DESCRIPTION,null,null,null,  true ,IMAGE_URL +  "microStar.webp",null,  manufacturerRepository.findById(1L).get() ));
+            productRepository.save(new Product(4L, "Microstar Disk", DESCRIPTION,null,null,null,  true , IMAGE_URL + "microStar80.jpg",null,  manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(5L, "Autonet Disk", DESCRIPTION,null,null,null, true , IMAGE_URL + "autonet.webp",null,  manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(6L, "Autonet Block", DESCRIPTION,null,null,null, true , IMAGE_URL + "autonet70x198.jpg",null,  manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(7L, "Abranet Disk", DESCRIPTION,null,null,null, true , IMAGE_URL + "abranet.jpg", null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(8L, "Abranet Disk", DESCRIPTION,null,null,null,  true , IMAGE_URL + "abranet80.webp",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(9L, "Abralon Disk", DESCRIPTION,null,null,null, true , IMAGE_URL + "abralon.jpg",null,  manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(10L, "Abralon Disk", DESCRIPTION,null,null,null, true , IMAGE_URL + "abralon80.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(11L, "WPF", DESCRIPTION,null,null,null, true , IMAGE_URL + "wpf220.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(12L, "WPF", DESCRIPTION,null,null,null, true , IMAGE_URL + "wpf1500.png",null, manufacturerRepository.findById(1L).get() ));
+            productRepository.save(new Product(13L, "Iridium Disk", DESCRIPTION,null,null,null, true , IMAGE_URL + "iridium.jpg",null, manufacturerRepository.findById(1L).get() ));
+            productRepository.save(new Product(14L, "Silver Block", DESCRIPTION,null,null,null, true , IMAGE_URL + "rashpa.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(15L, "Iridium Block", DESCRIPTION,null,null,null, true , IMAGE_URL + "iridiumRashpa.webp",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(16L, "Gold Disk", DESCRIPTION,null,null,null, true , IMAGE_URL + "goldDisk.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(17L, "Mirlon Disk", DESCRIPTION,null,null,null, true , IMAGE_URL + "mirlonDisk.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(18L, "Goldflex Soft", DESCRIPTION,null,null,null, true ,IMAGE_URL + "goldSoft.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(19L, "Silver Roll", DESCRIPTION,null,null,null, true , IMAGE_URL + "silverRoll.webp",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(20L, "Gold Roll", DESCRIPTION,null,null,null, true , IMAGE_URL + "goldRoll.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(21L, "Autonet Roll", DESCRIPTION,null,null,null, true , IMAGE_URL + "autonetRoll.jpg",null, manufacturerRepository.findById(1L).get()));
+            productRepository.save(new Product(22L, "Mirlon Roll", DESCRIPTION,null,null,null, true , IMAGE_URL + "mirlonRoll.jpg",null, manufacturerRepository.findById(1L).get() ));
 
             
-            productRepository.save(new Product(1L, "SP2099 2K Hardener Medium" , 600.00 ,Weigth.ONE, true , IMAGE_URL + "2099.png" , manufacturerRepository.findById(3L).get()));
-            productRepository.save(new Product(2L, "SP2299 2K Hardener Very Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 600.00 ,Weigth.ONE, true , IMAGE_URL + "2299.png" , manufacturerRepository.findById(3L).get()));
+            productRepository.save(new Product(1L, "SP2099 2K Hardener Medium" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "2099.png" ,null, manufacturerRepository.findById(3L).get()));
+            productRepository.save(new Product(2L, "SP2299 2K Hardener Very Fast", DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "2299.png" ,null, manufacturerRepository.findById(3L).get()));
 			
-            productRepository.save(new Product(3L, "SP2501 HS Hardener Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1750.00 ,Weigth.TWO, true , IMAGE_URL + "2501.png" , manufacturerRepository.findById(3L).get()));
-            productRepository.save(new Product(4L, "SP2511 HS Hardener Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1750.00 ,Weigth.TWO, true , IMAGE_URL + "2511.png" , manufacturerRepository.findById(3L).get()));
+            productRepository.save(new Product(3L, "SP2501 HS Hardener Medium" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "2501.png" ,null, manufacturerRepository.findById(3L).get()));
+            productRepository.save(new Product(4L, "SP2511 HS Hardener Fast" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "2511.png" ,null, manufacturerRepository.findById(3L).get()));
 			
-            productRepository.save(new Product(5L, "47-50 2K Hardener Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 ,Weigth.ONE, true , IMAGE_URL + "47-50.jpg" , manufacturerRepository.findById(2L).get()));
-            productRepository.save(new Product(6L, "47-40 2K Hardener Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 ,Weigth.ONE, true , IMAGE_URL + "47-40.jpg" , manufacturerRepository.findById(2L).get()));
-            productRepository.save(new Product(7L, "47-30 2K Hardener Very Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 , Weigth.ONE, true , IMAGE_URL + "47-30.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(5L, "47-50 2K Hardener Medium" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "47-50.jpg" ,null, manufacturerRepository.findById(3L).get()));
+            productRepository.save(new Product(6L, "47-40 2K Hardener Fast" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "47-40.jpg" ,null, manufacturerRepository.findById(3L).get()));
+            productRepository.save(new Product(7L, "47-30 2K Hardener Very Fast" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "47-30.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			
-            productRepository.save(new Product(8L, "8-150 HS Hardener Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1020.00 ,Weigth.ONE, true , IMAGE_URL + "8-150.jpg" , manufacturerRepository.findById(2L).get()));
-            productRepository.save(new Product(9L, "8-140 HS Hardener Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1020.00 ,Weigth.ONE, true , IMAGE_URL + "8-140.png" , manufacturerRepository.findById(2L).get()));
-            productRepository.save(new Product(10L, "8-130 HS Hardener Very Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1020.00 ,Weigth.ONE, true , IMAGE_URL + "8-130.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(8L, "8-150 HS Hardener Medium" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "8-150.jpg" ,null, manufacturerRepository.findById(3L).get()));
+            productRepository.save(new Product(9L, "8-140 HS Hardener Fast" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "8-140.jpg" ,null, manufacturerRepository.findById(3L).get()));
+            productRepository.save(new Product(10L, "8-130 HS Hardener Very Fast" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "8-130.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			
-            productRepository.save(new Product(11L, "8-450 Air Dry HS420 Hardener Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1300.00 ,Weigth.ONE, true , IMAGE_URL + "8-450.jpg" , manufacturerRepository.findById(2L).get()));
-            productRepository.save(new Product(12L, "8-440 Air Dry HS420 Hardener Fast" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1300.00 ,Weigth.ONE, true , IMAGE_URL + "8-440.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(11L, "8-450 Air Dry HS420 Hardener Medium" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "8-450.jpg" ,null, manufacturerRepository.findById(3L).get()));
+            productRepository.save(new Product(12L, "8-440 Air Dry HS420 Hardener Fast" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "8-440.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			
-            productRepository.save(new Product(13L, "1-70 Epoxy Primer Hardener" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 ,Weigth.ONE, true , IMAGE_URL + "1-70.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(13L, "1-70 Epoxy Primer Hardener" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "1-70.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			
-            productRepository.save(new Product(14L, "1-10 Washprimer Hardener" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 570.00 ,Weigth.ONE, true , IMAGE_URL + "1-10.jpg" , manufacturerRepository.findById(2L).get()));
+            productRepository.save(new Product(14L, "1-10 Washprimer Hardener" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "1-10.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			
 			List<Product> ms = new ArrayList<>();
-			ms.add(hardenerRepository.findById(1L).get());
-			ms.add(hardenerRepository.findById(2L).get());
+			ms.add(productRepository.findById(1L).get());
+			ms.add(productRepository.findById(2L).get());
 			
-			List<Hardener> spHs = new ArrayList<>();
-			spHs.add(hardenerRepository.findById(3L).get());
-			spHs.add(hardenerRepository.findById(4L).get());
+			List<Product> spHs = new ArrayList<>();
+			spHs.add(productRepository.findById(3L).get());
+			spHs.add(productRepository.findById(4L).get());
 			
-			List<Hardener> k2 = new ArrayList<>();
-			k2.add(hardenerRepository.findById(5L).get());
-			k2.add(hardenerRepository.findById(6L).get());
-			k2.add(hardenerRepository.findById(7L).get());
+			List<Product> k2 = new ArrayList<>();
+			k2.add(productRepository.findById(5L).get());
+			k2.add(productRepository.findById(6L).get());
+			k2.add(productRepository.findById(7L).get());
 			
-			List<Hardener> matt = new ArrayList<>();
-			k2.add(hardenerRepository.findById(5L).get());
-			k2.add(hardenerRepository.findById(6L).get());
-			k2.add(hardenerRepository.findById(7L).get());
+			List<Product> matt = new ArrayList<>();
+			k2.add(productRepository.findById(5L).get());
+			k2.add(productRepository.findById(6L).get());
+			k2.add(productRepository.findById(7L).get());
 			
-			List<Hardener> hs = new ArrayList<>();
-			hs.add(hardenerRepository.findById(8L).get());
-			hs.add(hardenerRepository.findById(9L).get());
-			hs.add(hardenerRepository.findById(10L).get());
+			List<Product> hs = new ArrayList<>();
+			hs.add(productRepository.findById(8L).get());
+			hs.add(productRepository.findById(9L).get());
+			hs.add(productRepository.findById(10L).get());
 			
-			List<Hardener> uhs = new ArrayList<>();
-			uhs.add(hardenerRepository.findById(11L).get());
-			uhs.add(hardenerRepository.findById(12L).get());
+			List<Product> uhs = new ArrayList<>();
+			uhs.add(productRepository.findById(11L).get());
+			uhs.add(productRepository.findById(12L).get());
 			
-			List<Hardener> filler = new ArrayList<>();
-			filler.add(hardenerRepository.findById(1L).get());
-			filler.add(hardenerRepository.findById(2L).get());
-			filler.add(hardenerRepository.findById(3L).get());
-			filler.add(hardenerRepository.findById(4L).get());
-			filler.add(hardenerRepository.findById(5L).get());
-			filler.add(hardenerRepository.findById(6L).get());
-			filler.add(hardenerRepository.findById(7L).get());
-			filler.add(hardenerRepository.findById(8L).get());
-			filler.add(hardenerRepository.findById(9L).get());
-			filler.add(hardenerRepository.findById(10L).get());
-			filler.add(hardenerRepository.findById(11L).get());
-			filler.add(hardenerRepository.findById(12L).get());
+			List<Product> filler = new ArrayList<>();
+			filler.add(productRepository.findById(1L).get());
+			filler.add(productRepository.findById(2L).get());
+			filler.add(productRepository.findById(3L).get());
+			filler.add(productRepository.findById(4L).get());
+			filler.add(productRepository.findById(5L).get());
+			filler.add(productRepository.findById(6L).get());
+			filler.add(productRepository.findById(7L).get());
+			filler.add(productRepository.findById(8L).get());
+			filler.add(productRepository.findById(9L).get());
+			filler.add(productRepository.findById(10L).get());
+			filler.add(productRepository.findById(11L).get());
+			filler.add(productRepository.findById(12L).get());
 			
-			List<Hardener> epoxy = new ArrayList<>();
-			epoxy.add(hardenerRepository.findById(13L).get());
+			List<Product> epoxy = new ArrayList<>();
+			epoxy.add(productRepository.findById(13L).get());
 			
-			List<Hardener> washprimer = new ArrayList<>();
-			washprimer.add(hardenerRepository.findById(14L).get());
+			List<Product> washprimer = new ArrayList<>();
+			washprimer.add(productRepository.findById(14L).get());
 			
-			productRepository.save(new Coat(1L, "SP4699 MS Clear Coat High Gloss" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2150.00,Weigth.FIVE, true ,COATS + "4699.png" , ms , manufacturerRepository.findById(2L).get()));
-			productRepository.save(new Coat(2L, "SP4501 HS Clear Coat 2:1" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2450.00,Weigth.FIVE, true ,COATS + "4501.png" , spHs , manufacturerRepository.findById(2L).get() ));
-			productRepository.save(new Coat(3L, "SP4502 HS Anti Scratch Clear 2:1" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2950.00,Weigth.FIVE, true ,COATS + "4502.png" , spHs , manufacturerRepository.findById(2L).get() ));
+			productRepository.save(new Product(1L, "SP4699 MS Clear Coat High Gloss" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "4699.png" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(2L, "SP4501 HS Clear Coat 2:1" , DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "4501.png" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(3L, "SP4502 HS Anti Scratch Clear 2:1" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "4502.png" ,null, manufacturerRepository.findById(3L).get()));
 			
-			productRepository.save(new Coat(4L, "1-103 2K Clear Coat" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2650.00,Weigth.FIVE, true ,COATS + "1-103.jpg" , k2 , manufacturerRepository.findById(2L).get()));
-			productRepository.save(new Coat(5L, "1-204 MS Clear Coat" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 3050.00,Weigth.FIVE, true ,COATS + "1-204.jpg" , k2 , manufacturerRepository.findById(2L).get()));
-			productRepository.save(new Coat(6L, "8-104 HS Clear Coat" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2350.00,Weigth.FIVE, true ,COATS + "8-104.jpg" , hs , manufacturerRepository.findById(2L).get()));
-			productRepository.save(new Coat(7L, "8-214 HS Scratch Resistant Clear Coat" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 4250.00,Weigth.FIVE, true ,COATS + "8-214.jpg" , hs , manufacturerRepository.findById(2L).get()));
-			productRepository.save(new Coat(8L, "8-614 HS420 Air Dry Clear Coat" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 4950.00,Weigth.FIVE, true ,COATS + "8-614.jpg" , uhs , manufacturerRepository.findById(2L).get()));
-			productRepository.save(new Coat(8L, "8-114 Scratch Resistant Fast Repair Clear" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 5050.00,Weigth.FIVE, true ,COATS + "8-114.jpg" , uhs , manufacturerRepository.findById(2L).get()));
-			productRepository.save(new Coat(9L, "1-105 MS Clear Coat Matt" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1050.00,Weigth.FIVE, true ,COATS + "1-105.jpg" , matt , manufacturerRepository.findById(2L).get()));
+			productRepository.save(new Product(4L, "1-103 2K Clear Coat" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "1-103.jpg" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(5L, "1-204 MS Clear Coat" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "1-204.jpg" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(6L, "8-104 HS Clear Coat" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "8-104.jpg" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(7L, "8-214 HS Scratch Resistant Clear Coat" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "18-214.jpg" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(8L, "8-614 HS420 Air Dry Clear Coat" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "8-614.jpg" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(8L, "8-114 Scratch Resistant Fast Repair Clear" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "8-114.jpg" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(9L, "1-105 MS Clear Coat Matt" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "1-105.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			
-			productRepository.save(new Primer(1L, "8-14510 HS Surfacer, WHITE " ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2500.00,Weigth.THREE, true , PRIMERS +  "8-14510.jpg" , filler , manufacturerRepository.findById(2L).get()));
-			productRepository.save(new Primer(2L, "8-14540 HS Surfacer, BLACK" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2500.00,Weigth.THREE, true , PRIMERS + "8-14540.jpg" , filler , manufacturerRepository.findById(2L).get()));
-			productRepository.save(new Primer(3L, "SP5289 Universal Primer Filler White" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2000.00,Weigth.THREE, true , PRIMERS + "5289.png" , filler , manufacturerRepository.findById(3L).get() ));
-			productRepository.save(new Primer(4L, "SP5279 Universal Primer Filler Black" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2000.00, Weigth.THREE, true , PRIMERS + "5279.png" , filler , manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(1L, "8-14510 HS Surfacer, WHITE " ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "8-14510.jpg" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(2L, "8-14540 HS Surfacer, BLACK" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "8-14540.jpg" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(3L, "SP5289 Universal Primer Filler White" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "5289.png" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(4L, "SP5279 Universal Primer Filler Black" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "5279.png" ,null, manufacturerRepository.findById(3L).get()));
 			
-			productRepository.save(new Primer(5L, "1-7520 Epoxy Primer Grey" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1100.00,Weigth.ONE, true , PRIMERS + "epoxy.png" , epoxy , manufacturerRepository.findById(2L).get()));
+			productRepository.save(new Product(5L, "1-7520 Epoxy Primer Grey" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "epoxy.png" ,null, manufacturerRepository.findById(3L).get()));
 			
-			productRepository.save(new Primer(6L, "1-15 Washprimer" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1000.00,Weigth.ONE, true , PRIMERS + "1-15.jpg" , washprimer , manufacturerRepository.findById(2L).get()));
+			productRepository.save(new Product(6L, "1-15 Washprimer" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "1-15.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			
-			productRepository.save(new Thinner(1L,"SP3099 FAST THINNER" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1250.00,Weigth.FIVE, true ,THINNERS + "3099.png" , manufacturerRepository.findById(3L).get()));
-			productRepository.save(new Thinner(2L,"SP3199 MEDIUM THINNER" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1250.00,Weigth.FIVE, true , THINNERS + "3199.png" , manufacturerRepository.findById(3L).get()));
-			productRepository.save(new Thinner(3L,"SP3299 SLOW THINNER" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1250.00,Weigth.FIVE, true , THINNERS + "3299.png" , manufacturerRepository.findById(3L).get()));
-			productRepository.save(new Thinner(4L,"1-151 Uni Thinner Medium" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1850.00,Weigth.FIVE, true , THINNERS + "1-151.jpg" , manufacturerRepository.findById(2L).get()));
-			productRepository.save(new Thinner(5L,"47-91 2K Spot Repair Thinner " ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 500.00,Weigth.FIVE, true , THINNERS + "47-91.jpg" , manufacturerRepository.findById(2L).get()));
-			productRepository.save(new Thinner(5L,"SP6499 SILICONE REMOVER" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1150.00,Weigth.FIVE, true , THINNERS + "6499.png" , manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(1L,"SP3099 FAST THINNER" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "3099.png" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(2L,"SP3199 MEDIUM THINNER" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "3199.png" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(3L,"SP3299 SLOW THINNER" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "3299.png" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(4L,"1-151 Uni Thinner Medium" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "1-151.jpg" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(5L,"47-91 2K Spot Repair Thinner " ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "47-91.jpg" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(5L,"SP6499 SILICONE REMOVER" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "6499.png" ,null, manufacturerRepository.findById(3L).get()));
 			
-			productRepository.save(new Putty(1L,"SP7031 BodyWorks All-In-One" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",570.00,Weigth.ONE, true, PUTTIES + "7031.png" , manufacturerRepository.findById(3L).get()));
-			productRepository.save(new Putty(2L,"SP7011 BodyWorks Ultralight" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",370.00,Weigth.ONE, true, PUTTIES + "7011.jpg" , manufacturerRepository.findById(3L).get()));
-			productRepository.save(new Putty(3L,"1-909 Universal Body Filler" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",660.00,Weigth.ONE, true, PUTTIES + "1-909.png" , manufacturerRepository.findById(2L).get()));
-			productRepository.save(new Putty(4L,"6080 Spray Filler" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",1000.00,Weigth.ONE, true, PUTTIES + "6080.png" , manufacturerRepository.findById(2L).get()));
+			productRepository.save(new Product(1L,"SP7031 BodyWorks All-In-One" , DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "7031.png" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(2L,"SP7011 BodyWorks Ultralight" , DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "7011.jpg" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(3L,"1-909 Universal Body Filler" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "1-909.png" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(4L,"6080 Spray Filler" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "6080.png" ,null, manufacturerRepository.findById(3L).get()));
 			
-			productRepository.save(new Nozzle(1L, "Nozzle set for SPG 100" , NozzleSize.PRV, 1200.00,true, NOZZLES + "fin08.jpg", manufacturerRepository.findById(4L).get()));
-			productRepository.save(new Nozzle(2L, "Nozzle set for SPG 100" , NozzleSize.VTOR, 1200.00,true, NOZZLES + "fin1.jpg", manufacturerRepository.findById(4L).get()));
+			productRepository.save(new Product(1L, "Nozzle set for SPG 100" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "fin08.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			
-			productRepository.save(new Nozzle(3L, "Nozzle set for SPG 500" , NozzleSize.TRET, 1500.00,true, NOZZLES + "fin13.jpg", manufacturerRepository.findById(4L).get()));
-			productRepository.save(new Nozzle(4L, "Nozzle set for SPG 500" , NozzleSize.PETTI, 1500.00,true, NOZZLES + "fin15.jpg", manufacturerRepository.findById(4L).get()));
-			productRepository.save(new Nozzle(5L, "Nozzle set for SPG 500" , NozzleSize.SEDMA, 1500.00,true, NOZZLES + "fin18.jpg", manufacturerRepository.findById(4L).get()));
-			productRepository.save(new Nozzle(6L, "Nozzle set for SPG 500" , NozzleSize.OSMA, 1500.00,true, NOZZLES + "fin2.jpg", manufacturerRepository.findById(4L).get()));
-			productRepository.save(new Nozzle(7L, "Nozzle set for SPG 500" , NozzleSize.DEVETA, 1500.00,true, NOZZLES + "fin25.jpg", manufacturerRepository.findById(4L).get()));
+			productRepository.save(new Product(3L, "Nozzle set for SPG 500" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "fin13.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			
-			productRepository.save(new Nozzle(8L, "Nozzle set for SATA JET 100 RP" , NozzleSize.CETVRT, 6500.00,true, NOZZLES + "sata10014.jpg", manufacturerRepository.findById(5L).get()));
-			productRepository.save(new Nozzle(9L, "Nozzle set for SATA JET 100 RP" , NozzleSize.SESTI, 6500.00,true, NOZZLES + "sata10016.jpg", manufacturerRepository.findById(5L).get()));
+			productRepository.save(new Product(9L, "Nozzle set for SATA JET 100 RP" , DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "sata10014.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			
-			productRepository.save(new Nozzle(10L, "Nozzle set for SATA JET 5500 RP" ,NozzleSize.TRET, 12500.00,true, NOZZLES + "sata5500rp13.jpg", manufacturerRepository.findById(5L).get()));
-			productRepository.save(new Nozzle(11L, "Nozzle set for SATA JET 5500 RP" ,NozzleSize.PETTI, 12500.00,true, NOZZLES + "sata5500rp15.jpg", manufacturerRepository.findById(5L).get()));
+			productRepository.save(new Product(10L, "Nozzle set for SATA JET 5500 RP" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "sata5500rp15.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			
-			productRepository.save(new Nozzle(12L, "Nozzle set for SATA JET 5500 HVLP" ,NozzleSize.TRET, 13500.00,true,NOZZLES + "sata5500hvlp13.jpg", manufacturerRepository.findById(5L).get()));
-			productRepository.save(new Nozzle(13L, "Nozzle set for SATA JET 5500 HVLP" ,NozzleSize.PETTI, 13500.00,true,NOZZLES + "sata5500hvlp15.jpg", manufacturerRepository.findById(5L).get()));
+			productRepository.save(new Product(12L, "Nozzle set for SATA JET 5500 HVLP" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "sata5500hvlp15.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			
-			List<Nozzle> f100 = new ArrayList<>();
-			f100.add(nozzleRepository.findById(1L).get());
-			f100.add(nozzleRepository.findById(2L).get());
 			
-			List<Nozzle> f500 = new ArrayList<>();
-			f500.add(nozzleRepository.findById(3L).get());
-			f500.add(nozzleRepository.findById(4L).get());
-			f500.add(nozzleRepository.findById(5L).get());
-			f500.add(nozzleRepository.findById(7L).get());
-			f500.add(nozzleRepository.findById(8L).get());
+			List<Product> f100 = new ArrayList<>();
+			f100.add(productRepository.findById(1L).get());
+			f100.add(productRepository.findById(2L).get());
 			
-			List<Nozzle> sata100 = new ArrayList<>();
-			sata100.add(nozzleRepository.findById(8L).get());
-			sata100.add(nozzleRepository.findById(9L).get());
+			List<Product> f500 = new ArrayList<>();
+			f500.add(productRepository.findById(3L).get());
+			f500.add(productRepository.findById(4L).get());
+			f500.add(productRepository.findById(5L).get());
+			f500.add(productRepository.findById(7L).get());
+			f500.add(productRepository.findById(8L).get());
 			
-			List<Nozzle> satarp = new ArrayList<>();
-			satarp.add(nozzleRepository.findById(10L).get());
-			satarp.add(nozzleRepository.findById(11L).get());
+			List<Product> sata100 = new ArrayList<>();
+			sata100.add(productRepository.findById(8L).get());
+			sata100.add(productRepository.findById(9L).get());
 			
-			List<Nozzle> satahvlp= new ArrayList<>();
-			satahvlp.add(nozzleRepository.findById(12L).get());
-			satahvlp.add(nozzleRepository.findById(13L).get());
+			List<Product> satarp = new ArrayList<>();
+			satarp.add(productRepository.findById(10L).get());
+			satarp.add(productRepository.findById(11L).get());
 			
-			productRepository.save(new SprayGun(1L, "Finixa SPG 100" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 3500.00 , true , f100 , manufacturerRepository.findById(4L).get(), GUNS +  "finMini.jpg" ));
-			productRepository.save(new SprayGun(2L, "Finixa SPG 500" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 4400.00 , true , f500 , manufacturerRepository.findById(4L).get(), GUNS +  "finixaGun.jpg" ));
+			List<Product> satahvlp= new ArrayList<>();
+			satahvlp.add(productRepository.findById(12L).get());
+			satahvlp.add(productRepository.findById(13L).get());
 			
-			productRepository.save(new SprayGun(3L, "SATA JET 100" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1600.00 , true , sata100 , manufacturerRepository.findById(5L).get(), GUNS +  "sata100rp.png" ));
-			productRepository.save(new SprayGun(4L, "SATA JET 5500 RP" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 34000.00 , true , satarp , manufacturerRepository.findById(5L).get(), GUNS +  "sata5500rp.jpg" ));
-			productRepository.save(new SprayGun(5L, "SATA JET 5500 HVLP" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 35000.00 , true , satahvlp , manufacturerRepository.findById(5L).get(), GUNS +  "sata5500hvlp.jpg" ));
+			productRepository.save(new Product(1L, "Finixa SPG 100" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 3500.00 , true , f100 , manufacturerRepository.findById(4L).get(), GUNS +  "finMini.jpg" ));
+			productRepository.save(new Product(2L, "Finixa SPG 500" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 4400.00 , true , f500 , manufacturerRepository.findById(4L).get(), GUNS +  "finixaGun.jpg" ));
 			
-			productRepository.save(new Extras(1L , "Sata Gravity Cup" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 3200.00 , true , manufacturerRepository.findById(5L).get(), EXTRAS + "sataCup.png"));
-			productRepository.save(new Extras(2L , "Finixa Gravity Cup" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 , true , manufacturerRepository.findById(4L).get(), EXTRAS + "finixaCup.jpg"));
-			productRepository.save(new Extras(3L , "Finixa Regulator" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2500.00 , true , manufacturerRepository.findById(4L).get(), EXTRAS + "gunMano.jpg"));
-			productRepository.save(new Extras(4L , "Spiralflex 4011" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 90.00 , true , manufacturerRepository.findById(6L).get(), EXTRAS + "gunConnector.jpg"));
-			productRepository.save(new Extras(5L , "Spiralflex 4003" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 350.00 , true , manufacturerRepository.findById(6L).get(), EXTRAS + "wallConnector.jpg"));
-			productRepository.save(new Extras(6L , "Spiralflex Air Purifier" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 3700.00 , true , manufacturerRepository.findById(6L).get(), EXTRAS + "airPurifierMano.gif"));
-			productRepository.save(new Extras(7L , "Spiralflex Air Purifier" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2700.00 , true , manufacturerRepository.findById(6L).get(), EXTRAS + "airPurifier.gif"));
-			productRepository.save(new Extras(8L , "SPIRALFLEX SPRAYGUN HOSE" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1900.00 , true , manufacturerRepository.findById(6L).get(), EXTRAS + "hose.jpg")); 
+			productRepository.save(new Product(3L, "SATA JET 100" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1600.00 , true , sata100 , manufacturerRepository.findById(5L).get(), GUNS +  "sata100rp.png" ));
+			productRepository.save(new Product(4L, "SATA JET 5500 RP" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 34000.00 , true , satarp , manufacturerRepository.findById(5L).get(), GUNS +  "sata5500rp.jpg" ));
+			productRepository.save(new Product(5L, "SATA JET 5500 HVLP" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 35000.00 , true , satahvlp , manufacturerRepository.findById(5L).get(), GUNS +  "sata5500hvlp.jpg" ));
 			
-			productRepository.save(new Pads(1L, "White Lambswool Pad 150mm" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 460.00 , true, manufacturerRepository.findById(1L).get(), PADS + "belo150.jpg"));
-			productRepository.save(new Pads(2L, "Yellow Lambswool Pad 150mm " ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1300.00 , true, manufacturerRepository.findById(1L).get(), PADS + "zolto150.jpg"));
-			productRepository.save(new Pads(3L, "Black Waffle 150mm " , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 850.00 , true, manufacturerRepository.findById(1L).get(), PADS + "blackWaffle.jpg"));
-			productRepository.save(new Pads(4L, "Yellow Waffle 150mm" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 880.00 , true, manufacturerRepository.findById(1L).get(), PADS + "yellowWaffle150.jpg"));
-			productRepository.save(new Pads(5L, "Yellow Waffle 85mm " , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 500.00 , true, manufacturerRepository.findById(1L).get(), PADS + "yellowWaffle80.jpg"));
-			productRepository.save(new Pads(6L, "Twisted Wool Pad 180mm " ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1100.00 , true, manufacturerRepository.findById(1L).get(), PADS + "belo180.jpg"));
-			productRepository.save(new Pads(7L, "Yellow Lambswool Pad 80mm" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 550.00 , true, manufacturerRepository.findById(1L).get(), PADS + "krzno80.jfif"));
-			productRepository.save(new Pads(8L, "White Polishing Felt Pad 125x6mm " , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 880.00 , true, manufacturerRepository.findById(1L).get(), PADS + "staklo.jfif"));
-			productRepository.save(new Pads(9L, "White Foam Pad 150mm " ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 620.00 , true, manufacturerRepository.findById(4L).get(), PADS + "white150.jpg"));
-			productRepository.save(new Pads(10L, "Black Foam Pad 150mm " ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 620.00 , true, manufacturerRepository.findById(4L).get(), PADS + "black150.jpg"));
-			productRepository.save(new Pads(11L, "Orange Foam Pad 150mm " ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 620.00 , true, manufacturerRepository.findById(4L).get(), PADS + "orange150.jpg"));
+			productRepository.save(new Product(1L , "Sata Gravity Cup" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 3200.00 , true , manufacturerRepository.findById(5L).get(), EXTRAS + "sataCup.png"));
+			productRepository.save(new Product(2L , "Finixa Gravity Cup" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 800.00 , true , manufacturerRepository.findById(4L).get(), EXTRAS + "finixaCup.jpg"));
+			productRepository.save(new Product(3L , "Finixa Regulator" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2500.00 , true , manufacturerRepository.findById(4L).get(), EXTRAS + "gunMano.jpg"));
+			productRepository.save(new Product(4L , "Spiralflex 4011" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 90.00 , true , manufacturerRepository.findById(6L).get(), EXTRAS + "gunConnector.jpg"));
+			productRepository.save(new Product(5L , "Spiralflex 4003" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 350.00 , true , manufacturerRepository.findById(6L).get(), EXTRAS + "wallConnector.jpg"));
+			productRepository.save(new Product(6L , "Spiralflex Air Purifier" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 3700.00 , true , manufacturerRepository.findById(6L).get(), EXTRAS + "airPurifierMano.gif"));
+			productRepository.save(new Product(7L , "Spiralflex Air Purifier" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2700.00 , true , manufacturerRepository.findById(6L).get(), EXTRAS + "airPurifier.gif"));
+			productRepository.save(new Product(8L , "SPIRALFLEX SPRAYGUN HOSE" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1900.00 , true , manufacturerRepository.findById(6L).get(), EXTRAS + "hose.jpg")); 
 			
-			List<Pads> first = new ArrayList<>();
-			first.add(padsRepository.findById(1L).get());
-			first.add(padsRepository.findById(2L).get());
-			first.add(padsRepository.findById(6L).get());
-			first.add(padsRepository.findById(7L).get());
-			first.add(padsRepository.findById(9L).get());
-			first.add(padsRepository.findById(11L).get());
+			productRepository.save(new Product(1L, "White Lambswool Pad 150mm" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 460.00 , true, manufacturerRepository.findById(1L).get(), PADS + "belo150.jpg"));
+			productRepository.save(new Product(2L, "Yellow Lambswool Pad 150mm " ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1300.00 , true, manufacturerRepository.findById(1L).get(), PADS + "zolto150.jpg"));
+			productRepository.save(new Product(3L, "Black Waffle 150mm " , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 850.00 , true, manufacturerRepository.findById(1L).get(), PADS + "blackWaffle.jpg"));
+			productRepository.save(new Product(4L, "Yellow Waffle 150mm" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 880.00 , true, manufacturerRepository.findById(1L).get(), PADS + "yellowWaffle150.jpg"));
+			productRepository.save(new Product(5L, "Yellow Waffle 85mm " , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 500.00 , true, manufacturerRepository.findById(1L).get(), PADS + "yellowWaffle80.jpg"));
+			productRepository.save(new Product(6L, "Twisted Wool Pad 180mm " ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1100.00 , true, manufacturerRepository.findById(1L).get(), PADS + "belo180.jpg"));
+			productRepository.save(new Product(7L, "Yellow Lambswool Pad 80mm" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 550.00 , true, manufacturerRepository.findById(1L).get(), PADS + "krzno80.jfif"));
+			productRepository.save(new Product(8L, "White Polishing Felt Pad 125x6mm " , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 880.00 , true, manufacturerRepository.findById(1L).get(), PADS + "staklo.jfif"));
+			productRepository.save(new Product(9L, "White Foam Pad 150mm " ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 620.00 , true, manufacturerRepository.findById(4L).get(), PADS + "white150.jpg"));
+			productRepository.save(new Product(10L, "Black Foam Pad 150mm " ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 620.00 , true, manufacturerRepository.findById(4L).get(), PADS + "black150.jpg"));
+			productRepository.save(new Product(11L, "Orange Foam Pad 150mm " ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 620.00 , true, manufacturerRepository.findById(4L).get(), PADS + "orange150.jpg"));
 			
-			List<Pads> ten = new ArrayList<>();
-			ten.add(padsRepository.findById(1L).get());
-			ten.add(padsRepository.findById(2L).get());
-			ten.add(padsRepository.findById(3L).get());
-			ten.add(padsRepository.findById(4L).get());
-			ten.add(padsRepository.findById(5L).get());
-			ten.add(padsRepository.findById(6L).get());
-			ten.add(padsRepository.findById(7L).get());
-			ten.add(padsRepository.findById(9L).get());
+			List<Product> first = new ArrayList<>();
+			first.add(productRepository.findById(1L).get());
+			first.add(productRepository.findById(2L).get());
+			first.add(productRepository.findById(6L).get());
+			first.add(productRepository.findById(7L).get());
+			first.add(productRepository.findById(9L).get());
+			first.add(productRepository.findById(11L).get());
+			
+			List<Product> ten = new ArrayList<>();
+			ten.add(productRepository.findById(1L).get());
+			ten.add(productRepository.findById(2L).get());
+			ten.add(productRepository.findById(3L).get());
+			ten.add(productRepository.findById(4L).get());
+			ten.add(productRepository.findById(5L).get());
+			ten.add(productRepository.findById(6L).get());
+			ten.add(productRepository.findById(7L).get());
+			ten.add(productRepository.findById(9L).get());
 		
-			List<Pads> last = new ArrayList<>();
-			last.add(padsRepository.findById(3L).get());
-			last.add(padsRepository.findById(4L).get());
-			last.add(padsRepository.findById(5L).get());
-			last.add(padsRepository.findById(10L).get());
+			List<Product> last = new ArrayList<>();
+			last.add(productRepository.findById(3L).get());
+			last.add(productRepository.findById(4L).get());
+			last.add(productRepository.findById(5L).get());
+			last.add(productRepository.findById(10L).get());
 			
-			List<Pads> glass = new ArrayList<>();
-			glass.add(padsRepository.findById(8L).get());
+			List<Product> glass = new ArrayList<>();
+			glass.add(productRepository.findById(8L).get());
 			
-			productRepository.save(new Polish(1L, "Polarshine E3 Glass Polishing Componenet", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 3800.00 , true ,glass, manufacturerRepository.findById(1L).get(), POLISH + "glass.jpg" ));
-			productRepository.save(new Polish(2L, "Polarshine 5 Finishing Component", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2350.00 , true ,last, manufacturerRepository.findById(1L).get(), POLISH + "5ka.jpg" ));
-			productRepository.save(new Polish(3L, "Polarshine 10 , 2 in 1","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1750.00 , true ,ten, manufacturerRepository.findById(1L).get(), POLISH + "10ka.jpg" ));
-			productRepository.save(new Polish(4L, "Polarshine 25 Grip 1000", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1300.00 , true ,first, manufacturerRepository.findById(1L).get(), POLISH + "25ka.jpg" ));
-			productRepository.save(new Polish(5L, "Polarshine 35 Grip 800", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1600.00 , true ,first, manufacturerRepository.findById(1L).get(), POLISH + "35ka.jpg" ));
+			productRepository.save(new Product(1L, "Polarshine E3 Glass Polishing Componenet", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 3800.00 , true ,glass, manufacturerRepository.findById(1L).get(), POLISH + "glass.jpg" ));
+			productRepository.save(new Product(2L, "Polarshine 5 Finishing Component", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2350.00 , true ,last, manufacturerRepository.findById(1L).get(), POLISH + "5ka.jpg" ));
+			productRepository.save(new Product(3L, "Polarshine 10 , 2 in 1","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1750.00 , true ,ten, manufacturerRepository.findById(1L).get(), POLISH + "10ka.jpg" ));
+			productRepository.save(new Product(4L, "Polarshine 25 Grip 1000", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1300.00 , true ,first, manufacturerRepository.findById(1L).get(), POLISH + "25ka.jpg" ));
+			productRepository.save(new Product(5L, "Polarshine 35 Grip 800", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1600.00 , true ,first, manufacturerRepository.findById(1L).get(), POLISH + "35ka.jpg" ));
 			
-			productRepository.save(new Tool(1L, "Mirka DEROS Central Vacuum Orbit 5,0" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 31000.00, true, Power.ELECTRIC, manufacturerRepository.findById(1L).get(), TOOLS + "deros.jpg"));
-			productRepository.save(new Tool(2L, "Mirka DEOS Central Vacuum Orbit 3,0" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 31000.00, true, Power.ELECTRIC, manufacturerRepository.findById(1L).get(), TOOLS +  "deos.jpg"));
-			productRepository.save(new Tool(3L, "Mirka PROS Central Vacuum Orbit 5.0" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 18000.00, true, Power.PNEUMATIC, manufacturerRepository.findById(1L).get(), TOOLS +  "pros.jpg"));
-			productRepository.save(new Tool(4L, "Mirka PS 1437 Polisher 150mm" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 24000.00, true, Power.ELECTRIC, manufacturerRepository.findById(1L).get(), TOOLS +  "polish.jpg"));
-			productRepository.save(new Tool(5L, "Mirka Dust Extractor" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 31000.00, true, Power.ELECTRIC, manufacturerRepository.findById(1L).get(), TOOLS +  "vacuum.jpg"));
-			productRepository.save(new Tool(6L, "Finixa Orbital Palm Sander" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 8800.00, true, Power.PNEUMATIC, manufacturerRepository.findById(4L).get(), TOOLS +  "miniSander.jpg"));
-			productRepository.save(new Tool(6L, "Finixa Electric Polisher" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 18000.00, true, Power.ELECTRIC, manufacturerRepository.findById(4L).get(), TOOLS +  "finPolisher.jpg"));
+			productRepository.save(new Product(1L, "Mirka DEROS Central Vacuum Orbit 5,0" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 31000.00, true, Power.ELECTRIC, manufacturerRepository.findById(1L).get(), TOOLS + "deros.jpg"));
+			productRepository.save(new Product(2L, "Mirka DEOS Central Vacuum Orbit 3,0" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 31000.00, true, Power.ELECTRIC, manufacturerRepository.findById(1L).get(), TOOLS +  "deos.jpg"));
+			productRepository.save(new Product(3L, "Mirka PROS Central Vacuum Orbit 5.0" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 18000.00, true, Power.PNEUMATIC, manufacturerRepository.findById(1L).get(), TOOLS +  "pros.jpg"));
+			productRepository.save(new Product(4L, "Mirka PS 1437 Polisher 150mm" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 24000.00, true, Power.ELECTRIC, manufacturerRepository.findById(1L).get(), TOOLS +  "polish.jpg"));
+			productRepository.save(new Product(5L, "Mirka Dust Extractor" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 31000.00, true, Power.ELECTRIC, manufacturerRepository.findById(1L).get(), TOOLS +  "vacuum.jpg"));
+			productRepository.save(new Product(6L, "Finixa Orbital Palm Sander" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 8800.00, true, Power.PNEUMATIC, manufacturerRepository.findById(4L).get(), TOOLS +  "miniSander.jpg"));
+			productRepository.save(new Product(6L, "Finixa Electric Polisher" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 18000.00, true, Power.ELECTRIC, manufacturerRepository.findById(4L).get(), TOOLS +  "finPolisher.jpg"));
 			
 			sizeQtyRepository.save(new SizeQuantity( 1L , true , Size.L));
 			sizeQtyRepository.save(new SizeQuantity( 2L , true , Size.XL));
@@ -763,40 +756,40 @@ public class ERafmakApplication {
 			overalls.add(sizeQtyRepository.findById(7L).get());
 			overalls.add(sizeQtyRepository.findById(8L).get());
 		
-			productRepository.save(new Safety(1L, "Finixa Nitril Disposable Gloves" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1300.00 , true , gloves ,manufacturerRepository.findById(4L).get(), SAFETIES + "glovesL.jpg" ));
-			productRepository.save(new Safety(2L, "Finixa MAS 00 Spray mask A1 P2" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2300.00 , true , null, manufacturerRepository.findById(4L).get(), SAFETIES + "MAS00.jpg" ));
-			productRepository.save(new Safety(3L, "Finixa MAS 13 Carbon Dust Mask Safety Class FFP2." , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 250.00 , true , null, manufacturerRepository.findById(4L).get(), SAFETIES + "MAS13.jpg" ));
-			productRepository.save(new Safety(4L, "Finixa Spray Overalls" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1400.00 ,true , overalls, manufacturerRepository.findById(4L).get(), SAFETIES + "suit.jpg" ));
-			productRepository.save(new Safety(5L, "SATA Air Star F Spray Mask A2 P3" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 5200.00 ,true , null ,manufacturerRepository.findById(5L).get(), SAFETIES + "sataMas.png" ));
+			productRepository.save(new Product(1L, "Finixa Nitril Disposable Gloves" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1300.00 , true , gloves ,manufacturerRepository.findById(4L).get(), SAFETIES + "glovesL.jpg" ));
+			productRepository.save(new Product(2L, "Finixa MAS 00 Spray mask A1 P2" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 2300.00 , true , null, manufacturerRepository.findById(4L).get(), SAFETIES + "MAS00.jpg" ));
+			productRepository.save(new Product(3L, "Finixa MAS 13 Carbon Dust Mask Safety Class FFP2." , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 250.00 , true , null, manufacturerRepository.findById(4L).get(), SAFETIES + "MAS13.jpg" ));
+			productRepository.save(new Product(4L, "Finixa Spray Overalls" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 1400.00 ,true , overalls, manufacturerRepository.findById(4L).get(), SAFETIES + "suit.jpg" ));
+			productRepository.save(new Product(5L, "SATA Air Star F Spray Mask A2 P3" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,", 5200.00 ,true , null ,manufacturerRepository.findById(5L).get(), SAFETIES + "sataMas.png" ));
 			
-			List <Sander> d70x400 = new ArrayList<>();
-			d70x400.add(sanderRepository.findById(14L).get());
-			d70x400.add(sanderRepository.findById(15L).get());
+			List <Product> d70x400 = new ArrayList<>();
+			d70x400.add(productRepository.findById(14L).get());
+			d70x400.add(productRepository.findById(15L).get());
 			
-			List <Sander> d70x198 = new ArrayList<>();
-			d70x198.add(sanderRepository.findById(14L).get());
-			d70x198.add(sanderRepository.findById(15L).get());
-			d70x198.add(sanderRepository.findById(20L).get());
+			List <Product> d70x198 = new ArrayList<>();
+			d70x198.add(productRepository.findById(14L).get());
+			d70x198.add(productRepository.findById(15L).get());
+			d70x198.add(productRepository.findById(20L).get());
 			
-			List <Sander> d115x230 = new ArrayList<>();
-			d115x230.add(sanderRepository.findById(6L).get());
+			List <Product> d115x230 = new ArrayList<>();
+			d115x230.add(productRepository.findById(6L).get());
 			
-			List <Sander> wet = new ArrayList<>();
-			wet.add(sanderRepository.findById(11L).get());
-			wet.add(sanderRepository.findById(12L).get());
+			List <Product> wet = new ArrayList<>();
+			wet.add(productRepository.findById(11L).get());
+			wet.add(productRepository.findById(12L).get());
 			
-			List <Sander> dry = new ArrayList<>();
-			wet.add(sanderRepository.findById(19L).get());
-			wet.add(sanderRepository.findById(20L).get());
-			wet.add(sanderRepository.findById(21L).get());
+			List <Product> dry = new ArrayList<>();
+			wet.add(productRepository.findById(19L).get());
+			wet.add(productRepository.findById(20L).get());
+			wet.add(productRepository.findById(21L).get());
 
-			productRepository.save(new Helper(1L , "Mirka File Board Flexible Yellow" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis," , 5500.00 , true , Dimension.D70X400 ,manufacturerRepository.findById(1L).get(), BLOCKS + "flex.jpg", d70x400));
-			productRepository.save(new Helper(2L , "Mirka Sanding Block 36H Grey" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis," , 1300.00 , true , Dimension.D115X230 ,manufacturerRepository.findById(1L).get(), BLOCKS + "150x230.jpg", d115x230));
-			productRepository.save(new Helper(3L , "Mirka Sanding Block 22H Grey" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",  1100.00 , true , Dimension.D70X198 ,manufacturerRepository.findById(1L).get(), BLOCKS + "70x198.jpg", d70x198));
-			productRepository.save(new Helper(4L , "Mirka Sanding Block 2-Sided Soft/Hard" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis," ,  500.00 , true , Dimension.D70X125 ,manufacturerRepository.findById(1L).get(), BLOCKS + "softHard.jpg", wet));
-			productRepository.save(new Helper(5L , "Mirka Rubber Sanding Block" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",  1300.00 , true , Dimension.D70X125 ,manufacturerRepository.findById(1L).get(), BLOCKS + "redRubber.jpg",dry));
-			productRepository.save(new Helper(6L , "Mirka Curved Pad for 70x198mm Block 22H" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",  900.00 , true , Dimension.D70X198 ,manufacturerRepository.findById(1L).get(), BLOCKS + "convex.jpg",d70x198));
-			productRepository.save(new Helper(7L , "Finixa File Board" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",  3500.00 , true , Dimension.D70X400 ,manufacturerRepository.findById(4L).get(), BLOCKS + "flat.jpg",d70x400));
+			productRepository.save(new Product(1L , "Mirka File Board Flexible Yellow" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis," , 5500.00 , true , Dimension.D70X400 ,manufacturerRepository.findById(1L).get(), BLOCKS + "flex.jpg", d70x400));
+			productRepository.save(new Product(2L , "Mirka Sanding Block 36H Grey" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis," , 1300.00 , true , Dimension.D115X230 ,manufacturerRepository.findById(1L).get(), BLOCKS + "150x230.jpg", d115x230));
+			productRepository.save(new Product(3L , "Mirka Sanding Block 22H Grey" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",  1100.00 , true , Dimension.D70X198 ,manufacturerRepository.findById(1L).get(), BLOCKS + "70x198.jpg", d70x198));
+			productRepository.save(new Product(4L , "Mirka Sanding Block 2-Sided Soft/Hard" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis," ,  500.00 , true , Dimension.D70X125 ,manufacturerRepository.findById(1L).get(), BLOCKS + "softHard.jpg", wet));
+			productRepository.save(new Product(5L , "Mirka Rubber Sanding Block" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",  1300.00 , true , Dimension.D70X125 ,manufacturerRepository.findById(1L).get(), BLOCKS + "redRubber.jpg",dry));
+			productRepository.save(new Product(6L , "Mirka Curved Pad for 70x198mm Block 22H" ,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",  900.00 , true , Dimension.D70X198 ,manufacturerRepository.findById(1L).get(), BLOCKS + "convex.jpg",d70x198));
+			productRepository.save(new Product(7L , "Finixa File Board" , "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",  3500.00 , true , Dimension.D70X400 ,manufacturerRepository.findById(4L).get(), BLOCKS + "flat.jpg",d70x400));
 			
 			
 			} catch (Exception e) {
