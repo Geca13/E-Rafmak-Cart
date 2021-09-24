@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.hibernate.validator.internal.util.privilegedactions.NewProxyInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,12 +19,14 @@ import com.example.erafmak.product.entity.GranulationQty;
 import com.example.erafmak.product.entity.Manufacturer;
 import com.example.erafmak.product.entity.Origin;
 import com.example.erafmak.product.entity.Product;
+import com.example.erafmak.product.entity.ProductDimension;
 import com.example.erafmak.product.entity.SizeQty;
 import com.example.erafmak.product.entity.SubCategory;
 import com.example.erafmak.product.repository.CategoryRepository;
 import com.example.erafmak.product.repository.GranulationQtyRepository;
 import com.example.erafmak.product.repository.ManufacturerRepository;
 import com.example.erafmak.product.repository.OriginRepository;
+import com.example.erafmak.product.repository.ProductDimensionRepository;
 import com.example.erafmak.product.repository.ProductRepository;
 import com.example.erafmak.product.repository.SizeQtyRepository;
 import com.example.erafmak.product.repository.SubCategoryRepository;
@@ -61,6 +64,9 @@ public class ERafmakApplication {
 	
 	@Autowired
 	SubCategoryRepository subRepository;
+	
+	@Autowired
+	ProductDimensionRepository pdRepository;
 	
 
 	
@@ -335,6 +341,8 @@ public class ERafmakApplication {
             rolls.add(productRepository.findById(21L).get());
             rolls.add(productRepository.findById(22L).get());
             
+            
+            
             productRepository.save(new Product(23L, "SP2099 2K Hardener Medium" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "2099.png" ,null, manufacturerRepository.findById(3L).get()));
             productRepository.save(new Product(24L, "SP2299 2K Hardener Very Fast", DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "2299.png" ,null, manufacturerRepository.findById(3L).get()));
 			
@@ -473,9 +481,9 @@ public class ERafmakApplication {
 			productRepository.save(new Product(82L, "Yellow Lambswool Pad 150mm " ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "zolto150.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			productRepository.save(new Product(83L, "Black Waffle 150mm " , DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "blackWaffle.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			productRepository.save(new Product(84L, "Yellow Waffle 150mm" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "yellowWaffle150.jpg" ,null, manufacturerRepository.findById(3L).get()));
-			productRepository.save(new Product(85L, "Yellow Waffle 85mm " , DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "yellowWaffle80.jpg" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(85L, "Yellow Waffle 77mm " , DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "yellowWaffle80.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			productRepository.save(new Product(86L, "Twisted Wool Pad 180mm " ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "belo180.jpg" ,null, manufacturerRepository.findById(3L).get()));
-			productRepository.save(new Product(87L, "Yellow Lambswool Pad 80mm" , DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "krzno80.jfif" ,null, manufacturerRepository.findById(3L).get()));
+			productRepository.save(new Product(87L, "Yellow Lambswool Pad 77mm" , DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "krzno80.jfif" ,null, manufacturerRepository.findById(3L).get()));
 			productRepository.save(new Product(88L, "White Polishing Felt Pad 125x6mm " , DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "staklo.jfif" ,null, manufacturerRepository.findById(3L).get()));
 			productRepository.save(new Product(89L, "White Foam Pad 150mm " ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "white150.jpg" ,null, manufacturerRepository.findById(3L).get()));
 			productRepository.save(new Product(90L, "Black Foam Pad 150mm " ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "black150.jpg" ,null, manufacturerRepository.findById(3L).get()));
@@ -536,6 +544,63 @@ public class ERafmakApplication {
 			productRepository.save(new Product(114L , "Mirka Curved Pad for 70x198mm Block 22H" ,DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "convex.jpg" ,block, manufacturerRepository.findById(3L).get()));
 			productRepository.save(new Product(115L , "Finixa File Board" , DESCRIPTION, 680.00 ,null,10, true , IMAGE_URL + "flat.jpg" ,block, manufacturerRepository.findById(3L).get()));
 			
+			List<Product> d125 = new ArrayList<>();
+            d125.add(productRepository.findById(2L).get());
+            d125.add(productRepository.findById(88L).get());
+            
+            List<Product> d150 = new ArrayList<>();
+            d150.add(productRepository.findById(1L).get());
+            d150.add(productRepository.findById(3L).get());
+            d150.add(productRepository.findById(5L).get());
+            d150.add(productRepository.findById(6L).get());
+            d150.add(productRepository.findById(8L).get());
+            d150.add(productRepository.findById(10L).get());
+            d150.add(productRepository.findById(11L).get());
+            d150.add(productRepository.findById(12L).get());
+            d150.add(productRepository.findById(81L).get());
+            d150.add(productRepository.findById(82L).get());
+            d150.add(productRepository.findById(83L).get());
+            d150.add(productRepository.findById(84L).get());
+            d150.add(productRepository.findById(89L).get());
+            d150.add(productRepository.findById(90L).get());
+            d150.add(productRepository.findById(91L).get());
+            
+            List<Product> d70x198 = new ArrayList<>();
+            d70x198.add(productRepository.findById(15L).get());
+            d70x198.add(productRepository.findById(17L).get());
+            
+            List<Product> d70x400 = new ArrayList<>();
+            d70x400.add(productRepository.findById(16L).get());
+            d70x400.add(productRepository.findById(17L).get());
+            
+            List<Product> a4 = new ArrayList<>();
+            a4.add(productRepository.findById(13L).get());
+            
+            List<Product> a8 = new ArrayList<>();
+            a8.add(productRepository.findById(14L).get());
+            
+            List<Product> m10x115 = new ArrayList<>();
+            m10x115.add(productRepository.findById(21L).get());
+            m10x115.add(productRepository.findById(22L).get());
+            
+            List<Product> m50x115 = new ArrayList<>();
+            m50x115.add(productRepository.findById(19L).get());
+            m50x115.add(productRepository.findById(20L).get());
+
+            List<Product> m115x125 = new ArrayList<>();
+            m115x125.add(productRepository.findById(18L).get());
+
+            List<Product> d77 = new ArrayList<>();
+            d77.add(productRepository.findById(4L).get());
+            d77.add(productRepository.findById(7L).get());
+            d77.add(productRepository.findById(9L).get());
+            d77.add(productRepository.findById(85L).get());
+            d77.add(productRepository.findById(87L).get());
+            d77.add(productRepository.findById(102L).get());
+
+            List<Product> m115x230 = new ArrayList<>();
+        	
+            List<Product> d70x125 = new ArrayList<>();
 			
 			
 			sqRepository.save(new SizeQty( 1L , true, 10 , Size.L, null));
