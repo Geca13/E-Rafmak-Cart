@@ -5,7 +5,6 @@ public enum Dimension {
 	D125("125 mm"),
 	D150("150 mm"),
 	D70X198("70mm x 198 mm"),
-	D70X420("70mm x 420 mm"),
 	DA4("A4"),
 	DA8("A8"),
 	D10X115("10M x 115mm"),

@@ -30,6 +30,6 @@ public class ProductDimension {
 	private Dimension dimension;
 	
 	@ManyToMany
-	private List<Product> product;
+	private List<Product> products;
 
 }

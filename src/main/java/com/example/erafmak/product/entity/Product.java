@@ -46,4 +46,6 @@ public class Product {
 	@JoinColumn(referencedColumnName = "id")
 	private Manufacturer manufacturer;
 
+	@ManyToOne
+	private SubCategory subCategory;
 }
