@@ -29,5 +29,5 @@ public class Category {
 	private String imageUrl;
 	
 	@ManyToMany
-	private List<SubCategory> sub;
+	private List<SubCategory> subs;
 }

@@ -11,7 +11,7 @@ import com.example.erafmak.user.entity.UserRepository;
 import com.example.erafmak.user.service.UsersDetails;
 
 @Controller
-public class MainEntryController {
+public class MainEntryController2 {
 	
 	
 	@Autowired
