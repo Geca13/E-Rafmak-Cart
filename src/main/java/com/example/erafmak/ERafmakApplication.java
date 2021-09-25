@@ -113,26 +113,26 @@ public class ERafmakApplication {
 			manufacturerRepository.save(new Manufacturer(5L, "Sata",originRepository.findById(5L).get() ,"sata@sata.com", IMAGE_URL));
 			manufacturerRepository.save(new Manufacturer(6L, "Spiralflex",originRepository.findById(3L).get() ,"spiralflex@spiralflex.com", IMAGE_URL));
  
-			subRepository.save(new SubCategory(1L, "Disks", null , null));
-			subRepository.save(new SubCategory(2L, "Rolls", null , null));
-			subRepository.save(new SubCategory(3L, "Blocks", null , null));
-			subRepository.save(new SubCategory(4L, "WPF", null , null));
-			subRepository.save(new SubCategory(5L, "Softs", null , null));
+			subRepository.save(new SubCategory(1L, "Disks", null ));
+			subRepository.save(new SubCategory(2L, "Rolls", null ));
+			subRepository.save(new SubCategory(3L, "Blocks", null ));
+			subRepository.save(new SubCategory(4L, "WPF", null ));
+			subRepository.save(new SubCategory(5L, "Softs", null ));
 			
-			subRepository.save(new SubCategory(6L, "Coats", null , null));
-			subRepository.save(new SubCategory(7L, "Primers", null , null));
-			subRepository.save(new SubCategory(8L, "Thinners", null , null));
-			subRepository.save(new SubCategory(9L, "Hardeners", null , null));
-			subRepository.save(new SubCategory(10L, "Putties", null , null));
+			subRepository.save(new SubCategory(6L, "Coats", null ));
+			subRepository.save(new SubCategory(7L, "Primers", null ));
+			subRepository.save(new SubCategory(8L, "Thinners", null ));
+			subRepository.save(new SubCategory(9L, "Hardeners", null ));
+			subRepository.save(new SubCategory(10L, "Putties", null ));
 			
-			subRepository.save(new SubCategory(11L, "Polish", null , null));
-			subRepository.save(new SubCategory(12L, "Pad", null , null));
+			subRepository.save(new SubCategory(11L, "Polish", null ));
+			subRepository.save(new SubCategory(12L, "Pad", null ));
 			
-			subRepository.save(new SubCategory(13L, "Hand Blocks", null , null));
-			subRepository.save(new SubCategory(14L, "Tools", null , null));
-			subRepository.save(new SubCategory(15L, "Safety", null , null));
-			subRepository.save(new SubCategory(16L, "Spray Guns", null , null));
-			subRepository.save(new SubCategory(17L, "Extras", null , null));
+			subRepository.save(new SubCategory(13L, "Hand Blocks", null ));
+			subRepository.save(new SubCategory(14L, "Tools", null ));
+			subRepository.save(new SubCategory(15L, "Safety", null ));
+			subRepository.save(new SubCategory(16L, "Spray Guns", null ));
+			subRepository.save(new SubCategory(17L, "Extras", null ));
 			
 			List<SubCategory> abrazive = new ArrayList<>();
 			abrazive.add(subRepository.findById(1L).get());
@@ -766,11 +766,11 @@ public class ERafmakApplication {
 			toolss.add(productRepository.findById(102L).get());
 			toolss.add(productRepository.findById(103L).get());
 			
-			productRepository.save(new Product(104L, "Finixa Nitril Disposable Gloves" , DESCRIPTION, 1500.00 ,null,10, true , IMAGE_URL + "glovesL.jpg" ,null, manufacturerRepository.findById(4L).get(),subRepository.findById(17L).get()));
-			productRepository.save(new Product(105L, "Finixa MAS 00 Spray mask A1 P2" , DESCRIPTION, 2500.00 ,null,10, true , IMAGE_URL + "MAS00.jpg" ,null, manufacturerRepository.findById(4L).get(),subRepository.findById(17L).get()));
+			productRepository.save(new Product(104L, "Finixa Nitril Disposable Gloves" , DESCRIPTION, 1500.00 ,null,10, true , IMAGE_URL + "glovesL.jpg" ,null, manufacturerRepository.findById(4L).get(),subRepository.findById(15L).get()));
+			productRepository.save(new Product(105L, "Finixa MAS 00 Spray mask A1 P2" , DESCRIPTION, 2500.00 ,null,10, true , IMAGE_URL + "MAS00.jpg" ,null, manufacturerRepository.findById(4L).get(),subRepository.findById(15L).get()));
 			productRepository.save(new Product(106L, "Finixa MAS 13 Carbon Dust Mask Safety Class FFP2." ,DESCRIPTION, 300.00 ,null,10, true , IMAGE_URL + "MAS13.jpg" ,null, manufacturerRepository.findById(4L).get(),subRepository.findById(17L).get()));
-			productRepository.save(new Product(107L, "Finixa Spray Overalls" , DESCRIPTION, 1500.00 ,null,10, true , IMAGE_URL + "suit.jpg" ,null, manufacturerRepository.findById(4L).get(),subRepository.findById(17L).get()));
-			productRepository.save(new Product(108L, "SATA Air Star F Spray Mask A2 P3" , DESCRIPTION, 5500.00 ,null,10, true , IMAGE_URL + "sataMas.jpg" ,null, manufacturerRepository.findById(5L).get(),subRepository.findById(17L).get()));
+			productRepository.save(new Product(107L, "Finixa Spray Overalls" , DESCRIPTION, 1500.00 ,null,10, true , IMAGE_URL + "suit.jpg" ,null, manufacturerRepository.findById(4L).get(),subRepository.findById(15L).get()));
+			productRepository.save(new Product(108L, "SATA Air Star F Spray Mask A2 P3" , DESCRIPTION, 5500.00 ,null,10, true , IMAGE_URL + "sataMas.jpg" ,null, manufacturerRepository.findById(5L).get(),subRepository.findById(15L).get()));
 			
 			List<Product> safety = new ArrayList<>();
 			safety.add(productRepository.findById(104L).get());
@@ -886,7 +886,7 @@ public class ERafmakApplication {
 			sqRepository.save(new SizeQty( 6L , true ,10, Size.XL  , productRepository.findById(107L).get()));
 			sqRepository.save(new SizeQty( 7L , true ,10, Size.XXL , productRepository.findById(107L).get()));
 			sqRepository.save(new SizeQty( 8L , true ,10, Size.XXXL, productRepository.findById(107L).get()));
-			
+			/*
 			subRepository.findById(1L).get().setProducts(discs);
 			subRepository.findById(2L).get().setProducts(rolls);
 			subRepository.findById(3L).get().setProducts(block);
@@ -904,7 +904,7 @@ public class ERafmakApplication {
 			subRepository.findById(15L).get().setProducts(safety);
 			subRepository.findById(16L).get().setProducts(guns);
 			subRepository.findById(17L).get().setProducts(gunExtrass);
-			
+			*/
 			
 			
 			} catch (Exception e) {

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rafmak</title>
+  
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+ 
+    </style>
+</head>
+
+<body>
+  <div th:replace="fragments/navbar :: navbar"></div>
+<br>
+<div th:if="${error != null}" class="error-msg">
+<br> <br> <br>
+       <i class="fa fa-times-circle"></i>
+       [[${error}]]
+       </div>
+       <div th:if="${param.price}" class="success-msg">
+       <i class="fa fa-check"></i>
+        You've successfully updated the price of the product !!!
+      </div>
+      
+      <div th:if="${param.name}" class="success-msg">
+       <i class="fa fa-check"></i>
+        You've successfully updated the name of the product  !!!
+      </div>
+      <div th:if="${param.description}" class="success-msg">
+       <i class="fa fa-check"></i>
+       You've successfully updated the description of the product  !!!
+      </div>
+      <div th:if="${param.manufacturer}" class="success-msg">
+       <i class="fa fa-check"></i>
+        You've successfully updated the manufacturer of the product  !!!
+      </div>
+      <div th:if="${param.available}" class="success-msg">
+       <i class="fa fa-check"></i>
+        You've successfully updated the availability of the product  !!!
+      </div>
+      <div th:if="${param.image}" class="success-msg">
+       <i class="fa fa-check"></i>
+       You've successfully updated the image of the product  !!!
+      </div>
+      <div th:if="${param.disconnect}" class="success-msg">
+       <i class="fa fa-check"></i>
+        You've successfully disconnected the hardener from the product list  !!!
+      </div>
+      <div th:if="${param.weight}" class="success-msg">
+       <i class="fa fa-check"></i>
+        You've successfully updated the weight of the product list  !!!
+      </div>
+
+ <section class='section cocktail-section' th:object="${product}">
+ 
+       <a class="btn btn-primary" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/products/deleteProduct/{id}(id=${product.id})}">Delete this Product</a>
+       
+       <h2 class ='section-title' th:text="*{name}"></h2>
+       <div sec:authorize="hasRole('ROLE_ADMIN')">
+       <form th:action="@{/products/updateProductName/{id}(id=${product.id})}" method="post"  >
+          <input maxlength="100" type="text" name="name" placeholder="update name" >
+          <button>change</button>
+          </form>
+          </div>
+      
+       <div class ='drink'>
+       <div>
+        <img class="single"  th:src="*{imageUrl}" alt='image' />
+        
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+       <form th:action="@{/products/updateProductImage/{id}(id=${product.id})}" enctype="multipart/form-data" method="post"  >
+          <input type="file" name="fileImage" id="fileImage"  required="required"/>
+                  <button>change</button>
+          </form>
+          </div>
+        </div>
+        
+         <div class="container">
+           <div class="header"><h3>Details</h3></div>
+            <div class="main">
+             <div class="leftSide">
+               <article class='desc'>
+                 
+                  <h6 th:text="*{description}"></h6>
+                  <div sec:authorize="hasRole('ROLE_ADMIN')">
+                  <form th:action="@{/products/updateProductDescription/{id}(id=${product.id})}" method="post"  >
+                   <textarea maxlength="250" name="description" placeholder="update description" ></textarea>
+                   <button>change</button>
+                  </form>
+                  </div>
+               </article>
+              </div>
+              <div class="rightSide">
+              <div class="thirdItem">
+                <div class='drink-info'>
+                 
+          <div th:unless="${weight eq null}">
+          <p  >
+          Liters :
+            <span th:text="${weight.weigth.displayValue}" class='drink-data'>Lt.</span> 
+          </p>
+          </div>
+          
+          <div th:unless="${nozzle eq null}">
+          <p  >
+          Nozzle :
+            <span th:text="${nozzle.nozzle.displayValue}" class='drink-data'></span> 
+          </p>
+          </div>
+          
+          <div th:unless="${size eq null}">
+          <p  >
+          Nozzle :
+            <span th:text="${size.size.displayValue}" class='drink-data'></span> 
+          </p>
+          </div>
+          
+          <!-- 
+          <div sec:authorize="hasRole('ROLE_ADMIN')">
+           <form th:action="@{/products/updateProductWeight/{id}(id=${product.id})}" method="post" >
+                           <select th:name="weigth" >
+               <option th:each="weigth : ${T(com.example.erafmak.enums.Weigth).values()}"
+                 th:value="${weigth}"
+                 th:text="${weigth.displayValue}"/>
+               </select>
+             <button>update</button>
+           </form>
+          </div>
+          
+          -->
+          <p >
+          Price :
+            <span th:text="*{price} + ' ' + mkd" class='drink-data'>MKD</span> 
+          </p>
+          <div sec:authorize="hasRole('ROLE_ADMIN')">
+          <form th:action="@{/products/updateProductPrice/{id}(id=${product.id})}" method="post" >
+          <input maxlength="10" type="text" name="price" placeholder="update price here" >
+          <button>change</button>
+          </form>
+          </div>
+          <p >
+          Manufacturer
+            <span th:text="*{manufacturer.name}" class='drink-data'></span> 
+          </p>
+          <div sec:authorize="hasRole('ROLE_ADMIN')">
+          <form th:action="@{/products/updateProductManufacturer/{id}(id=${product.id})}" method="post" >
+          <select  th:name="manufacturer">
+            <option th:each="manufacturer : ${manufacturers}"
+              th:value="${manufacturer.name}"
+              th:text="${manufacturer.name}"/>
+          </select>
+          <button>change</button>
+          </form>
+          </div>
+          <div>
+          <p>
+          Available :
+          <i style="font-size:20px;color:green" th:if="${product.isAvailable eq true}"  class="fas fa-check"></i>
+              <i style="font-size:20px;color:red" th:unless="${product.isAvailable eq true}"  class="fas fa-close"></i>
+          </p>
+          <form sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{/products/setAvailabilityToProduct/{id}/(id=${product.id})}" method="post">
+              <button th:if="${product.isAvailable eq true}">Set Not Available</button>
+              <button th:unless="${product.isAvailable eq true}">Set Available</button>
+           </form>
+          
+          </div>
+        </div>
+       </div>
+       <div>
+                 </div>
+                </div>
+               </div>
+              </div>
+             </div>
+             <br><br>
+             
+       <div>
+       
+         <h2 class="middle">Matching Hardeners</h2>
+       </div>
+       <br><br>
+       
+        <div class='roomslist-center'>
+             <article class='room' th:each="product : ${product.products}" >
+            <div class='img-container'>
+              <img th:src="${product.imageUrl}" alt='product image'/>
+              <div class="price-top">
+                  <h6 th:text = "${product.price}"></h6>
+                  <p>MKD</p>
+
+              </div>
+              <a th:href="@{/products/hardener/{id}(id=${product.id})}" class='btn-primary room-link'>
+                  Details 
+                  </a>
+            </div>
+            <p class='room-info' th:text="${product.name}"></p>
+            <form sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{/products/disconectProductFromProducts/{id}/{hid}(id=${product.id}, id=${product.id})}" method="post">
+            <button>Remove</button>
+            </form>
+        </article>
+
+            </div>
+    </section>
+<div th:replace="fragments/footer :: footer"></div>
+<script type="text/javascript" th:src="@{/js/js.js}"></script>
+</body>
+
+</html>

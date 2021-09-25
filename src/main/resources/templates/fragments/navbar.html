@@ -9,8 +9,8 @@
           <i class='bx bx-x' ></i>
         </div>
         <ul class="links" >
-         <li >
-          <a th:each="category : ${categories}" th:text="${category.name}"  th:href="@{/subCategories/{id}(id=${category.id})}"></a>
+         <li th:each="category : ${categories}"  >
+          <a th:text="${category.name}"  th:href="@{/subCategories/{id}(id=${category.id})}"></a>
               <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
             <ul class="htmlCss-sub-menu sub-menu">
               <li class="more" th:each="sub : ${category.subs}">

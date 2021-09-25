@@ -14,8 +14,21 @@ public class ProductService {
 	@Autowired
 	ProductRepository productRepository;
 	
+	@Autowired
+	SubCategoryService subService;
+	
+	public Product getProductById(Long id) {
+		return productRepository.findById(id).get();
+	}
+	
 	public List<Product> productsBySubCategoryId(Long id){
+		
 		return productRepository.findBySubCategoryId(id);
 		
+	}
+
+	public Product getSinglePage(Long id) {
+		Product product = getProductById(id);
+		return product;
 	}
 }

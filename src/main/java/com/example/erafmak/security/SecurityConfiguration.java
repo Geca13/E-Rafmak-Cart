@@ -46,11 +46,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.antMatchers(
 				"/register**",
 				"/products/**",
+				"/product/**",
+				"/subCategories/**",
 				"/forgotPassword/**",
 				"/newPassword/**",
 				"/js/**",
 				"/css/**",
-				"/img/**")
+				"/images/**")
 		.permitAll()
 		.antMatchers("/admin/**").hasRole("ADMIN")
 		.anyRequest()
