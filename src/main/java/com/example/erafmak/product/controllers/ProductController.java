@@ -33,10 +33,10 @@ public class ProductController {
 	public String getSingleProductPage(Model model, @PathVariable("id") Long id) {
 		model.addAttribute("categories", categoryService.allCategories());
 		model.addAttribute("product", service.getSinglePage(id));
-		//model.addAttribute("granulation", enumService.findGranulationByProductId(id));
-		model.addAttribute("size", enumService.findSizeByProductId(id));
+		model.addAttribute("granulations", enumService.findGranulationByProductId(id));
+		model.addAttribute("sizes", enumService.findSizeByProductId(id));
 		model.addAttribute("weight", enumService.findWeightByProductId(id));
-		model.addAttribute("nozzle", enumService.findNozzleByProductId(id));
+		model.addAttribute("nozzles", enumService.findNozzleByProductId(id));
 		return "singleProductPage";
 	}
 	

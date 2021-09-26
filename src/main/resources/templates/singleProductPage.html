@@ -85,20 +85,8 @@
            <div class="header"><h3>Details</h3></div>
             <div class="main">
              <div class="leftSide">
-               <article class='desc'>
-                 
-                  <h6 th:text="*{description}"></h6>
-                  <div sec:authorize="hasRole('ROLE_ADMIN')">
-                  <form th:action="@{/products/updateProductDescription/{id}(id=${product.id})}" method="post"  >
-                   <textarea maxlength="250" name="description" placeholder="update description" ></textarea>
-                   <button>change</button>
-                  </form>
-                  </div>
-               </article>
-              </div>
-              <div class="rightSide">
-              <div class="thirdItem">
-                <div class='drink-info'>
+              
+               <div class='drink-info'>
                  
           <div th:unless="${weight eq null}">
           <p  >
@@ -107,16 +95,11 @@
           </p>
           </div>
           
-          <div th:unless="${nozzle eq null}">
-          <p  >
-          Nozzle :
-            <span th:text="${nozzle.nozzle.displayValue}" class='drink-data'></span> 
-          </p>
-          </div>
+          
           
           <div th:unless="${size eq null}">
           <p  >
-          Nozzle :
+          Size :
             <span th:text="${size.size.displayValue}" class='drink-data'></span> 
           </p>
           </div>
@@ -171,13 +154,115 @@
           
           </div>
         </div>
+              
+              
+              
+              
+              </div>
+              <div class="rightSide">
+              <div class="thirdItem">
+              
+               <ul th:unless="${granulations eq null}">
+               <h5>Granulations</h5>
+              <li th:each="gran : ${granulations}"> <p>
+              <i style="font-size:20px;color:green" th:if="${gran.isAvailable eq true}"  class="fas fa-check"></i>
+              <i style="font-size:20px;color:red" th:unless="${gran.isAvailable eq true}"  class="fas fa-close"></i>
+               <span  th:text="'p'+${gran.granulation.displayValue} + ' : ' + ${gran.price}+' den '" ></span>
+                     </p>
+               <div sec:authorize="hasRole('ROLE_ADMIN')">
+                <form th:action="@{/products/updateSanderPrice/{id}/{gid}(id=${sander.id},gid=${gran.id})}" method="post">
+                 <input maxlength="10" name="price" placeholder="set new price" type="text"/>
+                  <button >update</button>
+                  </form>
+                  
+                <form th:action="@{/products/setAvailabilityToSander/{id}/{gid}(id=${sander.id},gid=${gran.id})}" method="post">
+                  <button th:if="${gran.isAvailable eq true}">Set Not Available</button>
+                  <button th:unless="${gran.isAvailable eq true}">Set Available</button>
+                </form>
+                
+                <form th:action="@{/products/removeGranulationFromSander/{id}/{gid}(id=${sander.id},gid=${gran.id})}" method="post">
+                 <button >Remove</button>
+                </form>
+                <br>
+                <hr>
+                
+               </div>
+               </li>
+             </ul>
+             
+             <ul th:unless="${sizes eq null}">
+               <h5>Sizes</h5>
+              <li th:each="size : ${sizes}"> <p>
+              <i style="font-size:20px;color:green" th:if="${size.isAvailable eq true}"  class="fas fa-check"></i>
+              <i style="font-size:20px;color:red" th:unless="${size.isAvailable eq true}"  class="fas fa-close"></i>
+               <span  th:text="${size.size.displayValue}" ></span>
+                     </p>
+               <div sec:authorize="hasRole('ROLE_ADMIN')">
+                
+                  
+                <form th:action="@{/products/setAvailabilityToSander/{id}/{gid}(id=${sander.id},gid=${gran.id})}" method="post">
+                  <button th:if="${gran.isAvailable eq true}">Set Not Available</button>
+                  <button th:unless="${gran.isAvailable eq true}">Set Available</button>
+                </form>
+                
+                <form th:action="@{/products/removeGranulationFromSander/{id}/{gid}(id=${sander.id},gid=${gran.id})}" method="post">
+                 <button >Remove</button>
+                </form>
+                <br>
+                <hr>
+                
+               </div>
+               </li>
+             </ul>
+             
+             <ul th:unless="${nozzles eq null}">
+               <h5>Nozzles</h5>
+              <li th:each="size : ${nozzles}"> <p>
+              <i style="font-size:20px;color:green" th:if="${size.isAvailable eq true}"  class="fas fa-check"></i>
+              <i style="font-size:20px;color:red" th:unless="${size.isAvailable eq true}"  class="fas fa-close"></i>
+               <span  th:text="${size.nozzle.displayValue}" ></span>
+                     </p>
+               <div sec:authorize="hasRole('ROLE_ADMIN')">
+                
+                  
+                <form th:action="@{/products/setAvailabilityToSander/{id}/{gid}(id=${sander.id},gid=${gran.id})}" method="post">
+                  <button th:if="${gran.isAvailable eq true}">Set Not Available</button>
+                  <button th:unless="${gran.isAvailable eq true}">Set Available</button>
+                </form>
+                
+                <form th:action="@{/products/removeGranulationFromSander/{id}/{gid}(id=${sander.id},gid=${gran.id})}" method="post">
+                 <button >Remove</button>
+                </form>
+                <br>
+                <hr>
+                
+               </div>
+               </li>
+             </ul>
+              
+              
+               
        </div>
        <div>
+       
                  </div>
                 </div>
                </div>
               </div>
+               
              </div>
+             <div >
+               <article class='desc'>
+                 
+                  <h6 th:text="*{description}"></h6>
+                  <div sec:authorize="hasRole('ROLE_ADMIN')">
+                  <form th:action="@{/products/updateProductDescription/{id}(id=${product.id})}" method="post"  >
+                   <textarea maxlength="250" name="description" placeholder="update description" ></textarea>
+                   <button>change</button>
+                  </form>
+                  </div>
+               </article>
+              </div>
              <br><br>
              
        <div>

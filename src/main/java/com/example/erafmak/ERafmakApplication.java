@@ -611,24 +611,24 @@ public class ERafmakApplication {
 			productRepository.save(new Product(67L, "Nozzle set for SATA JET 5500 HVLP" ,DESCRIPTION, 14000.00 ,null,10, true , IMAGE_URL + "sata5500hvlp15.jpg" ,null, manufacturerRepository.findById(5L).get(),subRepository.findById(16L).get()));
 		
 			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N0_8, productRepository.findById(63L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_0, productRepository.findById(63L).get() ));
+			nqRepository.save(new NozzleQty(2L, true , 10 , Nozzle.N1_0, productRepository.findById(63L).get() ));
 			
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_3, productRepository.findById(64L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_5, productRepository.findById(64L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_8, productRepository.findById(64L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N2_0, productRepository.findById(64L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N2_5, productRepository.findById(64L).get() ));
+			nqRepository.save(new NozzleQty(3L, true , 10 , Nozzle.N1_3, productRepository.findById(64L).get() ));
+			nqRepository.save(new NozzleQty(4L, true , 10 , Nozzle.N1_5, productRepository.findById(64L).get() ));
+			nqRepository.save(new NozzleQty(5L, true , 10 , Nozzle.N1_8, productRepository.findById(64L).get() ));
+			nqRepository.save(new NozzleQty(6L, true , 10 , Nozzle.N2_0, productRepository.findById(64L).get() ));
+			nqRepository.save(new NozzleQty(7L, true , 10 , Nozzle.N2_5, productRepository.findById(64L).get() ));
 			
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_4, productRepository.findById(65L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_6, productRepository.findById(65L).get() ));
+			nqRepository.save(new NozzleQty(8L, true , 10 , Nozzle.N1_4, productRepository.findById(65L).get() ));
+			nqRepository.save(new NozzleQty(9L, true , 10 , Nozzle.N1_6, productRepository.findById(65L).get() ));
 			
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_2, productRepository.findById(66L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_3, productRepository.findById(66L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_5, productRepository.findById(66L).get() ));
+			nqRepository.save(new NozzleQty(10L, true , 10 , Nozzle.N1_2, productRepository.findById(66L).get() ));
+			nqRepository.save(new NozzleQty(11L, true , 10 , Nozzle.N1_3, productRepository.findById(66L).get() ));
+			nqRepository.save(new NozzleQty(12L, true , 10 , Nozzle.N1_5, productRepository.findById(66L).get() ));
 			
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_2, productRepository.findById(67L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_3, productRepository.findById(67L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_5, productRepository.findById(67L).get() ));
+			nqRepository.save(new NozzleQty(13L, true , 10 , Nozzle.N1_2, productRepository.findById(67L).get() ));
+			nqRepository.save(new NozzleQty(14L, true , 10 , Nozzle.N1_3, productRepository.findById(67L).get() ));
+			nqRepository.save(new NozzleQty(15L, true , 10 , Nozzle.N1_5, productRepository.findById(67L).get() ));
 			
 			productRepository.save(new Product(68L , "Sata Gravity Cup" , DESCRIPTION, 3500.00 ,null,10, true , IMAGE_URL + "sataCup.png" ,null, manufacturerRepository.findById(5L).get(),subRepository.findById(17L).get()));
 			productRepository.save(new Product(69L , "Finixa Gravity Cup" ,DESCRIPTION, 1000.00 ,null,10, true , IMAGE_URL + "finixaCup.jpg" ,null, manufacturerRepository.findById(4L).get(),subRepository.findById(17L).get()));
@@ -664,25 +664,25 @@ public class ERafmakApplication {
 			guns.add(productRepository.findById(79L).get());
 			guns.add(productRepository.findById(80L).get());
 			
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N0_8, productRepository.findById(76L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_0, productRepository.findById(76L).get() ));
+			nqRepository.save(new NozzleQty(16L, true , 10 , Nozzle.N0_8, productRepository.findById(76L).get() ));
+			nqRepository.save(new NozzleQty(17L, true , 10 , Nozzle.N1_0, productRepository.findById(76L).get() ));
 			
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_3, productRepository.findById(77L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_5, productRepository.findById(77L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_8, productRepository.findById(77L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N2_0, productRepository.findById(77L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N2_5, productRepository.findById(77L).get() ));
+			nqRepository.save(new NozzleQty(18L, true , 10 , Nozzle.N1_3, productRepository.findById(77L).get() ));
+			nqRepository.save(new NozzleQty(19L, true , 10 , Nozzle.N1_5, productRepository.findById(77L).get() ));
+			nqRepository.save(new NozzleQty(20L, true , 10 , Nozzle.N1_8, productRepository.findById(77L).get() ));
+			nqRepository.save(new NozzleQty(21L, true , 10 , Nozzle.N2_0, productRepository.findById(77L).get() ));
+			nqRepository.save(new NozzleQty(22L, true , 10 , Nozzle.N2_5, productRepository.findById(77L).get() ));
 			
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_4, productRepository.findById(78L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_6, productRepository.findById(78L).get() ));
+			nqRepository.save(new NozzleQty(23L, true , 10 , Nozzle.N1_4, productRepository.findById(78L).get() ));
+			nqRepository.save(new NozzleQty(24L, true , 10 , Nozzle.N1_6, productRepository.findById(78L).get() ));
 			
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_2, productRepository.findById(79L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_3, productRepository.findById(79L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_5, productRepository.findById(79L).get() ));
+			nqRepository.save(new NozzleQty(25L, true , 10 , Nozzle.N1_2, productRepository.findById(79L).get() ));
+			nqRepository.save(new NozzleQty(26L, true , 10 , Nozzle.N1_3, productRepository.findById(79L).get() ));
+			nqRepository.save(new NozzleQty(27L, true , 10 , Nozzle.N1_5, productRepository.findById(79L).get() ));
 			
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_2, productRepository.findById(80L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_3, productRepository.findById(80L).get() ));
-			nqRepository.save(new NozzleQty(1L, true , 10 , Nozzle.N1_5, productRepository.findById(80L).get() ));
+			nqRepository.save(new NozzleQty(28L, true , 10 , Nozzle.N1_2, productRepository.findById(80L).get() ));
+			nqRepository.save(new NozzleQty(29L, true , 10 , Nozzle.N1_3, productRepository.findById(80L).get() ));
+			nqRepository.save(new NozzleQty(30L, true , 10 , Nozzle.N1_5, productRepository.findById(80L).get() ));
 			
 			productRepository.save(new Product(81L, "White Lambswool Pad 150mm" , DESCRIPTION, 500.00 ,null,10, true , IMAGE_URL + "belo150.jpg" ,null, manufacturerRepository.findById(1L).get(),subRepository.findById(12L).get()));
 			productRepository.save(new Product(82L, "Yellow Lambswool Pad 150mm " ,DESCRIPTION, 1400.00 ,null,10, true , IMAGE_URL + "zolto150.jpg" ,null, manufacturerRepository.findById(1L).get(),subRepository.findById(12L).get()));
