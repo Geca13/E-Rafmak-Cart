@@ -593,12 +593,40 @@ public class ERafmakApplication {
 			thinners.add(productRepository.findById(57L).get());
 			thinners.add(productRepository.findById(58L).get());
 			
-			pwRepository.save(new ProductWeight(1L , Weigth.L1 , l1));
-			pwRepository.save(new ProductWeight(2L , Weigth.L1_5 , l1_5));
-			pwRepository.save(new ProductWeight(3L , Weigth.L2_5 , l2_5));
-			pwRepository.save(new ProductWeight(4L , Weigth.L3 , l3));
-			pwRepository.save(new ProductWeight(5L , Weigth.L3_5 , null));
-			pwRepository.save(new ProductWeight(6L , Weigth.L5 , l5));
+			pwRepository.save(new ProductWeight(1L , Weigth.L1 , productRepository.findById(23L).get()));
+			pwRepository.save(new ProductWeight(2L , Weigth.L1 , productRepository.findById(24L).get()));
+			pwRepository.save(new ProductWeight(3L , Weigth.L1 , productRepository.findById(30L).get()));
+			pwRepository.save(new ProductWeight(4L , Weigth.L1 , productRepository.findById(31L).get()));
+			pwRepository.save(new ProductWeight(5L , Weigth.L1 , productRepository.findById(32L).get()));
+			pwRepository.save(new ProductWeight(6L , Weigth.L1 , productRepository.findById(35L).get()));
+			pwRepository.save(new ProductWeight(7L , Weigth.L1 , productRepository.findById(36L).get()));
+			pwRepository.save(new ProductWeight(8L , Weigth.L1 , productRepository.findById(37L).get()));
+			pwRepository.save(new ProductWeight(9L , Weigth.L1 , productRepository.findById(38L).get()));
+			pwRepository.save(new ProductWeight(10L , Weigth.L1 , productRepository.findById(41L).get()));
+			pwRepository.save(new ProductWeight(11L , Weigth.L1 , productRepository.findById(42L).get()));
+			pwRepository.save(new ProductWeight(12L , Weigth.L1 , productRepository.findById(45L).get()));
+			pwRepository.save(new ProductWeight(13L , Weigth.L1 , productRepository.findById(46L).get()));
+			pwRepository.save(new ProductWeight(14L , Weigth.L1 , productRepository.findById(47L).get()));
+			pwRepository.save(new ProductWeight(15L , Weigth.L1 , productRepository.findById(48L).get()));
+			pwRepository.save(new ProductWeight(16L , Weigth.L1 , productRepository.findById(62L).get()));
+			pwRepository.save(new ProductWeight(17L , Weigth.L1_5 , productRepository.findById(59L).get()));
+			pwRepository.save(new ProductWeight(18L , Weigth.L1_5 , productRepository.findById(60L).get()));
+			pwRepository.save(new ProductWeight(19L , Weigth.L1_5 , productRepository.findById(61L).get()));
+			pwRepository.save(new ProductWeight(20L , Weigth.L2_5 , productRepository.findById(26L).get()));
+			pwRepository.save(new ProductWeight(21L , Weigth.L2_5 , productRepository.findById(27L).get()));
+			pwRepository.save(new ProductWeight(22L , Weigth.L3 , productRepository.findById(49L).get()));
+			pwRepository.save(new ProductWeight(23L , Weigth.L3 , productRepository.findById(50L).get()));
+			pwRepository.save(new ProductWeight(24L , Weigth.L3 , productRepository.findById(51L).get()));
+			pwRepository.save(new ProductWeight(25L , Weigth.L3 , productRepository.findById(52L).get()));
+			pwRepository.save(new ProductWeight(26L , Weigth.L5 , productRepository.findById(25L).get()));
+			pwRepository.save(new ProductWeight(27L , Weigth.L5 , productRepository.findById(28L).get()));
+			pwRepository.save(new ProductWeight(28L , Weigth.L5 , productRepository.findById(29L).get()));
+			pwRepository.save(new ProductWeight(29L , Weigth.L5 , productRepository.findById(33L).get()));
+			pwRepository.save(new ProductWeight(30L , Weigth.L5 , productRepository.findById(34L).get()));
+			pwRepository.save(new ProductWeight(31L , Weigth.L5 , productRepository.findById(39L).get()));
+			pwRepository.save(new ProductWeight(32L , Weigth.L5 , productRepository.findById(40L).get()));
+			pwRepository.save(new ProductWeight(33L , Weigth.L5 , productRepository.findById(43L).get()));
+			pwRepository.save(new ProductWeight(34L , Weigth.L5 , productRepository.findById(44L).get()));
 			
 			productRepository.save(new Product(63L, "Nozzle set for SPG 100" ,DESCRIPTION, 1300.00 ,null,10, true , IMAGE_URL + "fin08.jpg" ,null, manufacturerRepository.findById(4L).get(),subRepository.findById(16L).get()));
 
@@ -796,86 +824,65 @@ public class ERafmakApplication {
 			handBlocks.add(productRepository.findById(114L).get());
 			handBlocks.add(productRepository.findById(115L).get());
             
-			List<Product> d125 = new ArrayList<>();
-            d125.add(productRepository.findById(2L).get());
-            d125.add(productRepository.findById(88L).get());
             
-            List<Product> d150 = new ArrayList<>();
-            d150.add(productRepository.findById(1L).get());
-            d150.add(productRepository.findById(3L).get());
-            d150.add(productRepository.findById(5L).get());
-            d150.add(productRepository.findById(6L).get());
-            d150.add(productRepository.findById(8L).get());
-            d150.add(productRepository.findById(10L).get());
-            d150.add(productRepository.findById(11L).get());
-            d150.add(productRepository.findById(12L).get());
-            d150.add(productRepository.findById(81L).get());
-            d150.add(productRepository.findById(82L).get());
-            d150.add(productRepository.findById(83L).get());
-            d150.add(productRepository.findById(84L).get());
-            d150.add(productRepository.findById(89L).get());
-            d150.add(productRepository.findById(90L).get());
-            d150.add(productRepository.findById(91L).get());
-            d150.add(productRepository.findById(97L).get());
-            d150.add(productRepository.findById(99L).get());
-            d150.add(productRepository.findById(100L).get());
-            d150.add(productRepository.findById(103L).get());
+            pdRepository.save(new ProductDimension(1L, Dimension.D150, productRepository.findById(1L).get()));
+            pdRepository.save(new ProductDimension(2L, Dimension.D150, productRepository.findById(3L).get()));
+            pdRepository.save(new ProductDimension(3L, Dimension.D150, productRepository.findById(5L).get()));
+            pdRepository.save(new ProductDimension(4L, Dimension.D150, productRepository.findById(6L).get()));
+            pdRepository.save(new ProductDimension(5L, Dimension.D150, productRepository.findById(8L).get()));
+            pdRepository.save(new ProductDimension(6L, Dimension.D150, productRepository.findById(10L).get()));
+            pdRepository.save(new ProductDimension(7L, Dimension.D150, productRepository.findById(11L).get()));
+            pdRepository.save(new ProductDimension(8L, Dimension.D150, productRepository.findById(12L).get()));
+            pdRepository.save(new ProductDimension(9L, Dimension.D150, productRepository.findById(81L).get()));
+            pdRepository.save(new ProductDimension(10L, Dimension.D150, productRepository.findById(82L).get()));
+            pdRepository.save(new ProductDimension(11L, Dimension.D150, productRepository.findById(83L).get()));
+            pdRepository.save(new ProductDimension(12L, Dimension.D150, productRepository.findById(84L).get()));
+            pdRepository.save(new ProductDimension(13L, Dimension.D150, productRepository.findById(89L).get()));
+            pdRepository.save(new ProductDimension(14L, Dimension.D150, productRepository.findById(90L).get()));
+            pdRepository.save(new ProductDimension(15L, Dimension.D150, productRepository.findById(91L).get()));
+            pdRepository.save(new ProductDimension(16L, Dimension.D150, productRepository.findById(97L).get()));
+            pdRepository.save(new ProductDimension(17L, Dimension.D150, productRepository.findById(99L).get()));
+            pdRepository.save(new ProductDimension(18L, Dimension.D150, productRepository.findById(100L).get()));
+            pdRepository.save(new ProductDimension(19L, Dimension.D150, productRepository.findById(103L).get()));
             
-            List<Product> d70x198 = new ArrayList<>();
-            d70x198.add(productRepository.findById(15L).get());
-            d70x198.add(productRepository.findById(17L).get());
-            d70x198.add(productRepository.findById(98L).get());
+            pdRepository.save(new ProductDimension(20L, Dimension.D125 , productRepository.findById(2L).get()));
+            pdRepository.save(new ProductDimension(21L, Dimension.D125 , productRepository.findById(88L).get()));
             
-            List<Product> d70x400 = new ArrayList<>();
-            d70x400.add(productRepository.findById(16L).get());
-            d70x400.add(productRepository.findById(17L).get());
-            d70x400.add(productRepository.findById(109L).get());
-            d70x400.add(productRepository.findById(115L).get());
+            pdRepository.save(new ProductDimension(22L, Dimension.D70X198 , productRepository.findById(15L).get()));
+            pdRepository.save(new ProductDimension(23L, Dimension.D70X198 , productRepository.findById(17L).get()));
+            pdRepository.save(new ProductDimension(24L, Dimension.D70X198 , productRepository.findById(98L).get()));
             
-            List<Product> a4 = new ArrayList<>();
-            a4.add(productRepository.findById(13L).get());
+            pdRepository.save(new ProductDimension(25L, Dimension.D70X400  , productRepository.findById(16L).get()));
+            pdRepository.save(new ProductDimension(26L, Dimension.D70X400  , productRepository.findById(17L).get()));
+            pdRepository.save(new ProductDimension(27L, Dimension.D70X400  , productRepository.findById(109L).get()));
+            pdRepository.save(new ProductDimension(28L, Dimension.D70X400  , productRepository.findById(115L).get()));
             
-            List<Product> a8 = new ArrayList<>();
-            a8.add(productRepository.findById(14L).get());
+            pdRepository.save(new ProductDimension(29L, Dimension.DA4 , productRepository.findById(13L).get()));
             
-            List<Product> m10x115 = new ArrayList<>();
-            m10x115.add(productRepository.findById(21L).get());
-            m10x115.add(productRepository.findById(22L).get());
-            
-            List<Product> m50x115 = new ArrayList<>();
-            m50x115.add(productRepository.findById(19L).get());
-            m50x115.add(productRepository.findById(20L).get());
+            pdRepository.save(new ProductDimension(30L, Dimension.DA8 , productRepository.findById(14L).get()));
 
-            List<Product> m115x125 = new ArrayList<>();
-            m115x125.add(productRepository.findById(18L).get());
-
-            List<Product> d77 = new ArrayList<>();
-            d77.add(productRepository.findById(4L).get());
-            d77.add(productRepository.findById(7L).get());
-            d77.add(productRepository.findById(9L).get());
-            d77.add(productRepository.findById(85L).get());
-            d77.add(productRepository.findById(87L).get());
-            d77.add(productRepository.findById(102L).get());
-
-            List<Product> m115x230 = new ArrayList<>();
-            m115x230.add(productRepository.findById(111L).get());
-        	
-            List<Product> d70x125 = new ArrayList<>();
-            d70x125.add(productRepository.findById(112L).get());
-            d70x125.add(productRepository.findById(113L).get());
+            pdRepository.save(new ProductDimension(31L, Dimension.D10X115 , productRepository.findById(21L).get()));
+            pdRepository.save(new ProductDimension(32L, Dimension.D10X115 , productRepository.findById(22L).get()));
             
-            pdRepository.save(new ProductDimension(1L, Dimension.D125 , d125));
-            pdRepository.save(new ProductDimension(2L, Dimension.D150, d150));
-            pdRepository.save(new ProductDimension(3L, Dimension.D70X198 , d70x198));
-            pdRepository.save(new ProductDimension(4L, Dimension.D70X400 , d70x400));
-            pdRepository.save(new ProductDimension(5L, Dimension.DA4 , a4));
-            pdRepository.save(new ProductDimension(6L, Dimension.DA8, a8));
-            pdRepository.save(new ProductDimension(1L, Dimension.D10X115 , m10x115));
-            pdRepository.save(new ProductDimension(2L, Dimension.D50X115, m50x115));
-            pdRepository.save(new ProductDimension(3L, Dimension.D70X125 , d70x125));
-            pdRepository.save(new ProductDimension(4L, Dimension.D115X230 , m115x230));
-            pdRepository.save(new ProductDimension(5L, Dimension.D77 , d77));
-            pdRepository.save(new ProductDimension(6L, Dimension.D115X125, m115x125));
+            pdRepository.save(new ProductDimension(33L, Dimension.D50X115, productRepository.findById(19L).get()));
+            pdRepository.save(new ProductDimension(34L, Dimension.D50X115, productRepository.findById(20L).get()));
+            
+            pdRepository.save(new ProductDimension(35L, Dimension.D70X125 , productRepository.findById(18L).get()));
+
+            pdRepository.save(new ProductDimension(36L, Dimension.D115X230 , productRepository.findById(111L).get()));
+
+            pdRepository.save(new ProductDimension(37L, Dimension.D115X125, productRepository.findById(112L).get()));
+            pdRepository.save(new ProductDimension(38L, Dimension.D115X125, productRepository.findById(113L).get()));
+            
+            pdRepository.save(new ProductDimension(39L, Dimension.D77 , productRepository.findById(4L).get()));
+            pdRepository.save(new ProductDimension(40L, Dimension.D77 , productRepository.findById(7L).get()));
+            pdRepository.save(new ProductDimension(41L, Dimension.D77 , productRepository.findById(9L).get()));
+            pdRepository.save(new ProductDimension(42L, Dimension.D77 , productRepository.findById(85L).get()));
+            pdRepository.save(new ProductDimension(43L, Dimension.D77 , productRepository.findById(87L).get()));
+            pdRepository.save(new ProductDimension(44L, Dimension.D77 , productRepository.findById(102L).get()));
+            
+            
+            
 			
 			sqRepository.save(new SizeQty( 1L , true, 10 , Size.L, productRepository.findById(104L).get()));
 			sqRepository.save(new SizeQty( 2L , true , 10 , Size.XL, productRepository.findById(104L).get()));
@@ -886,25 +893,7 @@ public class ERafmakApplication {
 			sqRepository.save(new SizeQty( 6L , true ,10, Size.XL  , productRepository.findById(107L).get()));
 			sqRepository.save(new SizeQty( 7L , true ,10, Size.XXL , productRepository.findById(107L).get()));
 			sqRepository.save(new SizeQty( 8L , true ,10, Size.XXXL, productRepository.findById(107L).get()));
-			/*
-			subRepository.findById(1L).get().setProducts(discs);
-			subRepository.findById(2L).get().setProducts(rolls);
-			subRepository.findById(3L).get().setProducts(block);
-			subRepository.findById(4L).get().setProducts(wpf1);
-			subRepository.findById(5L).get().setProducts(soft);
-			subRepository.findById(6L).get().setProducts(coats);
-			subRepository.findById(7L).get().setProducts(primers);
-			subRepository.findById(8L).get().setProducts(thinners);
-			subRepository.findById(9L).get().setProducts(hardeners);
-			subRepository.findById(10L).get().setProducts(putties);
-			subRepository.findById(11L).get().setProducts(polish);
-			subRepository.findById(12L).get().setProducts(pads);
-			subRepository.findById(13L).get().setProducts(handBlocks);
-			subRepository.findById(14L).get().setProducts(toolss);
-			subRepository.findById(15L).get().setProducts(safety);
-			subRepository.findById(16L).get().setProducts(guns);
-			subRepository.findById(17L).get().setProducts(gunExtrass);
-			*/
+		
 			
 			
 			} catch (Exception e) {

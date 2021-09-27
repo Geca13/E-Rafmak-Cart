@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import com.example.erafmak.product.services.CategoryService;
 import com.example.erafmak.product.services.EnumClassesService;
 import com.example.erafmak.product.services.ProductService;
@@ -39,6 +38,7 @@ public class ProductController {
 		model.addAttribute("nozzles", enumService.findNozzleByProductId(id));
 		return "singleProductPage";
 	}
+	
 	
 	
 }
