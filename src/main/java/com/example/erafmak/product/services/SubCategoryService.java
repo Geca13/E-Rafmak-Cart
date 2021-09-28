@@ -27,4 +27,9 @@ public class SubCategoryService {
 		Category category = categoryRepository.findById(id).get();
 		return category.getSubs();
 	}
+	
+	public List<SubCategory> allSubCategories() {
+		return subRepository.findAll();
+		
+	}
 }

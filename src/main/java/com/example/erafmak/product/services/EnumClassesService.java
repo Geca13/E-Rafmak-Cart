@@ -5,15 +5,20 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.erafmak.enums.Dimension;
 import com.example.erafmak.enums.Granulation;
+import com.example.erafmak.enums.Nozzle;
+import com.example.erafmak.enums.Size;
 import com.example.erafmak.enums.Weigth;
 import com.example.erafmak.product.entity.GranulationQty;
 import com.example.erafmak.product.entity.NozzleQty;
 import com.example.erafmak.product.entity.Product;
+import com.example.erafmak.product.entity.ProductDimension;
 import com.example.erafmak.product.entity.ProductWeight;
 import com.example.erafmak.product.entity.SizeQty;
 import com.example.erafmak.product.repository.GranulationQtyRepository;
 import com.example.erafmak.product.repository.NozzleQtyRepository;
+import com.example.erafmak.product.repository.ProductDimensionRepository;
 import com.example.erafmak.product.repository.ProductWeightRepository;
 import com.example.erafmak.product.repository.SizeQtyRepository;
 
@@ -31,6 +36,9 @@ public class EnumClassesService {
 	
 	@Autowired
 	SizeQtyRepository sizeRepository;
+	
+	@Autowired
+	ProductDimensionRepository dimensionRepository;
 	
 	public List<GranulationQty> findGranulationByProductId(Long id) {
 		if(granRepository.existsByProductId(id)) {
@@ -57,18 +65,42 @@ public class EnumClassesService {
 		return null;
 	}
 	
-	public ProductWeight findWeightByProductId(Long id) {
-		if(weightRepository.existsByProducts_Id(id)) {
-			return weightRepository.findByProducts_Id(id);
+	public NozzleQty newNozzleQty(Nozzle nozzle, Product product) {
+		NozzleQty newNq = new NozzleQty();
+		newNq.setIsAvailable(false);
+		newNq.setNozzle(nozzle);
+		newNq.setProduct(product);
+		newNq.setStock(0);
+		return nozzleRepository.save(newNq);
+		
+	}
+	
+	public ProductDimension findDimensionByProductId(Long id) {
+		if(dimensionRepository.existsByProductId(id)) {
+			return dimensionRepository.findByProductId(id);
 		}
 		return null;
 	}
 	
-	public ProductWeight createNewProductWeight(Weigth weigth , Product product) {
-		ProductWeight newWeight = new ProductWeight();
-		newWeight.setWeigth(weigth);
-		newWeight.setProduct(product);
-		return weightRepository.save(newWeight);
+	public ProductDimension newProductDimension(Dimension dimension, Product product) {
+		ProductDimension newPd = new ProductDimension();
+		newPd.setDimension(dimension);
+		newPd.setProduct(product);
+		return dimensionRepository.save(newPd);
+	}
+	
+	public ProductWeight findWeightByProductId(Long id) {
+		if(weightRepository.existsByProductId(id)) {
+			return weightRepository.findByProductId(id);
+		}
+		return null;
+	}
+	
+	public ProductWeight newProductWeight(Weigth weight, Product product) {
+		ProductWeight newPw = new ProductWeight();
+		newPw.setProduct(product);
+		newPw.setWeigth(weight);
+		return weightRepository.save(newPw);
 	}
 	
 	public List<SizeQty> findSizeByProductId(Long id) {
@@ -78,6 +110,13 @@ public class EnumClassesService {
 		return null;
 	}
 	
-	
+	public void newSizeQty(Size size, Product product) {
+		SizeQty newSq = new SizeQty();
+		newSq.setIsAvailable(false);
+		newSq.setProduct(product);
+		newSq.setSize(size);
+		newSq.setStock(0);
+	}
 
+	
 }

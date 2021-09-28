@@ -9,6 +9,7 @@ import com.example.erafmak.product.services.CategoryService;
 import com.example.erafmak.product.services.EnumClassesService;
 import com.example.erafmak.product.services.ProductService;
 
+
 @Controller
 public class ProductController {
 
@@ -20,6 +21,8 @@ public class ProductController {
 	
 	@Autowired
 	EnumClassesService enumService;
+	
+	
 	
 	@GetMapping("/products/{id}")
 	public String getProductsBySubCategoryId(Model model , @PathVariable("id") Long id) {
@@ -35,6 +38,7 @@ public class ProductController {
 		model.addAttribute("granulations", enumService.findGranulationByProductId(id));
 		model.addAttribute("sizes", enumService.findSizeByProductId(id));
 		model.addAttribute("weight", enumService.findWeightByProductId(id));
+		model.addAttribute("dimension", enumService.findDimensionByProductId(id));
 		model.addAttribute("nozzles", enumService.findNozzleByProductId(id));
 		return "singleProductPage";
 	}

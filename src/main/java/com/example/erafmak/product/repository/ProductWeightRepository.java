@@ -7,8 +7,8 @@ import com.example.erafmak.product.entity.ProductWeight;
 @Repository
 public interface ProductWeightRepository extends JpaRepository<ProductWeight, Long> {
 
-	ProductWeight findByProducts_Id(Long id);
+	ProductWeight findByProductId(Long id);
 
-	boolean existsByProducts_Id(Long id);
+	boolean existsByProductId(Long id);
 
 }

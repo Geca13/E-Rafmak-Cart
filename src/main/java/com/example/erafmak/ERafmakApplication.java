@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.erafmak.enums.Dimension;
@@ -42,6 +43,7 @@ import com.example.erafmak.user.entity.RoleRepository;
 
 
 @SpringBootApplication
+@ComponentScan({"com.example.erafmak", "com.example.erafmak.MainEntryController"})
 public class ERafmakApplication {
 	
 	@Autowired

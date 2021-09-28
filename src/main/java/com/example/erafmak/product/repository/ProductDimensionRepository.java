@@ -6,4 +6,8 @@ import com.example.erafmak.product.entity.ProductDimension;
 
 public interface ProductDimensionRepository extends JpaRepository<ProductDimension, Long> {
 
+	boolean existsByProductId(Long id);
+
+	ProductDimension findByProductId(Long id);
+
 }

@@ -95,7 +95,12 @@
           </p>
           </div>
           
-          
+          <div th:unless="${dimension eq null}">
+          <p  >
+          Dimension :
+            <span th:text="${dimension.dimension.displayValue}" class='drink-data'>Mm</span> 
+          </p>
+          </div>
           
           <div th:unless="${size eq null}">
           <p  >

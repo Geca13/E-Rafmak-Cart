@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.erafmak.enums.Dimension;
 import com.example.erafmak.enums.Granulation;
 import com.example.erafmak.enums.Nozzle;
 import com.example.erafmak.enums.Size;
@@ -35,9 +36,7 @@ public class ProductService {
 	}
 	
 	public List<Product> productsBySubCategoryId(Long id){
-		
 		return productRepository.findBySubCategoryId(id);
-		
 	}
 
 	public Product getSinglePage(Long id) {
@@ -45,14 +44,18 @@ public class ProductService {
 		return product;
 	}
 
-	public void createNewProduct(Long id, Product product, MultipartFile multiPartFile, Weigth weight, List<Granulation> granulations, List<Nozzle> nozzles, List<Size> sizes) throws IOException {
+	public void createNewProduct(Long id, Product product, MultipartFile multiPartFile, Weigth weight, List<Granulation> granulations, List<Nozzle> nozzles, List<Size> sizes, Dimension dimension) throws IOException {
 		product.setSubCategory(subService.subById(id));
 		imageService.uploadImage(product, multiPartFile);
 		product.setIsAvailable(true);
 		productRepository.save(product);
 		
 		if(weight != null) {
-			
+			enumService.newProductWeight(weight, product);
+		}
+		
+		if(dimension != null) {
+			enumService.newProductDimension(dimension, product);
 		}
 		
         if(granulations != null) {
@@ -62,11 +65,15 @@ public class ProductService {
 		}
 
         if(nozzles != null) {
-	
+	        for (Nozzle nozzle : nozzles) {
+	        	enumService.newNozzleQty(nozzle,product);
+			}
         }
 		
         if(sizes != null) {
-			
+			for (Size size : sizes) {
+				enumService.newSizeQty(size,product);
+			}
 		}
 	}
 }

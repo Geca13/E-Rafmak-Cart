@@ -19,13 +19,14 @@
 
 <div th:replace="fragments/navbar :: navbar"></div>
 
-<section class="main-section">
+<section class="main-section" >
+  <div  th:each = "sub: ${subs}">
   <div class="card color-teal">
-  <a  th:href="@{/create/newCoat}">
-   COAT
-  </a>
+  <a  th:href="@{/administration/newProduct/{id}(id=${sub.id})}" th:text="${sub.name}">
+ </a>
   </div>
-  
+  </div>
+  <!--  
   <div class="card color-teal">
   <a  th:href="@{/create/newHardener}">
    HARDENER
@@ -109,6 +110,7 @@
    BRANDS
   </a>
   </div>
+  -->
 </section>  
 
 
