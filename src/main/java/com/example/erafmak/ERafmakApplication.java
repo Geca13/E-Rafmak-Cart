@@ -93,7 +93,7 @@ public class ERafmakApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ERafmakApplication.class, args);
 	}
-	
+	/*
 	@PostConstruct
 	public void init() {
 		
@@ -901,6 +901,7 @@ public class ERafmakApplication {
 			} catch (Exception e) {
 				System.out.println("Post construct NOT called");
 		}
+		
 	}
-
+*/
 }

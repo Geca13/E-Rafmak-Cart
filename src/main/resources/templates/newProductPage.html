@@ -52,11 +52,11 @@
     </div>
     
     <div class="form-group"  th:if="${subCategory.id eq 1 OR subCategory.id eq 2 OR subCategory.id eq 3 OR subCategory.id eq 4 OR subCategory.id eq 5 OR subCategory.id eq 12 OR subCategory.id eq 13}  ">
-      <select th:name="dimension" >
+      <select th:field="*{dimension}" >
     
       <option th:each="dimension : ${T(com.example.erafmak.enums.Dimension).values()}"
       
-      th:value="${dimension}"
+      th:value="*{dimension}"
             th:text="${dimension.displayValue}"/>
        </select>
       <label  for="select" class="control-label">Select dimension</label><i class="bar"></i>
@@ -70,7 +70,7 @@
    
     
        <div class="form-group" th:if="${subCategory.id eq 6 OR subCategory.id eq 7 OR subCategory.id eq 8 OR subCategory.id eq 9 OR subCategory.id eq 10}  ">
-     <select th:name="weigth" >
+     <select th:field="*{weigth}" >
     
       <option th:each="weigth : ${T(com.example.erafmak.enums.Weigth).values()}"
       
@@ -85,7 +85,7 @@
     
       <ul>
        <li th:each="granulation : ${T(com.example.erafmak.enums.Granulation).values()}">
-        <input  type="checkbox" th:name="granulations" th:value="${granulation}" />
+        <input  type="checkbox" th:field="*{granulations}" th:value="${granulation}" />
          <label  th:text="${granulation.displayValue}"></label>
        </li>
       </ul>
@@ -99,7 +99,7 @@
     
       <ul>
        <li th:each="size : ${T(com.example.erafmak.enums.Size).values()}">
-        <input  type="checkbox" th:name="sizes" th:value="${size}" />
+        <input  type="checkbox" th:field="*{sizes}" th:value="${size}" />
          <label  th:text="${size.displayValue}"></label>
        </li>
       </ul>
@@ -111,13 +111,13 @@
     
       <ul>
        <li th:each="nozzle : ${T(com.example.erafmak.enums.Nozzle).values()}">
-        <input  type="checkbox" th:name="nozzle" th:value="${nozzle}" />
+        <input  type="checkbox" th:field="*{nozzles}" th:value="${nozzle}" />
          <label  th:text="${nozzle.displayValue}"></label>
        </li>
       </ul>
       
     </div>
- 
+ <!--  
     <h3>Select Matching Hardeners</h3>
     
     <ul>
@@ -126,7 +126,7 @@
     <label  th:text="${hardener.name}"></label>
   </li>
 </ul>
-  
+  -->
      <div class="button-container">
     <button type="submit" class="button"><span>Submit</span></button>
   </div>

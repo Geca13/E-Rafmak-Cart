@@ -40,22 +40,19 @@ public class CreateProductsController {
 		model.addAttribute("product", new Product());
 		model.addAttribute("subCategory", subRepository.subById(id));
 		model.addAttribute("manufacturers", manufacturerService.allManufacturers());
-
-		
-		return "newProductPage";
+        return "newProductPage";
 		
 	}
 
 	@PostMapping("/newProduct/{id}")
-	public String createNewProduct(@PathVariable("id") Long id, @ModelAttribute("product") Product product,@RequestParam("fileImage") MultipartFile multiPartFile,
-			@RequestParam("weight") Weigth weight ,@RequestParam("granulations") List<Granulation> granulations ,
-			@RequestParam("nozzles")List<Nozzle>nozzles,@RequestParam("sizes")List<Size> sizes, @RequestParam("dimension") Dimension dimension ) {
+	public String createNewProduct(@PathVariable("id") Long id, @ModelAttribute("product") Product product,@RequestParam("fileImage") MultipartFile multiPartFile ) {
+		Product newProduct = new Product();
 		try {
-			productService.createNewProduct(id , product , multiPartFile, weight , granulations , nozzles , sizes , dimension );
+			productService.createNewProduct(id , newProduct, product , multiPartFile );
         } catch (Exception e) {
 			
 		}
-		return "redirect:product/"+id;
+		return "redirect:/product/" + newProduct.getId() ;
 	}
 	
 	
