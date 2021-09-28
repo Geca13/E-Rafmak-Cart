@@ -79,13 +79,13 @@
        </select>
       <label  for="select" class="control-label">Select Weight</label><i class="bar"></i>
     </div>
-    
+    <!--  
     <div  th:if="${subCategory.id eq 1 OR subCategory.id eq 2 OR subCategory.id eq 3 OR subCategory.id eq 4 OR subCategory.id eq 5}">
       <h3>Select Granulations</h3>
     
       <ul>
        <li th:each="granulation : ${T(com.example.erafmak.enums.Granulation).values()}">
-        <input  type="checkbox" th:name="granulations" th:value="${granulation}" />
+         <input  type="checkbox" th:name="granulations" th:value="${granulation}" />
          <label  th:text="${granulation.displayValue}"></label>
        </li>
       </ul>
@@ -126,7 +126,7 @@
     <label  th:text="${hardener.name}"></label>
   </li>
 </ul>
-  
+  -->
      <div class="button-container">
     <button type="submit" class="button"><span>Submit</span></button>
   </div>

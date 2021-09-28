@@ -90,7 +90,7 @@
                  
           <div th:unless="${weight eq null}">
           <p  >
-          Liters :
+          Weight :
             <span th:text="${weight.weigth.displayValue}" class='drink-data'>Lt.</span> 
           </p>
           </div>
@@ -175,17 +175,17 @@
                <span  th:text="'p'+${gran.granulation.displayValue} + ' : ' + ${gran.price}+' den '" ></span>
                      </p>
                <div sec:authorize="hasRole('ROLE_ADMIN')">
-                <form th:action="@{/products/updateSanderPrice/{id}/{gid}(id=${sander.id},gid=${gran.id})}" method="post">
+                <form th:action="@{/products/updateSanderPrice/{id}/{gid}(id=${product.id},gid=${product.id})}" method="post">
                  <input maxlength="10" name="price" placeholder="set new price" type="text"/>
                   <button >update</button>
                   </form>
                   
-                <form th:action="@{/products/setAvailabilityToSander/{id}/{gid}(id=${sander.id},gid=${gran.id})}" method="post">
+                <form th:action="@{/products/setAvailabilityToSander/{id}/{gid}(id=${product.id},gid=${product.id})}" method="post">
                   <button th:if="${gran.isAvailable eq true}">Set Not Available</button>
                   <button th:unless="${gran.isAvailable eq true}">Set Available</button>
                 </form>
                 
-                <form th:action="@{/products/removeGranulationFromSander/{id}/{gid}(id=${sander.id},gid=${gran.id})}" method="post">
+                <form th:action="@{/products/removeGranulationFromSander/{id}/{gid}(id=${product.id},gid=${product.id})}" method="post">
                  <button >Remove</button>
                 </form>
                 <br>

@@ -44,8 +44,9 @@ public class ProductService {
 		return product;
 	}
 
-	public void createNewProduct(Long id, Product product, MultipartFile multiPartFile, Weigth weight, List<Granulation> granulations, List<Nozzle> nozzles, List<Size> sizes, Dimension dimension) throws IOException {
+	public void createNewProduct(Long id, Product product, MultipartFile multiPartFile, Weigth weight, Dimension dimension) throws IOException {
 		product.setSubCategory(subService.subById(id));
+		product.setId(116L);
 		imageService.uploadImage(product, multiPartFile);
 		product.setIsAvailable(true);
 		productRepository.save(product);
@@ -58,22 +59,6 @@ public class ProductService {
 			enumService.newProductDimension(dimension, product);
 		}
 		
-        if(granulations != null) {
-			for (Granulation granulation : granulations) {
-				enumService.newGranulationQty(granulation,product);
-			}
-		}
-
-        if(nozzles != null) {
-	        for (Nozzle nozzle : nozzles) {
-	        	enumService.newNozzleQty(nozzle,product);
-			}
-        }
-		
-        if(sizes != null) {
-			for (Size size : sizes) {
-				enumService.newSizeQty(size,product);
-			}
-		}
+       
 	}
 }

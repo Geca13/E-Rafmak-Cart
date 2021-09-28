@@ -883,10 +883,7 @@ public class ERafmakApplication {
             pdRepository.save(new ProductDimension(43L, Dimension.D77 , productRepository.findById(87L).get()));
             pdRepository.save(new ProductDimension(44L, Dimension.D77 , productRepository.findById(102L).get()));
             
-            
-            
-			
-			sqRepository.save(new SizeQty( 1L , true, 10 , Size.L, productRepository.findById(104L).get()));
+            sqRepository.save(new SizeQty( 1L , true, 10 , Size.L, productRepository.findById(104L).get()));
 			sqRepository.save(new SizeQty( 2L , true , 10 , Size.XL, productRepository.findById(104L).get()));
 			
 			sqRepository.save(new SizeQty( 3L , true ,10, Size.S   , productRepository.findById(107L).get()));
@@ -896,7 +893,6 @@ public class ERafmakApplication {
 			sqRepository.save(new SizeQty( 7L , true ,10, Size.XXL , productRepository.findById(107L).get()));
 			sqRepository.save(new SizeQty( 8L , true ,10, Size.XXXL, productRepository.findById(107L).get()));
 		
-			
 			
 			} catch (Exception e) {
 				System.out.println("Post construct NOT called");

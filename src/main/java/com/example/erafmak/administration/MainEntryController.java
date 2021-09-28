@@ -51,6 +51,7 @@ public class MainEntryController {
 	
 	@GetMapping("/adminPanel")
 	public String administration(Model model) {
+		model.addAttribute("categories", categoryService.allCategories());
 		model.addAttribute("subs", subService.allSubCategories());
 		return "administration";
 	}

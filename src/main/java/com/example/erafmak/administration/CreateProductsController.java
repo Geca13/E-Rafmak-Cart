@@ -3,6 +3,7 @@ package com.example.erafmak.administration;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.example.erafmak.enums.Dimension;
 import com.example.erafmak.enums.Granulation;
 import com.example.erafmak.enums.Nozzle;
@@ -40,22 +39,20 @@ public class CreateProductsController {
 		model.addAttribute("product", new Product());
 		model.addAttribute("subCategory", subRepository.subById(id));
 		model.addAttribute("manufacturers", manufacturerService.allManufacturers());
-
-		
-		return "newProductPage";
+    return "newProductPage";
 		
 	}
 
 	@PostMapping("/newProduct/{id}")
-	public String createNewProduct(@PathVariable("id") Long id, @ModelAttribute("product") Product product,@RequestParam("fileImage") MultipartFile multiPartFile,
-			@RequestParam("weight") Weigth weight ,@RequestParam("granulations") List<Granulation> granulations ,
-			@RequestParam("nozzles")List<Nozzle>nozzles,@RequestParam("sizes")List<Size> sizes, @RequestParam("dimension") Dimension dimension ) {
+	public String createNewProduct(@PathVariable("id") Long id, @ModelAttribute("product") Product product,@Param("fileImage") MultipartFile multiPartFile,
+			@Param("weight") Weigth weight ,
+			 @Param("dimension") Dimension dimension ) {
 		try {
-			productService.createNewProduct(id , product , multiPartFile, weight , granulations , nozzles , sizes , dimension );
+			productService.createNewProduct(id , product , multiPartFile, weight ,  dimension );
         } catch (Exception e) {
 			
 		}
-		return "redirect:product/"+id;
+		return "redirect:/product/"+product.getId();
 	}
 	
 	
