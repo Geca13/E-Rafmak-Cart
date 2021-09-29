@@ -44,21 +44,49 @@ public class ProductService {
 		return product;
 	}
 
-	public void createNewProduct(Long id, Product product, MultipartFile multiPartFile, Weigth weight, Dimension dimension) throws IOException {
-		product.setSubCategory(subService.subById(id));
-		product.setId(116L);
-		imageService.uploadImage(product, multiPartFile);
-		product.setIsAvailable(true);
-		productRepository.save(product);
+	public void createNewProduct(Long id,Product newProduct, Product product,  MultipartFile multiPartFile) throws IOException {
 		
-		if(weight != null) {
-			enumService.newProductWeight(weight, product);
+		SubCategory sub = subService.subById(id);
+		newProduct.setManufacturer(product.getManufacturer());
+		newProduct.setDescription(product.getDescription());
+		newProduct.setSubCategory(sub);
+		String fileName = StringUtils.cleanPath(multiPartFile.getOriginalFilename());
+		newProduct.setName(product.getName());
+		newProduct.setImageUrl("/images/" + fileName);
+		imageService.uploadImage(multiPartFile);
+		newProduct.setIsAvailable(true);
+		if(product.getPrice() !=null) {
+		newProduct.setPrice(product.getPrice());
 		}
 		
-		if(dimension != null) {
-			enumService.newProductDimension(dimension, product);
+		productRepository.save(newProduct);
+		
+		if(product.getWeigth()!= null) {
+			enumService.newProductWeight(product.getWeigth(), newProduct);
 		}
 		
-       
+		if(product.getDimension() != null) {
+			enumService.newProductDimension(product.getDimension(), newProduct);
+		}
+		
+        if(product.getGranulations() != null) {
+			for (Granulation granulation : product.getGranulations()) {
+				enumService.newGranulationQty(granulation,newProduct);
+			}
+			
+		}
+
+        if(product.getNozzles() != null) {
+	        for (Nozzle nozzle : product.getNozzles()) {
+	        	enumService.newNozzleQty(nozzle,newProduct);
+			}
+        }
+		
+        if(product.getSizes() != null) {
+			for (Size size : product.getSizes() ) {
+				enumService.newSizeQty(size,newProduct);
+			}
+		}
+        
 	}
 }
