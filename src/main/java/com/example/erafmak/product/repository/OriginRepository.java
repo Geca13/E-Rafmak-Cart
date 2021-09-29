@@ -8,4 +8,8 @@ import com.example.erafmak.product.entity.Origin;
 @Repository
 public interface OriginRepository extends JpaRepository<Origin, Long> {
 
+	boolean existsByName(String name);
+
+	Origin findByName(String name);
+
 }

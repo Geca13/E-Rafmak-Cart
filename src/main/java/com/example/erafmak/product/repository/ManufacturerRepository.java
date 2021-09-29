@@ -8,4 +8,6 @@ import com.example.erafmak.product.entity.Manufacturer;
 @Repository
 public interface ManufacturerRepository extends JpaRepository<Manufacturer, Long> {
 
+	Manufacturer findByName(String name);
+
 }
