@@ -44,15 +44,14 @@ public class CreateProductsController {
 	}
 
 	@PostMapping("/newProduct/{id}")
-	public String createNewProduct(@PathVariable("id") Long id, @ModelAttribute("product") Product product,@Param("fileImage") MultipartFile multiPartFile,
-			@Param("weight") Weigth weight ,
-			 @Param("dimension") Dimension dimension ) {
+	public String createNewProduct(@PathVariable("id") Long id, @ModelAttribute("product") Product product,@RequestParam("fileImage") MultipartFile multiPartFile ) {
+		Product newProduct = new Product();
 		try {
-			productService.createNewProduct(id , product , multiPartFile, weight ,  dimension );
+			productService.createNewProduct(id , newProduct, product , multiPartFile );
         } catch (Exception e) {
 			
 		}
-		return "redirect:/product/"+product.getId();
+		return "redirect:/product/" + newProduct.getId() ;
 	}
 	
 	
