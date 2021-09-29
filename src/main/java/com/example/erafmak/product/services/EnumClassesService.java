@@ -47,9 +47,9 @@ public class EnumClassesService {
 		return null;
 	}
 	
-	public GranulationQty newGranulationQty(Granulation granulation ,Product product) {
+	public GranulationQty newGranulationQty(Granulation granulation ,Product newProduct) {
 		GranulationQty granulationQty = new GranulationQty();
-		granulationQty.setProduct(product);
+		granulationQty.setProduct(newProduct);
 		granulationQty.setGranulation(granulation);
 		granulationQty.setDiscountedPrice(null);
 		granulationQty.setIsAvailable(false);
@@ -65,11 +65,11 @@ public class EnumClassesService {
 		return null;
 	}
 	
-	public NozzleQty newNozzleQty(Nozzle nozzle, Product product) {
+	public NozzleQty newNozzleQty(Nozzle nozzle, Product newProduct) {
 		NozzleQty newNq = new NozzleQty();
 		newNq.setIsAvailable(false);
 		newNq.setNozzle(nozzle);
-		newNq.setProduct(product);
+		newNq.setProduct(newProduct);
 		newNq.setStock(0);
 		return nozzleRepository.save(newNq);
 		
@@ -82,10 +82,10 @@ public class EnumClassesService {
 		return null;
 	}
 	
-	public ProductDimension newProductDimension(Dimension dimension, Product product) {
+	public ProductDimension newProductDimension(Dimension dimension, Product newProduct) {
 		ProductDimension newPd = new ProductDimension();
 		newPd.setDimension(dimension);
-		newPd.setProduct(product);
+		newPd.setProduct(newProduct);
 		return dimensionRepository.save(newPd);
 	}
 	
@@ -96,9 +96,9 @@ public class EnumClassesService {
 		return null;
 	}
 	
-	public ProductWeight newProductWeight(Weigth weight, Product product) {
+	public ProductWeight newProductWeight(Weigth weight, Product newProduct) {
 		ProductWeight newPw = new ProductWeight();
-		newPw.setProduct(product);
+		newPw.setProduct(newProduct);
 		newPw.setWeigth(weight);
 		return weightRepository.save(newPw);
 	}
@@ -110,13 +110,17 @@ public class EnumClassesService {
 		return null;
 	}
 	
-	public void newSizeQty(Size size, Product product) {
+	public SizeQty newSizeQty(Size size, Product newProduct) {
 		SizeQty newSq = new SizeQty();
 		newSq.setIsAvailable(false);
-		newSq.setProduct(product);
+		newSq.setProduct(newProduct);
 		newSq.setSize(size);
 		newSq.setStock(0);
+		return sizeRepository.save(newSq);
 	}
+
+	
+}
 
 	
 }
