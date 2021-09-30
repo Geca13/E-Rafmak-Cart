@@ -39,7 +39,7 @@ public class ImageService {
 		Path currentPath = Paths.get(".");
 		Path absolutePath = currentPath.toAbsolutePath();
 		
-		String uploadDir = absolutePath + "/src/main/resources/static/img/coats/";
+		String uploadDir = absolutePath + "/src/main/resources/static/images/";
 		
             File file = new File(uploadDir + storedImage);
             if(file.exists()) {

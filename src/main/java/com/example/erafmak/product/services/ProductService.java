@@ -165,7 +165,7 @@ public class ProductService {
 
 
 	
-	public List<Product> coats() {
+	public List<Product> products() {
 		return productRepository.findAll();
 	}
 	
@@ -230,8 +230,6 @@ public class ProductService {
 		}
 		return productRepository.save(product);
 	}
-
-	
 
 	public void disconectProductFromProductList(Long id, Long hid) {
 	

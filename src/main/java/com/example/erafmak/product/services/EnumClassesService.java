@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.erafmak.enums.Dimension;
 import com.example.erafmak.enums.Granulation;
 import com.example.erafmak.enums.Nozzle;
@@ -39,6 +38,19 @@ public class EnumClassesService {
 	
 	@Autowired
 	ProductDimensionRepository dimensionRepository;
+	
+
+	public SizeQty findSizeById(Long id) {
+		return sizeRepository.findById(id).get();
+	}
+	
+	public NozzleQty findNozzleById(Long id) {
+		return nozzleRepository.findById(id).get();
+	}
+	
+	public GranulationQty findGranulationById(Long id) {
+		return granRepository.findById(id).get();
+	}
 	
 	public List<GranulationQty> findGranulationByProductId(Long id) {
 		if(granRepository.existsByProductId(id)) {
@@ -79,6 +91,24 @@ public class EnumClassesService {
 		return nozzleRepository.save(newNq);
 	}
 	
+	public void updateProductNozzle(Long id, Long sid, Nozzle nozzle) {
+		NozzleQty nozzleQty = nozzleRepository.findById(sid).get();
+		nozzleQty.setNozzle(nozzle);
+		nozzleRepository.save(nozzleQty);
+	}
+
+	public void updateProductNozzleAvailability(Long id, Long sid) {
+		NozzleQty nozzleQty = nozzleRepository.findById(sid).get();
+		nozzleQty.setIsAvailable(!nozzleQty.getIsAvailable());
+		nozzleRepository.save(nozzleQty);
+	}
+
+	public void updateProductNozzleStock(Long id, Long sid, Integer stock) {
+		NozzleQty nozzleQty = nozzleRepository.findById(sid).get();
+		nozzleQty.setStock(nozzleQty.getStock() + stock);
+		nozzleRepository.save(nozzleQty);
+	}
+	
 	public void deleteNozzleQty(NozzleQty nozzleQty) {
 		nozzleQty.setProduct(null);
 		nozzleRepository.delete(nozzleQty);
@@ -98,6 +128,11 @@ public class EnumClassesService {
 		return dimensionRepository.save(newPd);
 	}
 	
+	public void updateProductDimension(Long id, Dimension dimension) {
+		ProductDimension forUpdate = findDimensionByProductId(id);
+		forUpdate.setDimension(dimension);
+		dimensionRepository.save(forUpdate);
+	}
 
 	public void deleteProductDimension(ProductDimension dimension) {
 		dimensionRepository.delete(dimension);
@@ -121,6 +156,12 @@ public class EnumClassesService {
 		weightRepository.delete(weight);
 	}
 	
+    public void updateProductWeigth(Long id, Weigth weigth) {
+		ProductWeight weight = findWeightByProductId(id);
+		weight.setWeigth(weigth);
+		weightRepository.save(weight);
+	}
+	
 	public List<SizeQty> findSizeByProductId(Long id) {
 		if(sizeRepository.existsByProductId(id)) {
 			return sizeRepository.findByProductId(id);
@@ -136,17 +177,38 @@ public class EnumClassesService {
 		newSq.setStock(0);
 		return sizeRepository.save(newSq);
 	}
+	
 
 	public void deleteSizeQty(SizeQty sizeQty) {
 		sizeQty.setProduct(null);
 		sizeRepository.delete(sizeQty);
 	}
 
+	public void updateProductSize(Long id, Long sid, Size size) {
+		SizeQty sizeQty = sizeRepository.findById(sid).get();
+		sizeQty.setSize(size);
+		sizeRepository.save(sizeQty);
+	}
+
+	public void updateProductSizeAvailability(Long id, Long sid) {
+		SizeQty sizeQty = sizeRepository.findById(sid).get();
+		sizeQty.setIsAvailable(!sizeQty.getIsAvailable());
+		sizeRepository.save(sizeQty);
+    }
+
+	public void updateProductSizeStock(Long id, Long sid, Integer stock) {
+		SizeQty sizeQty = sizeRepository.findById(sid).get();
+		sizeQty.setStock(sizeQty.getStock() + stock);
+		sizeRepository.save(sizeQty);
+    }
+
+	public List<Size> getAllRemainingSizes(Long id) {
+		
+		return null;
+	}
 
 
-	
-
-	
+    
 }
 
 	

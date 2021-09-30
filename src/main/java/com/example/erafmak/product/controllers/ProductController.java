@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.erafmak.administration.ManufacturerService;
+import com.example.erafmak.product.entity.Product;
+import com.example.erafmak.product.entity.SubCategory;
 import com.example.erafmak.product.services.CategoryService;
 import com.example.erafmak.product.services.EnumClassesService;
 import com.example.erafmak.product.services.ProductService;
@@ -113,7 +115,9 @@ public class ProductController {
 	
 	@GetMapping("/deleteProduct/{id}")
 	public String deleteProduct(@PathVariable("id")Long id) {
+		Product product = service.getProductById(id);
+		SubCategory sub = product.getSubCategory();
 		service.deleteProduct(id);
-		return REDIRECT + id+"?delete";
+		return "redirect:/products/" + sub.getId() + "?delete";
 	}
 }
