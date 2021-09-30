@@ -58,6 +58,11 @@ public class EnumClassesService {
 		return granRepository.save(granulationQty);
 	}
 	
+	public void deleteGranulationQty(GranulationQty granulationQty) {
+		granulationQty.setProduct(null);
+		granRepository.delete(granulationQty);
+	}
+	
 	public List<NozzleQty> findNozzleByProductId(Long id) {
 		if(nozzleRepository.existsByProductId(id)) {
 			return nozzleRepository.findByProductId(id);
@@ -72,7 +77,11 @@ public class EnumClassesService {
 		newNq.setProduct(newProduct);
 		newNq.setStock(0);
 		return nozzleRepository.save(newNq);
-		
+	}
+	
+	public void deleteNozzleQty(NozzleQty nozzleQty) {
+		nozzleQty.setProduct(null);
+		nozzleRepository.delete(nozzleQty);
 	}
 	
 	public ProductDimension findDimensionByProductId(Long id) {
@@ -89,6 +98,11 @@ public class EnumClassesService {
 		return dimensionRepository.save(newPd);
 	}
 	
+
+	public void deleteProductDimension(ProductDimension dimension) {
+		dimensionRepository.delete(dimension);
+	}
+	
 	public ProductWeight findWeightByProductId(Long id) {
 		if(weightRepository.existsByProductId(id)) {
 			return weightRepository.findByProductId(id);
@@ -101,6 +115,10 @@ public class EnumClassesService {
 		newPw.setProduct(newProduct);
 		newPw.setWeigth(weight);
 		return weightRepository.save(newPw);
+	}
+
+	public void deleteProductWeight(ProductWeight weight) {
+		weightRepository.delete(weight);
 	}
 	
 	public List<SizeQty> findSizeByProductId(Long id) {
@@ -118,6 +136,15 @@ public class EnumClassesService {
 		newSq.setStock(0);
 		return sizeRepository.save(newSq);
 	}
+
+	public void deleteSizeQty(SizeQty sizeQty) {
+		sizeQty.setProduct(null);
+		sizeRepository.delete(sizeQty);
+	}
+
+
+
+	
 
 	
 }

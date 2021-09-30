@@ -8,170 +8,24 @@
           <span class="logo-name">Rafmak</span>
           <i class='bx bx-x' ></i>
         </div>
-        <ul class="links">
-         <li>
-          <a th:href="@{/products/sanders}">Abrazives</a>
+        <ul class="links" >
+         <li th:each="category : ${categories}"  >
+          <a th:text="${category.name}"  th:href="@{/subCategories/{id}(id=${category.id})}"></a>
               <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
             <ul class="htmlCss-sub-menu sub-menu">
-              <li class="more">
-                <span><a th:href="@{/products/sanders/discs}">Discs</a>
+              <li class="more" th:each="sub : ${category.subs}">
+                <span><a th:href="@{/products/{id}(id=${sub.id})}" th:text="${sub.name}"></a>
                 <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-              
-              </li>
-              
-              <li class="more">
-                <span><a th:href="@{/products/sanders/blocks}">Blocks</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-              
-               
-              </li>
-              <li class="more">
-                <span><a th:href="@{/products/sanders/rolls}">Rolls</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-               
-              </li>
-              
-              <li class="more">
-                <span><a th:href="@{/products/sanders/softs}">Softs</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-              
-              </li>
-              
-              <li class="more">
-                <span><a th:href="@{/products/sanders/wets}">WPF</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-              
-            
-              </li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          
-          <li>
-            <a th:href="@{/products/coats}">Coats & Primers</a>
-            <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
-            <ul class="htmlCss-sub-menu sub-menu">
-              <li class="more">
-                <span><a th:href="@{/products/coats}">Coats</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-              
-              </li>
-              
-              <li class="more">
-                <span><a th:href="@{/products/primers}">Primers</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-              
-             
-              </li>
-              <li class="more">
-                <span><a th:href="@{/products/hardeners}">Hardeners</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-             
-              </li>
-              
-              <li class="more">
-                <span><a th:href="@{/products/thinners}">Thinners</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-              
-              </li>
-              
-              <li class="more">
-                <span><a th:href="@{/products/putties}">Putties</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-             
-              </li>
-              
-            </ul>
-            
-          </li>
-          
-           <li>
-            <a th:href="@{/products/tools}">Tools&Equip</a>
-            <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
-            <ul class="htmlCss-sub-menu sub-menu">
-              <li class="more">
-                <span><a th:href="@{/products/tools}">Tools</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-              
-              </li>
-              
-               <li class="more">
-                <span><a th:href="@{/products/guns}">Sprays</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-              
-              </li>
-              
-              <li class="more">
-                <span><a th:href="@{/products/nozzles}">Nozzles</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-              
-              </li>
-              
-              <li class="more">
-                <span><a th:href="@{/products/helpers}">Blocks</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-             
-              </li>
-              
-              <li class="more">
-                <span><a th:href="@{/products/safeties}">Safety</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-            
-              </li>
-              
-              <li class="more">
-                <span><a th:href="@{/products/extrass}">Extras</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-              
+                </span>
               </li>
              </ul>
-            </li>
-          
-          
-          <li>
-            <a th:href="@{/products/polishes}">Polish</a>
-            <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
-            <ul class="htmlCss-sub-menu sub-menu">
-              <li class="more">
-                <span><a th:href="@{/products/polishes}">Polish</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-              
-              </li>
-              
-              <li class="more">
-                <span><a th:href="@{/products/pads}">Pads</a>
-                <i class='bx bxs-chevron-right arrow more-arrow'></i>
-              </span>
-              
-              </li>
-              
-            </ul>
-            
           </li>
+          
+          
           
          
           <li sec:authorize="hasRole('ROLE_ADMIN')" >
-          <span><a th:href="@{/admin}">Administration</a> </span>
+          <span><a th:href="@{/adminPanel}">Administration</a> </span>
          </li>
          
         </ul>
@@ -181,7 +35,7 @@
         <i class='bx bxs-user'></i>
         
          <div class="input-box" sec:authorize="hasRole('ROLE_ANONYMOUS')">
-          <form th:action="@{/login}" method="post">
+          <form th:action="@{/home}" method="post">
              <input class="input1" type="text"  placeholder="Email" name="username" required >
              <input class="input2" type="password" placeholder="Password" name="password" required>
               <button class="login" type="submit">Login</button>
@@ -199,15 +53,8 @@
           </div>
           
           </li>
-          
-         
-          
-          </li>
-          
-        </ul>
-          
-          
-         
+       </ul>
+  
         </div>
       </div>
      

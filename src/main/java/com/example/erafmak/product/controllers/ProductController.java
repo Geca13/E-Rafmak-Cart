@@ -111,4 +111,9 @@ public class ProductController {
 		return REDIRECT + id+"?disconnect";
 	}
 	
+	@GetMapping("/deleteProduct/{id}")
+	public String deleteProduct(@PathVariable("id")Long id) {
+		service.deleteProduct(id);
+		return REDIRECT + id+"?delete";
+	}
 }

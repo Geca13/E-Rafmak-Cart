@@ -59,11 +59,11 @@
 
  <section class='section cocktail-section' th:object="${product}">
  
-       <a class="btn btn-primary" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/products/deleteProduct/{id}(id=${product.id})}">Delete this Product</a>
+       <a class="btn btn-primary" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/deleteProduct/{id}(id=${product.id})}">Delete this Product</a>
        
        <h2 class ='section-title' th:text="*{name}"></h2>
        <div sec:authorize="hasRole('ROLE_ADMIN')">
-       <form th:action="@{/products/updateProductName/{id}(id=${product.id})}" method="post"  >
+       <form th:action="@{/updateProductName/{id}(id=${product.id})}" method="post"  >
           <input maxlength="100" type="text" name="name" placeholder="update name" >
           <button>change</button>
           </form>
@@ -74,7 +74,7 @@
         <img class="single"  th:src="*{imageUrl}" alt='image' />
         
         <div sec:authorize="hasRole('ROLE_ADMIN')">
-       <form th:action="@{/products/updateProductImage/{id}(id=${product.id})}" enctype="multipart/form-data" method="post"  >
+       <form th:action="@{/updateProductImage/{id}(id=${product.id})}" enctype="multipart/form-data" method="post"  >
           <input type="file" name="fileImage" id="fileImage"  required="required"/>
                   <button>change</button>
           </form>
@@ -111,7 +111,7 @@
           
           <!-- 
           <div sec:authorize="hasRole('ROLE_ADMIN')">
-           <form th:action="@{/products/updateProductWeight/{id}(id=${product.id})}" method="post" >
+           <form th:action="@{/updateProductWeight/{id}(id=${product.id})}" method="post" >
                            <select th:name="weigth" >
                <option th:each="weigth : ${T(com.example.erafmak.enums.Weigth).values()}"
                  th:value="${weigth}"
@@ -127,7 +127,7 @@
             <span th:text="*{price} + ' ' + mkd" class='drink-data'>MKD</span> 
           </p>
           <div sec:authorize="hasRole('ROLE_ADMIN')">
-          <form th:action="@{/products/updateProductPrice/{id}(id=${product.id})}" method="post" >
+          <form th:action="@{/updateProductPrice/{id}(id=${product.id})}" method="post" >
           <input maxlength="10" type="text" name="price" placeholder="update price here" >
           <button>change</button>
           </form>
@@ -137,7 +137,7 @@
             <span th:text="*{manufacturer.name}" class='drink-data'></span> 
           </p>
           <div sec:authorize="hasRole('ROLE_ADMIN')">
-          <form th:action="@{/products/updateProductManufacturer/{id}(id=${product.id})}" method="post" >
+          <form th:action="@{/updateProductManufacturer/{id}(id=${product.id})}" method="post" >
           <select  th:name="manufacturer">
             <option th:each="manufacturer : ${manufacturers}"
               th:value="${manufacturer.name}"
@@ -152,7 +152,7 @@
           <i style="font-size:20px;color:green" th:if="${product.isAvailable eq true}"  class="fas fa-check"></i>
               <i style="font-size:20px;color:red" th:unless="${product.isAvailable eq true}"  class="fas fa-close"></i>
           </p>
-          <form sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{/products/setAvailabilityToProduct/{id}/(id=${product.id})}" method="post">
+          <form sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{/setAvailabilityToProduct/{id}/(id=${product.id})}" method="post">
               <button th:if="${product.isAvailable eq true}">Set Not Available</button>
               <button th:unless="${product.isAvailable eq true}">Set Available</button>
            </form>
@@ -261,7 +261,7 @@
                  
                   <h6 th:text="*{description}"></h6>
                   <div sec:authorize="hasRole('ROLE_ADMIN')">
-                  <form th:action="@{/products/updateProductDescription/{id}(id=${product.id})}" method="post"  >
+                  <form th:action="@{/updateProductDescription/{id}(id=${product.id})}" method="post"  >
                    <textarea maxlength="250" name="description" placeholder="update description" ></textarea>
                    <button>change</button>
                   </form>

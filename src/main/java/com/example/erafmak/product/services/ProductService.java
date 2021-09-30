@@ -1,9 +1,8 @@
 package com.example.erafmak.product.services;
 
-import java.io.File;
+
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,12 @@ import com.example.erafmak.administration.ManufacturerService;
 import com.example.erafmak.enums.Granulation;
 import com.example.erafmak.enums.Nozzle;
 import com.example.erafmak.enums.Size;
+import com.example.erafmak.product.entity.GranulationQty;
+import com.example.erafmak.product.entity.NozzleQty;
 import com.example.erafmak.product.entity.Product;
+import com.example.erafmak.product.entity.ProductDimension;
+import com.example.erafmak.product.entity.ProductWeight;
+import com.example.erafmak.product.entity.SizeQty;
 import com.example.erafmak.product.entity.SubCategory;
 import com.example.erafmak.product.repository.ProductRepository;
 
@@ -103,25 +107,63 @@ public class ProductService {
 	public void deleteProduct(Long id) {
 		
 		Product product = productRepository.findById(id).get();
-		deleteImage(product);
+		imageService.deleteImage(product);
 		product.setManufacturer(null);
 		product.setProducts(null);
-		
+	    deleteGranulations(id);
+		deleteSizes(id);
+		deleteNozzles(id);
+		deleteProductWeight(id);
+		deleteProductDimension(id);
 		productRepository.delete(product);
 	}
 
-	private void deleteImage(Product product) {
-		String storedImage = product.getImageUrl().substring(product.getImageUrl().lastIndexOf("/"));
-		Path currentPath = Paths.get(".");
-		Path absolutePath = currentPath.toAbsolutePath();
+	private void deleteProductDimension(Long id) {
+		ProductDimension dimension = enumService.findDimensionByProductId(id);
+		if(dimension != null) {
+			enumService.deleteProductDimension(dimension);
+		}
 		
-		String uploadDir = absolutePath + "/src/main/resources/static/img/coats/";
-		
-            File file = new File(uploadDir + storedImage);
-            if(file.exists()) {
-            	file.delete();
-            }    
 	}
+
+	private void deleteProductWeight(Long id) {
+		ProductWeight weight = enumService.findWeightByProductId(id);
+		if(weight !=null) {
+			enumService.deleteProductWeight(weight);
+		}
+		
+	}
+
+	private void deleteNozzles(Long id) {
+		List<NozzleQty> nozzles = enumService.findNozzleByProductId(id);
+		if(nozzles != null) {
+		for (NozzleQty nozzleQty : nozzles) {
+			enumService.deleteNozzleQty(nozzleQty);
+		   }
+	    }
+		
+	}
+
+	private void deleteSizes(Long id) {
+		List<SizeQty> sizes = enumService.findSizeByProductId(id);
+		if(sizes != null) {
+			for (SizeQty sizeQty : sizes) {
+				enumService.deleteSizeQty(sizeQty);
+			}
+		}
+		
+	}
+
+	private void deleteGranulations(Long id) {
+		List<GranulationQty> gran = enumService.findGranulationByProductId(id);
+		if(gran != null) {
+			for (GranulationQty granulationQty : gran) {
+				enumService.deleteGranulationQty(granulationQty);
+			}
+		}
+	}
+
+
 	
 	public List<Product> coats() {
 		return productRepository.findAll();
@@ -178,10 +220,11 @@ public class ProductService {
 	public Product updateProductImage(Long id, MultipartFile multiPartFile) throws IOException {
 		
 		Product product = findProductById(id);
-		deleteImage(product);
-		
+		imageService.deleteImage(product);
+		String fileName = StringUtils.cleanPath(multiPartFile.getOriginalFilename());
+		product.setImageUrl("/images/" + fileName);
 		try {
-			imageService.uploadImage(product, multiPartFile);
+			imageService.uploadImage( multiPartFile);
 		} catch (IOException e) {
 			throw new IOException("Something went wrong during image upload, please try again");
 		}
