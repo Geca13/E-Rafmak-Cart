@@ -65,7 +65,6 @@ public class ManufacturerService {
 		return origin;
 	}
 	
-	
 	public List<Origin> origins() {
 		return originRepository.findAll();
 	}

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.example.erafmak.enums.Granulation;
 import com.example.erafmak.product.entity.GranulationQty;
 
 
@@ -15,5 +16,7 @@ public interface GranulationQtyRepository extends JpaRepository<GranulationQty, 
 	List<GranulationQty> findByProductId(Long id);
 
 	boolean existsByProductId(Long id);
+
+	boolean existsByProductIdAndGranulation(Long id, Granulation granulation);
 
 }

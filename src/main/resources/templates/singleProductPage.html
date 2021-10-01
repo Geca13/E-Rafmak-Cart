@@ -93,6 +93,16 @@
           Liters :
             <span th:text="${weight.weigth.displayValue}" class='drink-data'>Lt.</span> 
           </p>
+          <div sec:authorize="hasRole('ROLE_ADMIN')">
+       <form th:action="@{/updateProductWeigth/{id}(id=${product.id})}"  method="post"  >
+          <select th:field="*{weigth}" >
+          <option th:each="weigth : ${T(com.example.erafmak.enums.Weigth).values()}"
+            th:value="${weigth}"
+            th:text="${weigth.displayValue}"/>
+          </select>
+                  <button>change</button>
+          </form>
+          </div>
           </div>
           
           <div th:unless="${dimension eq null}">
@@ -100,6 +110,16 @@
           Dimension :
             <span th:text="${dimension.dimension.displayValue}" class='drink-data'>Mm</span> 
           </p>
+          <div sec:authorize="hasRole('ROLE_ADMIN')">
+       <form th:action="@{/updateProductDimension/{id}(id=${product.id})}"  method="post"  >
+         <select th:name="dimension" >
+               <option th:each="dimension : ${T(com.example.erafmak.enums.Dimension).values()}"
+                 th:value="${dimension}"
+                 th:text="${dimension.displayValue}"/>
+               </select>
+                  <button>change</button>
+          </form>
+          </div>
           </div>
           
           <div th:unless="${size eq null}">

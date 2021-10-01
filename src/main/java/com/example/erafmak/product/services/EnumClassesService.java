@@ -1,5 +1,7 @@
 package com.example.erafmak.product.services;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ import com.example.erafmak.product.repository.SizeQtyRepository;
 
 @Service
 public class EnumClassesService {
+	
+	@Autowired
+	ProductService productService;
 	
 	@Autowired
 	GranulationQtyRepository granRepository;
@@ -74,6 +79,8 @@ public class EnumClassesService {
 		granulationQty.setProduct(null);
 		granRepository.delete(granulationQty);
 	}
+	
+	
 	
 	public List<NozzleQty> findNozzleByProductId(Long id) {
 		if(nozzleRepository.existsByProductId(id)) {
@@ -202,14 +209,75 @@ public class EnumClassesService {
 		sizeRepository.save(sizeQty);
     }
 
-	public List<Size> getAllRemainingSizes(Long id) {
-		
-		return null;
+	public List<Size> getAllRemainingSizes (Long id){
+		List<Size> allSizes = new ArrayList<>(Arrays.asList(Size.values()));
+		List<Size> sizes = new ArrayList<>();
+		for (Size size : allSizes) {
+				if(!sizeRepository.existsByProductIdAndSize(id, size)) {
+					sizes.add(size);
+				}
+			}
+		return sizes;
 	}
 
+	public void addNewSizesToProduct(Long id, List<Size> allSizes) {
+		for (Size size : allSizes) {
+			newSizeQty(size, productService.findProductById(id));
+		}
+	}
 
-    
+	public List<Nozzle> getAllRemainingNozzles(Long id) {
+		List<Nozzle> allNozzles = new ArrayList<>(Arrays.asList(Nozzle.values()));
+		List<Nozzle> nozzles = new ArrayList<>();
+		for (Nozzle nozzle : allNozzles) {
+				if(!nozzleRepository.existsByProductIdAndNozzle(id, nozzle)) {
+					nozzles.add(nozzle);
+				}
+			}
+		return nozzles;
+	}
+
+	public void addNewNozzlesToProduct(Long id, List<Nozzle> allNozzles) {
+		for (Nozzle nozzle : allNozzles) {
+			newNozzleQty(nozzle, productService.findProductById(id));
+		}
+	}
+
+	public void updateGranulationAvailability(Long sid) {
+		GranulationQty gran = findGranulationById(sid);
+		gran.setIsAvailable(!gran.getIsAvailable());
+		granRepository.save(gran);
+	}
+
+	public void updateGranulationPrice(Long sid, Double price) {
+		GranulationQty gran = findGranulationById(sid);
+		gran.setPrice(price);
+		granRepository.save(gran);
+	}
+
+	public void updateGranulationStock(Long sid, Integer stock) {
+		GranulationQty gran = findGranulationById(sid);
+		gran.setStock(gran.getStock()+ stock);
+		granRepository.save(gran);
+    }
+
+	public List<Granulation> getAllRemainingGranulations(Long id) {
+		List<Granulation> allGranulations = new ArrayList<>(Arrays.asList(Granulation.values()));
+		List<Granulation> granulations = new ArrayList<>();
+		for (Granulation granulation : allGranulations) {
+				if(!granRepository.existsByProductIdAndGranulation(id, granulation)) {
+					granulations.add(granulation);
+				}
+			}
+	return granulations;
+	}
+
+	public void addNewGranulationsToProduct(Long id, List<Granulation> allGranulations) {
+          for (Granulation granulation : allGranulations) {
+	            newGranulationQty(granulation, productService.findProductById(id));
+           }		
+	}
+
+ 
 }
-
-	
 

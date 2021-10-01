@@ -58,7 +58,7 @@ public class ProductController {
 	}
 	
 	@PostMapping("/updateProductPrice/{id}")
-	public String updateCoatPrice(@PathVariable(value = "id")Long id , @Param(value = "price") Double price) {
+	public String updateProductPrice(@PathVariable(value = "id")Long id , @Param(value = "price") Double price) {
 		service.updatePrice(id , price);
 		return REDIRECT + id+"?price";
 	}
@@ -74,13 +74,7 @@ public class ProductController {
 		service.updateProductDescription(id , description);
 		return REDIRECT + id+"?description";
 	}
-	/*
-	@PostMapping("/updateProductWeight/{id}")
-	public String updateProductWeight(@PathVariable("id")Long id, @Param(value = "weigth")Weigth weigth) {
-		service.updateProductWeight(id, weigth);
-		return REDIRECT + id+"?weight";
-	}
-	*/
+	
 	@PostMapping("/updateProductManufacturer/{id}")
 	public String updateProductManufactorer(@PathVariable(value = "id")Long id , @Param(value = "manufacturer")String manufacturer) {
 		service.updateManufacturer(id , manufacturer);
