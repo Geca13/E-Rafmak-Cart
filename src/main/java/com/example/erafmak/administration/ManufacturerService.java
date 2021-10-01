@@ -18,7 +18,11 @@ public class ManufacturerService {
 	@Autowired
 	ManufacturerRepository manufacturerRepository;
 	
-	private static String url = "https://restcountries.eu/rest/v2/all";
+	private static String API_KEY = "bb1d1caa25bc06f897b06a0c76ada286";
+
+	
+	private static String url = "https://api.countrylayer.com/v2/all";
+	     
 
 	@Autowired
 	private RestTemplate restTemplate;

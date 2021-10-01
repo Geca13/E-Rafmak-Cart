@@ -122,26 +122,9 @@
           </div>
           </div>
           
-          <div th:unless="${size eq null}">
-          <p  >
-          Size :
-            <span th:text="${size.size.displayValue}" class='drink-data'></span> 
-          </p>
-          </div>
           
-          <!-- 
-          <div sec:authorize="hasRole('ROLE_ADMIN')">
-           <form th:action="@{/updateProductWeight/{id}(id=${product.id})}" method="post" >
-                           <select th:name="weigth" >
-               <option th:each="weigth : ${T(com.example.erafmak.enums.Weigth).values()}"
-                 th:value="${weigth}"
-                 th:text="${weigth.displayValue}"/>
-               </select>
-             <button>update</button>
-           </form>
-          </div>
           
-          -->
+          <div th:unless="${product.subCategory.id eq 1 OR product.subCategory.id eq 2 OR product.subCategory.id eq 3 OR product.subCategory.id eq 4 OR product.subCategory.id eq 5}">
           <p >
           Price :
             <span th:text="*{price} + ' ' + mkd" class='drink-data'>MKD</span> 
@@ -151,6 +134,7 @@
           <input maxlength="10" type="text" name="price" placeholder="update price here" >
           <button>change</button>
           </form>
+          </div>
           </div>
           <p >
           Manufacturer
@@ -195,17 +179,17 @@
                <span  th:text="'p'+${gran.granulation.displayValue} + ' : ' + ${gran.price}+' den '" ></span>
                      </p>
                <div sec:authorize="hasRole('ROLE_ADMIN')">
-                <form th:action="@{/products/updateSanderPrice/{id}/{gid}(id=${product.id},gid=${product.id})}" method="post">
+                <form th:action="@{/updateProductGranulationPrice/{id}/{sid}(id=${product.id},sid=${gran.id})}" method="post">
                  <input maxlength="10" name="price" placeholder="set new price" type="text"/>
                   <button >update</button>
                   </form>
                   
-                <form th:action="@{/products/setAvailabilityToSander/{id}/{gid}(id=${product.id},gid=${product.id})}" method="post">
+                <form th:action="@{/updateProductGranulationAvailability/{id}/{sid}(id=${product.id},sid=${gran.id})}" method="post">
                   <button th:if="${gran.isAvailable eq true}">Set Not Available</button>
                   <button th:unless="${gran.isAvailable eq true}">Set Available</button>
                 </form>
                 
-                <form th:action="@{/products/removeGranulationFromSander/{id}/{gid}(id=${product.id},gid=${product.id})}" method="post">
+                <form th:action="@{/deleteProductGranulation/{id}/{sid}(id=${product.id},sid=${gran.id})}" method="post">
                  <button >Remove</button>
                 </form>
                 <br>
@@ -214,7 +198,8 @@
                </div>
                </li>
              </ul>
-             
+             <p th:if="${product.subCategory.id eq 1 OR product.subCategory.id eq 2 OR product.subCategory.id eq 3 OR product.subCategory.id eq 4 OR product.subCategory.id eq 5}"
+                    sec:authorize="hasRole('ROLE_ADMIN')">add more granulations <span><a  th:href="@{/addNewProductGranulations/{id}(id=${product.id})}">here</a></span></p>
              <ul th:unless="${sizes eq null}">
                <h5>Sizes</h5>
               <li th:each="size : ${sizes}"> <p>
@@ -225,12 +210,12 @@
                <div sec:authorize="hasRole('ROLE_ADMIN')">
                 
                   
-                <form th:action="@{/products/setAvailabilityToSander/{id}/{gid}(id=${product.id},gid=${product.id})}" method="post">
-                  <button th:if="${product.isAvailable eq true}">Set Not Available</button>
-                  <button th:unless="${product.isAvailable eq true}">Set Available</button>
+                <form th:action="@{/updateProductSizeAvailability/{id}/{sid}(id=${product.id},sid=${size.id})}" method="post">
+                  <button th:if="${size.isAvailable eq true}">Set Not Available</button>
+                  <button th:unless="${size.isAvailable eq true}">Set Available</button>
                 </form>
                 
-                <form th:action="@{/products/removeGranulationFromSander/{id}/{gid}(id=${product.id},gid=${product.id})}" method="post">
+                <form th:action="@{/deleteProductSize/{id}/{sid}(id=${product.id},sid=${size.id})}" method="post">
                  <button >Remove</button>
                 </form>
                 <br>
@@ -238,24 +223,25 @@
                 
                </div>
                </li>
-             </ul>
+              </ul>
+               <p th:if="${product.subCategory.id eq 15}"  sec:authorize="hasRole('ROLE_ADMIN')">add new sizes <span><a  th:href="@{/addNewProductSizes/{id}(id=${product.id})}">here</a></span></p>
              
              <ul th:unless="${nozzles eq null}">
                <h5>Nozzles</h5>
-              <li th:each="size : ${nozzles}"> <p>
-              <i style="font-size:20px;color:green" th:if="${size.isAvailable eq true}"  class="fas fa-check"></i>
-              <i style="font-size:20px;color:red" th:unless="${size.isAvailable eq true}"  class="fas fa-close"></i>
-               <span  th:text="${size.nozzle.displayValue}" ></span>
+              <li th:each="nozzle : ${nozzles}"> <p>
+              <i style="font-size:20px;color:green" th:if="${nozzle.isAvailable eq true}"  class="fas fa-check"></i>
+              <i style="font-size:20px;color:red" th:unless="${nozzle.isAvailable eq true}"  class="fas fa-close"></i>
+               <span  th:text="${nozzle.nozzle.displayValue}" ></span>
                      </p>
                <div sec:authorize="hasRole('ROLE_ADMIN')">
                 
                   
-                <form th:action="@{/products/setAvailabilityToSander/{id}/{gid}(id=${product.id},gid=${product.id})}" method="post">
-                  <button th:if="${product.isAvailable eq true}">Set Not Available</button>
-                  <button th:unless="${product.isAvailable eq true}">Set Available</button>
+                <form th:action="@{/updateProductNozzleAvailability/{id}/{sid}(id=${product.id},sid=${nozzle.id})}" method="post">
+                  <button th:if="${nozzle.isAvailable eq true}">Set Not Available</button>
+                  <button th:unless="${nozzle.isAvailable eq true}">Set Available</button>
                 </form>
                 
-                <form th:action="@{/products/removeGranulationFromSander/{id}/{gid}(id=${product.id},gid=${product.id})}" method="post">
+                <form th:action="@{/deleteProductNozzle/{id}/{sid}(id=${product.id},sid=${nozzle.id})}" method="post">
                  <button >Remove</button>
                 </form>
                 <br>
@@ -264,10 +250,10 @@
                </div>
                </li>
              </ul>
-              
-              
-               
-       </div>
+             <p th:if="${product.subCategory.id eq 16}"  sec:authorize="hasRole('ROLE_ADMIN')">add new nozzle <span><a  th:href="@{/addNewProductNozzles/{id}(id=${product.id})}">here</a></span></p>
+             
+        </div>
+        
        <div>
        
                  </div>

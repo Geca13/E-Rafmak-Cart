@@ -220,8 +220,8 @@ public class EnumClassesService {
 		return sizes;
 	}
 
-	public void addNewSizesToProduct(Long id, List<Size> allSizes) {
-		for (Size size : allSizes) {
+	public void addNewSizesToProduct(Long id, Product product) {
+		for (Size size : product.getSizes()) {
 			newSizeQty(size, productService.findProductById(id));
 		}
 	}
@@ -237,8 +237,8 @@ public class EnumClassesService {
 		return nozzles;
 	}
 
-	public void addNewNozzlesToProduct(Long id, List<Nozzle> allNozzles) {
-		for (Nozzle nozzle : allNozzles) {
+	public void addNewNozzlesToProduct(Long id, Product product) {
+		for (Nozzle nozzle : product.getNozzles()) {
 			newNozzleQty(nozzle, productService.findProductById(id));
 		}
 	}
@@ -272,10 +272,15 @@ public class EnumClassesService {
 	return granulations;
 	}
 
-	public void addNewGranulationsToProduct(Long id, List<Granulation> allGranulations) {
-          for (Granulation granulation : allGranulations) {
+	public void addNewGranulationsToProduct(Long id, Product product) {
+          for (Granulation granulation : product.getGranulations()) {
 	            newGranulationQty(granulation, productService.findProductById(id));
            }		
+	}
+
+	public void deleteGranulation(Long sid) {
+		GranulationQty gran = findGranulationById(sid);
+        deleteGranulationQty(gran);
 	}
 
  

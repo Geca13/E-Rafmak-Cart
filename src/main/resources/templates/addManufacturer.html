@@ -18,29 +18,36 @@
 <body>
 
 <div th:replace="fragments/navbar :: navbar"></div>
-
 <div class="container">
-  <form th:action="@{/addNewProductGranulations/{id}(id=${product.id})}" th:object="${product}"  method="post">
-        
-
-    <h3>Select Granulations</h3>
+<form th:action="@{/administration/addManufacturer}" th:object="${manufacturer}" method="post">
+  <h2>New Manufacturer Form</h2>
     
-    <ul>
-  <li th:each="granulation : ${granulations}">
-  
-    <input th:field="*{granulations}" type="checkbox" th:value="${granulation}" />
-    <label  th:text="${granulation.displayValue}"></label>
-   
-  </li>
-</ul>
-  
+    <div class="form-group">
+      <select  th:field="*{origin.name}">
+     
+      <option th:each="origin : ${origins}"
+        th:value="${origin.name}"
+        th:text="${origin.name}"
+        />
+       </select>
+      <label  for="select" class="control-label">Country</label><i class="bar"></i>
+    </div>
+    
+    <div class="form-group">
+      <input th:field="*{name}" type="text" required="required"/>
+      <label for="input" class="control-label">Name</label><i class="bar"></i>
+    </div>
+    
+    <div class="form-group">
+      <input th:field="*{email}" type="email" required="required"/>
+      <label for="input" class="control-label">Email</label><i class="bar"></i>
+    </div>
+ 
      <div class="button-container">
     <button type="submit" class="button"><span>Submit</span></button>
   </div>
-  </form>
- 
+</form>
 </div>
-
 <div th:replace="fragments/footer :: footer"></div>
 <script type="text/javascript" th:src="@{/js/js.js}"></script>
 </body>

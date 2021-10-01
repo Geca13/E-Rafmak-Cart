@@ -1,18 +1,19 @@
 package com.example.erafmak.product.controllers;
 
-import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.example.erafmak.enums.Dimension;
-import com.example.erafmak.enums.Granulation;
 import com.example.erafmak.enums.Nozzle;
 import com.example.erafmak.enums.Size;
 import com.example.erafmak.enums.Weigth;
+import com.example.erafmak.product.entity.Product;
 import com.example.erafmak.product.services.EnumClassesService;
 import com.example.erafmak.product.services.ProductService;
 
@@ -71,8 +72,8 @@ public class ProductEnumClassesUpdateController {
 	}
 	
 	@PostMapping("/addNewProductSizes/{id}")
-	public String addNewSizesToProduct(@PathVariable("id")Long id, @Param("allSizes")List<Size>allSizes) {
-		enumService.addNewSizesToProduct(id , allSizes);
+	public String addNewSizesToProduct(@PathVariable("id")Long id, @ModelAttribute("product") Product product) {
+		enumService.addNewSizesToProduct(id , product);
 		return REDIRECT + id;
 	}
 	
@@ -108,8 +109,8 @@ public class ProductEnumClassesUpdateController {
 	}
 	
 	@PostMapping("/addNewProductNozzles/{id}")
-	public String addNewNozzlesToProduct(@PathVariable("id")Long id, @Param("allNozzles")List<Nozzle>allNozzles) {
-		enumService.addNewNozzlesToProduct(id , allNozzles);
+	public String addNewNozzlesToProduct(@PathVariable("id")Long id, @ModelAttribute("product") Product product) {
+		enumService.addNewNozzlesToProduct(id , product);
 		return REDIRECT + id;
 	}
 	
@@ -139,8 +140,14 @@ public class ProductEnumClassesUpdateController {
 	}
 	
 	@PostMapping("/addNewProductGranulations/{id}")
-	public String addNewGranulationsToProduct(@PathVariable("id")Long id, @Param("allGranulations")List<Granulation>allGranulations) {
-		enumService.addNewGranulationsToProduct(id , allGranulations);
+	public String addNewGranulationsToProduct(@PathVariable("id")Long id, @ModelAttribute("product") Product product) {
+		enumService.addNewGranulationsToProduct(id , product);
+		return REDIRECT + id;
+	}
+	
+	@PostMapping("/deleteProductGranulation/{id}/{sid}")
+	public String deleteProductGranulationAvailability(@PathVariable("id")Long id,@PathVariable("sid")Long sid) {
+		enumService.deleteGranulation(sid);
 		return REDIRECT + id;
 	}
 	

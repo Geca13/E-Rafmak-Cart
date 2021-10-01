@@ -20,7 +20,7 @@
 <div th:replace="fragments/navbar :: navbar"></div>
 
 <div class="container">
-  <form th:action="@{/products/addSizesToSafety/{id}(id=${safety.id})}"  method="post">
+  <form th:action="@{/addNewProductSizes/{id}(id=${product.id})}" th:object="${product}"  method="post">
         
 
     <h3>Select Sizes</h3>
@@ -28,7 +28,7 @@
   <ul>
   <li th:each="size : ${sizes}">
   
-    <input  type="checkbox" th:name="allSizes" th:value="${size}" />
+    <input  type="checkbox" th:field="*{sizes}" th:value="${size}" />
     <label  th:text="${size.displayValue}"></label>
    
   </li>
