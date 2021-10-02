@@ -46,6 +46,10 @@ public class ProductService {
 		return productRepository.findById(id).get();
 	}
 	
+	public Product saveProduct(Product product) {
+		return productRepository.save(product);
+	}
+	
 	public List<Product> productsBySubCategoryId(Long id){
 		return productRepository.findBySubCategoryId(id);
 	}
@@ -70,7 +74,7 @@ public class ProductService {
 		newProduct.setPrice(product.getPrice());
 		}
 		
-		productRepository.save(newProduct);
+		saveProduct(newProduct);
 		
 		if(product.getWeigth()!= null) {
 			enumService.newProductWeight(product.getWeigth(), newProduct);
@@ -169,52 +173,39 @@ public class ProductService {
 		return productRepository.findAll();
 	}
 	
-	/*
-	public List<Coat> reducedCoats(Long id) {
-		
-		List<Coat> reduced = new ArrayList<>();
-		List<Coat> coats = coats();
-		for (Coat coat : coats) {
-			if(!productRepository.existsByNameAndHardeners_Id(coat.getName(),id)) {
-				reduced.add(coat);
-			}
-		}
-		return reduced;
-	}
-	*/
 	
 	public Product updatePrice(Long id, Double price) {
 		Product product = findProductById(id);
 		product.setPrice(price);
-		return productRepository.save(product);
+		return saveProduct(product);
 	}
 
 	public Product updateProductName(Long id, String name) {
 	
 		Product product = findProductById(id);
 		product.setName(name);
-		return productRepository.save(product);
+		return saveProduct(product);
 	}
 	
 	public Product updateProductDescription(Long id, String description) {
 	
 		Product product = findProductById(id);
 		product.setDescription(description);
-		return productRepository.save(product);
+		return saveProduct(product);
 	}
     
 	public Product updateManufacturer(Long id, String manufacturer) {
 	
 		Product product = findProductById(id);
 		product.setManufacturer(manService.findByName(manufacturer));
-		return productRepository.save(product);
+		return saveProduct(product);
 	}
 
 	public Product updateProductAvailability(Long id) {
 	
 		Product product = findProductById(id);
 		product.setIsAvailable(!product.getIsAvailable());
-		return productRepository.save(product);
+		return saveProduct(product);
 	}
 
 	public Product updateProductImage(Long id, MultipartFile multiPartFile) throws IOException {
@@ -228,13 +219,13 @@ public class ProductService {
 		} catch (IOException e) {
 			throw new IOException("Something went wrong during image upload, please try again");
 		}
-		return productRepository.save(product);
+		return saveProduct(product);
 	}
 
 	public void disconectProductFromProductList(Long id, Long hid) {
 	
 		Product product = findProductById(id);
 		product.getProducts().remove(findProductById(hid));
-		productRepository.save(product);
+		saveProduct(product);
 	}
 }

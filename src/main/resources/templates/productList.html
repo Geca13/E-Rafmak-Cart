@@ -18,36 +18,29 @@
 <body>
 
 <div th:replace="fragments/navbar :: navbar"></div>
+
 <div class="container">
-<form th:action="@{/administration/addManufacturer}" th:object="${manufacturer}" method="post">
-  <h2>New Manufacturer Form</h2>
+  <form th:action="@{/connectProductToList/{id}(id=${product.id})}"  method="post">
+        
+
+    <h3>Select Products</h3>
     
-    <div class="form-group">
-      <select  th:field="*{origin.name}">
-     
-      <option th:each="origin : ${origins}"
-        th:value="${origin}"
-        th:text="${origin}"
-        />
-       </select>
-      <label  for="select" class="control-label">Country</label><i class="bar"></i>
-    </div>
-    
-    <div class="form-group">
-      <input th:field="*{name}" type="text" required="required"/>
-      <label for="input" class="control-label">Name</label><i class="bar"></i>
-    </div>
-    
-    <div class="form-group">
-      <input th:field="*{email}" type="email" required="required"/>
-      <label for="input" class="control-label">Email</label><i class="bar"></i>
-    </div>
- 
+    <ul>
+  <li th:each="product : ${products}">
+  
+    <input  type="checkbox" th:name="allProducts" th:value="${product.id}" />
+    <label  th:text="${product.name}"></label>
+   
+  </li>
+</ul>
+  
      <div class="button-container">
     <button type="submit" class="button"><span>Submit</span></button>
   </div>
-</form>
+  </form>
+ 
 </div>
+
 <div th:replace="fragments/footer :: footer"></div>
 <script type="text/javascript" th:src="@{/js/js.js}"></script>
 </body>

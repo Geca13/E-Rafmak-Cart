@@ -251,7 +251,9 @@
                </li>
              </ul>
              <p th:if="${product.subCategory.id eq 16}"  sec:authorize="hasRole('ROLE_ADMIN')">add new nozzle <span><a  th:href="@{/addNewProductNozzles/{id}(id=${product.id})}">here</a></span></p>
-             
+             <div sec:authorize="hasRole('ROLE_ADMIN')" th:if="${product.subCategory.id eq 1 OR product.subCategory.id eq 2 OR product.subCategory.id eq 3 OR product.subCategory.id eq 4 OR product.subCategory.id eq 5 OR product.subCategory.id eq 12 OR product.subCategory.id eq 17 OR product.subCategory.id eq 9}">
+              <p >Connect Product to Product  <span><a  th:href="@{/connectProductToList/{id}(id=${product.id})}">here</a></span></p>
+             </div>
         </div>
         
        <div>
@@ -278,7 +280,7 @@
              
        <div>
        
-         <h2 class="middle">Matching Hardeners</h2>
+         <h2 class="middle">Matching Products</h2>
        </div>
        <br><br>
        

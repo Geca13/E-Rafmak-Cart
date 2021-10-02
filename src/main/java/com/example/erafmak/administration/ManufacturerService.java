@@ -1,7 +1,9 @@
 package com.example.erafmak.administration;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,22 +20,21 @@ public class ManufacturerService {
 	@Autowired
 	ManufacturerRepository manufacturerRepository;
 	
-	private static String API_KEY = "bb1d1caa25bc06f897b06a0c76ada286";
-
-	
-	private static String url = "https://api.countrylayer.com/v2/all";
-	     
-
-	@Autowired
-	private RestTemplate restTemplate;
 	
 	@Autowired
 	OriginRepository originRepository;
 	
-	public List<Origin> getCountriesList(){
-		Origin[] countries = restTemplate.getForObject(url, Origin[].class);
+	public List<String> getCountriesList(){
+		List<String> countries = new ArrayList<>();
+		String[] isoCountries = Locale.getISOCountries();
 		
-		return Arrays.asList(countries);
+		for (String country : isoCountries) {
+            Locale locale = new Locale("en", country);
+           String name = locale.getDisplayCountry();
+           countries.add(name);
+		}
+		
+		return countries;
 	}
 	
 	public List<Manufacturer> allManufacturers(){
@@ -65,6 +66,7 @@ public class ManufacturerService {
 			origin.setName(manufacturer.getOrigin().getName());
 			originRepository.save(origin);
 			manufacturer.setOrigin(origin);
+			manufacturerRepository.save(manufacturer);
 		}
 		return origin;
 	}
@@ -80,7 +82,9 @@ public class ManufacturerService {
 		
 		if(originRepository.existsByName(manufacturer.getOrigin().getName())) {
 			forUpdate.setOrigin(originRepository.findByName(manufacturer.getOrigin().getName()));
+			return manufacturerRepository.save(forUpdate);
 		}
+		forUpdate.setOrigin(setOriginToManufacturer(manufacturer));
 		return manufacturerRepository.save(forUpdate);
 	}
 }
