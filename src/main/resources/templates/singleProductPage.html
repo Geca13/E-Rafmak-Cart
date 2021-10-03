@@ -285,20 +285,20 @@
        <br><br>
        
         <div class='roomslist-center'>
-             <article class='room' th:each="product : ${product.products}" >
+             <article class='room' th:each="prod : ${product.products}" >
             <div class='img-container'>
-              <img th:src="${product.imageUrl}" alt='product image'/>
+              <img th:src="${prod.imageUrl}" alt='product image'/>
               <div class="price-top">
-                  <h6 th:text = "${product.price}"></h6>
+                  <h6 th:text = "${prod.price}"></h6>
                   <p>MKD</p>
 
               </div>
-              <a th:href="@{/products/hardener/{id}(id=${product.id})}" class='btn-primary room-link'>
+              <a th:href="@{/product/{id}(id=${prod.id})}" class='btn-primary room-link'>
                   Details 
                   </a>
             </div>
-            <p class='room-info' th:text="${product.name}"></p>
-            <form sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{/products/disconectProductFromProducts/{id}/{hid}(id=${product.id}, id=${product.id})}" method="post">
+            <p class='room-info' th:text="${prod.name}"></p>
+            <form sec:authorize="hasRole('ROLE_ADMIN')" th:action="@{/disconnectProductFromProductList/{id}/{pid}(id=${product.id}, pid=${prod.id})}" method="post">
             <button>Remove</button>
             </form>
         </article>

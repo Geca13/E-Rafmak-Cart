@@ -38,6 +38,7 @@ public class SubCategoryService {
 	}
 
 	public List<Product> findProductsBySubCategory(Long id) {
+		
 		Product product = productService.findProductById(id);
 		if(product.getSubCategory().getId() == 1L || product.getSubCategory().getId() == 2L || product.getSubCategory().getId() == 3L || product.getSubCategory().getId() == 4L || product.getSubCategory().getId() == 5L) {
 		return productService.productsBySubCategoryId(13L);
