@@ -72,7 +72,8 @@
        <div class ='drink'>
        <div>
         <img class="single"  th:src="*{imageUrl}" alt='image' />
-        
+       <a class="btn btn-primary" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/addProductToCart/{id}(id=${product.id})}">Add</a>
+
         <div sec:authorize="hasRole('ROLE_ADMIN')">
        <form th:action="@{/updateProductImage/{id}(id=${product.id})}" enctype="multipart/form-data" method="post"  >
           <input type="file" name="fileImage" id="fileImage"  required="required"/>

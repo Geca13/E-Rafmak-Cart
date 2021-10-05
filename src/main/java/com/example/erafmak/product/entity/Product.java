@@ -71,6 +71,9 @@ public class Product {
 	
 	@Transient
 	private List<Size> sizes;
+	
+	@Transient
+	private Integer qty;
 
 	public Product(Long id, String name, String description, Double price, Double discountedPrice, Integer stock,
 			Boolean isAvailable, String imageUrl, List<Product> products, Manufacturer manufacturer,
