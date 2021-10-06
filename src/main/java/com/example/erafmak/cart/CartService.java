@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -30,12 +31,27 @@ public class CartService {
 	@Autowired
 	CartRepository cartRepository;
 	
-	public Map<User, List<Product>> cart(@AuthenticationPrincipal UsersDetails user){
-	   Map<User, List<Product>> products = new HashMap<>();
+	
+	private Map<String, List<Product>> cart = new HashMap<>();
+	
+	
+	public Entry<String, List<Product>> findLoggedInUserMap(@AuthenticationPrincipal UsersDetails user) {
+		
+		for (Map.Entry<String, List<Product>>map : cart.entrySet()) {
+			if(map.getKey().equals(user.getUsername())) {
+				return map;
+			}
+		}
+		return null;
+	}
+
+	
+
+	public String loggedInUser(@AuthenticationPrincipal UsersDetails user){
 	   String userEmail = user.getUsername();
        User user1 = userRepository.findByEmail(userEmail);
-	   
-	   return products;
+	return user1.getEmail();
+	  
 	}
 	
 	public List<Product> productsInCart(){
@@ -43,10 +59,16 @@ public class CartService {
 		return products;
 	}
 
-	public void addProductToCart(Long id) {
+	public void addProductToCart(Long id, @AuthenticationPrincipal UsersDetails user) {
+		String user1 = loggedInUser(user);
 		Product product = productService.findProductById(id);
-		product.setQty(1);
-		productsInCart().add(product);
+		product.setQty(2);
+		if(cart.containsKey(user1)) {
+			cart.get(user1).add(product);
+		}else {
+			cart.put(user1, productsInCart());
+			cart.get(user1).add(product);
+		}
 	}
 
 	public void removeProductToCart(Long id) {

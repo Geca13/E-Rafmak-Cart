@@ -17,13 +17,14 @@ public class CartController {
 	
 	@GetMapping("/cart")
 	public String getCartPage(Model model, @AuthenticationPrincipal UsersDetails user) {
-		model.addAttribute("products", cartService.productsInCart());
+		model.addAttribute("products", cartService.findLoggedInUserMap(user));
 		return "cartPage";
 	}
 	
 	@GetMapping("/addProductToCart/{id}")
-    public String addProductToCart(@PathVariable("id")Long id) {
-		cartService.addProductToCart(id);
+    public String addProductToCart(@PathVariable("id")Long id, @AuthenticationPrincipal UsersDetails user ) {
+		
+		cartService.addProductToCart(id, user);
 		return "redirect:/product/"+id;
 	}
 	
