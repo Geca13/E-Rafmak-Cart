@@ -29,8 +29,8 @@ public class CartController {
 	}
 	
 	@GetMapping("/removeProductFromCart/{id}")
-    public String removeProductFromCart(@PathVariable("id")Long id) {
-		cartService.removeProductToCart(id);
+    public String removeProductFromCart(@PathVariable("id")Long id , @AuthenticationPrincipal UsersDetails user) {
+		cartService.removeProductToCart(id,user);
 		return "redirect:/cart";
 	}
 }

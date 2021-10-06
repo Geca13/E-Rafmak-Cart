@@ -71,9 +71,12 @@ public class CartService {
 		}
 	}
 
-	public void removeProductToCart(Long id) {
+	public void removeProductToCart(Long id ,@AuthenticationPrincipal UsersDetails user) {
+		String user1 = loggedInUser(user);
 		Product product = productService.findProductById(id);
-		productsInCart().remove(product);
+		if(cart.containsKey(user1)) {
+			cart.values().remove(product);
+		}
 	}
 
 }

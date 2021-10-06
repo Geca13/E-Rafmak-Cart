@@ -27,7 +27,7 @@
 
 <br>
 
-
+<!--  
 <h1>Shopping Cart</h1>
 
 <div class="shopping-cart">
@@ -86,7 +86,53 @@
       <button class="checkout">Checkout</button>
 
 </div>
+   -->
    
+   <div class="small-container cart-page" th:each="entry, stat : ${products}">
+    <table>
+     <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+     </tr>
+     <tr th:each="product : ${entry.value}">
+      <td>
+        <div class="cart-info">
+          <img th:src="${product.imageUrl}">
+           <div>
+            <p th:text="${product.name}"></p>
+            <small th:text="${product.price}"></small>
+            <br>
+            <a  sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/removeProductFromCart/{id}(id=${product.id})}">remove</a>
+           </div>
+        </div>
+      </td>
+      <td></td>
+      <td></td>
+     </tr>
+    </table>
+    <div class="total-price">
+    
+       <table>
+       
+         <tr>
+          <td>Subtotal</td>
+          <td>200</td>
+         </tr>
+         
+         <tr>
+          <td>Shipping</td>
+          <td>200</td>
+         </tr>
+         
+         <tr>
+          <td>Subtotal</td>
+          <td>200</td>
+         </tr>
+         
+       </table>
+    </div>
+   </div>
 <br>
 
 <div th:replace="fragments/footer :: footer"></div>
