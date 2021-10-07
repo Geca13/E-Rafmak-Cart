@@ -35,6 +35,7 @@ public class CartService {
 	private Map<String, List<Product>> cart = new HashMap<>();
 	
 	
+	
 	public Entry<String, List<Product>> findLoggedInUserMap(@AuthenticationPrincipal UsersDetails user) {
 		
 		for (Map.Entry<String, List<Product>>map : cart.entrySet()) {
@@ -74,9 +75,10 @@ public class CartService {
 	public void removeProductToCart(Long id ,@AuthenticationPrincipal UsersDetails user) {
 		String user1 = loggedInUser(user);
 		Product product = productService.findProductById(id);
-		if(cart.containsKey(user1)) {
-			cart.values().remove(product);
-		}
+		
+				
+			}
+		
 	}
 
-}
+
