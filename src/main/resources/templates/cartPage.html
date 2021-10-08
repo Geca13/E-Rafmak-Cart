@@ -32,7 +32,7 @@
 
 
    
-   <div class="small-container cart-page" th:each="entry, stat : ${products}">
+   <div class="small-container cart-page " th:each="entry, stat : ${products}">
     <table>
      <tr>
       <th>Product</th>
@@ -41,11 +41,11 @@
      </tr>
      <tr th:each="product : ${entry.value}">
       <td>
-        <div class="cart-info">
+        <div class="cart-info cart">
           <img th:src="${product.imageUrl}">
-           <div>
+           <div class="cart1">
             <p th:text="${product.name}"></p>
-            <small th:text="'Price: ' +${product.price} + ' den.'"></small>
+            <small class="price" th:text="${product.price} + ' den.'"></small>
             <p th:unless="${product.granulations eq null}" th:text="'Granulation: p'+${product.granulations[0].displayValue}"></p>
             <p th:unless="${product.sizes eq null}" th:text="'Size: '+${product.sizes[0].displayValue}"></p>
             
@@ -54,8 +54,8 @@
            </div>
         </div>
       </td>
-      <td class="cart-info" ><button class="minus">-</button> <input  type="number" min="1" th:value="${product.qty}" disabled/><button class="plus">+</button></td>
-      <td > <h5 class="subTotal" th:text="${product.subTotal}"></h5></td>
+      <td ><input class="qty"  type="number" min="1" value="1" /></td>
+      <td > <h5 class="subTotal" id="subTotal"></h5></td>
      </tr>
     </table>
     <div class="total-price">
@@ -64,7 +64,7 @@
        
          <tr>
           <td  >Total</td>
-          <td id="total"></td>
+          <td class="cart-total-price">11.00</td>
          </tr>
          
          <tr>
@@ -79,6 +79,7 @@
          
        </table>
     </div>
+    
    </div>
 <br>
 

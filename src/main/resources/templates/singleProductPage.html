@@ -210,6 +210,8 @@
               <i style="font-size:20px;color:red" th:unless="${size.isAvailable eq true}"  class="fas fa-close"></i>
                <span  th:text="${size.size.displayValue}" ></span>
                      </p>
+             <a class="btn btn-primary" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/addProductWSToCart/{id}/{sid}(id=${product.id}, sid=${size.id})}">Add</a>
+                     
                <div sec:authorize="hasRole('ROLE_ADMIN')">
                 
                   
