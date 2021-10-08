@@ -179,6 +179,8 @@
               <i style="font-size:20px;color:red" th:unless="${gran.isAvailable eq true}"  class="fas fa-close"></i>
                <span  th:text="'p'+${gran.granulation.displayValue} + ' : ' + ${gran.price}+' den '" ></span>
                      </p>
+              <a class="btn btn-primary" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/addProductWGToCart/{id}/{gid}(id=${product.id}, gid=${gran.id})}">Add</a>
+                     
                <div sec:authorize="hasRole('ROLE_ADMIN')">
                 <form th:action="@{/updateProductGranulationPrice/{id}/{sid}(id=${product.id},sid=${gran.id})}" method="post">
                  <input maxlength="10" name="price" placeholder="set new price" type="text"/>

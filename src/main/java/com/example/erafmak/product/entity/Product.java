@@ -74,6 +74,12 @@ public class Product {
 	
 	@Transient
 	private Integer qty;
+	
+	@Transient
+	public Double getSubTotal() {
+		return price * qty;
+	}
+	
 
 	public Product(Long id, String name, String description, Double price, Double discountedPrice, Integer stock,
 			Boolean isAvailable, String imageUrl, List<Product> products, Manufacturer manufacturer,

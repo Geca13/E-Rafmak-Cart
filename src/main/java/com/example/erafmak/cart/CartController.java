@@ -28,6 +28,19 @@ public class CartController {
 		return "redirect:/product/"+id;
 	}
 	
+	@GetMapping("/addProductWGToCart/{id}/{gid}")
+    public String addProductWithGranulationToCart(@PathVariable("id")Long id,@PathVariable("gid")Long gid, @AuthenticationPrincipal UsersDetails user ) {
+		cartService.addProductWithGranulationToCart(gid, user);
+		return "redirect:/product/"+id;
+	}
+	
+	@GetMapping("/addProductWSToCart/{id}/{sid}")
+    public String addProductWithSizeToCart(@PathVariable("id")Long id,@PathVariable("sid")Long sid, @AuthenticationPrincipal UsersDetails user ) {
+		cartService.addProductWithSizeToCart(sid, user);
+		return "redirect:/product/"+id;
+	}
+	
+	
 	@GetMapping("/removeProductFromCart/{id}")
     public String removeProductFromCart(@PathVariable("id")Long id , @AuthenticationPrincipal UsersDetails user) {
 		cartService.removeProductToCart(id,user);

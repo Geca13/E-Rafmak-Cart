@@ -27,66 +27,10 @@
 
 <br>
 
-<!--  
+  
 <h1>Shopping Cart</h1>
 
-<div class="shopping-cart">
 
-  <div class="column-labels">
-    <label class="product-image">Image</label>
-    <label class="product-details">Product</label>
-    <label class="product-price">Price</label>
-    <label class="product-quantity">Quantity</label>
-    <label class="product-removal">Remove</label>
-    <label class="product-line-price">Total</label>
-  </div>
-
- <div  th:each="entry, stat : ${products}">
-  <div class="product" th:each="product : ${entry.value}">
-    <div class="product-image">
-      <img th:src="${product.imageUrl}">
-    </div>
-    <div class="product-details">
-      <div class="product-title">Product Name</div>
-      <p class="product-description" th:text="${product.name}"></p>
-    </div>
-    <div class="product-price" th:text="${product.price}"></div>
-    <div class="product-quantity">
-      <input type="number" value="2" min="1">
-    </div>
-    <div class="product-removal">
-      <button class="remove-product">
-        Remove
-      </button>
-    </div>
-    <div class="product-line-price">25.98</div>
-  </div>
-</div>
-  
-
-  <div class="totals">
-    <div class="totals-item">
-      <label>Subtotal</label>
-      <div class="totals-value" id="cart-subtotal">71.97</div>
-    </div>
-    <div class="totals-item">
-      <label>Tax (5%)</label>
-      <div class="totals-value" id="cart-tax">3.60</div>
-    </div>
-    <div class="totals-item">
-      <label>Shipping</label>
-      <div class="totals-value" id="cart-shipping">15.00</div>
-    </div>
-    <div class="totals-item totals-item-total">
-      <label>Grand Total</label>
-      <div class="totals-value" id="cart-total">90.57</div>
-    </div>
-  </div>
-      
-      <button class="checkout">Checkout</button>
-
-</div>
-   -->
    
    <div class="small-container cart-page" th:each="entry, stat : ${products}">
     <table>
@@ -101,14 +45,17 @@
           <img th:src="${product.imageUrl}">
            <div>
             <p th:text="${product.name}"></p>
-            <small th:text="${product.price}"></small>
+            <small th:text="'Price: ' +${product.price} + ' den.'"></small>
+            <p th:unless="${product.granulations eq null}" th:text="'Granulation: p'+${product.granulations[0].displayValue}"></p>
+            <p th:unless="${product.sizes eq null}" th:text="'Size: '+${product.sizes[0].displayValue}"></p>
+            
             <br>
             <a  sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/removeProductFromCart/{id}(id=${product.id})}">remove</a>
            </div>
         </div>
       </td>
-      <td > <input type="number" th:value="${product.qty}"/></td>
-      <td></td>
+      <td class="cart-info" ><button class="minus">-</button> <input  type="number" min="1" th:value="${product.qty}" disabled/><button class="plus">+</button></td>
+      <td > <h5 class="subTotal" th:text="${product.subTotal}"></h5></td>
      </tr>
     </table>
     <div class="total-price">
@@ -116,8 +63,8 @@
        <table>
        
          <tr>
-          <td>Subtotal</td>
-          <td>200</td>
+          <td  >Total</td>
+          <td id="total"></td>
          </tr>
          
          <tr>
@@ -136,7 +83,7 @@
 <br>
 
 <div th:replace="fragments/footer :: footer"></div>
-
+<script type="text/javascript" th:src="@{/js/cart.js}"></script>
 <script type="text/javascript" th:src="@{/js/slider.js}"></script>
 <script type="text/javascript" th:src="@{/js/js.js}"></script>
 </body>

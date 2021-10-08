@@ -32,6 +32,27 @@ td input {
 	width: 40px;
 	height: 30px;
 	padding: 5px;
+	border: none;
+	text-align: right;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+td button {
+	margin-bottom: 10px;
+	border-radius: 30%;
+	width: 20px;
+	text-align: center;
+}
+
+ .minus {
+	background-color: red;
+	border: none;
+}
+
+.plus {
+	background-color: green;
+	border: none;
 }
 
 td a {

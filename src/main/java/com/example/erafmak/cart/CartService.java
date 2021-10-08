@@ -10,7 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 
+import com.example.erafmak.enums.Granulation;
+import com.example.erafmak.enums.Size;
+import com.example.erafmak.product.entity.GranulationQty;
 import com.example.erafmak.product.entity.Product;
+import com.example.erafmak.product.entity.SizeQty;
+import com.example.erafmak.product.services.EnumClassesService;
 import com.example.erafmak.product.services.ProductService;
 import com.example.erafmak.user.entity.User;
 import com.example.erafmak.user.entity.UserRepository;
@@ -24,6 +29,9 @@ public class CartService {
 	
 	@Autowired
 	ProductService productService;
+	
+	@Autowired
+	EnumClassesService enumService;
 	
 	@Autowired
 	CartItemRepository ciRepository;
@@ -63,7 +71,7 @@ public class CartService {
 	public void addProductToCart(Long id, @AuthenticationPrincipal UsersDetails user) {
 		String user1 = loggedInUser(user);
 		Product product = productService.findProductById(id);
-		product.setQty(2);
+		product.setQty(1);
 		if(cart.containsKey(user1)) {
 			cart.get(user1).add(product);
 		}else {
@@ -71,13 +79,34 @@ public class CartService {
 			cart.get(user1).add(product);
 		}
 	}
-
-	public void removeProductToCart(Long id ,@AuthenticationPrincipal UsersDetails user) {
-		String user1 = loggedInUser(user);
-		Product product = productService.findProductById(id);
+	
+	public void addProductWithGranulationToCart(Long id, @AuthenticationPrincipal UsersDetails user) {
 		
-				
-			}
+		GranulationQty gran = enumService.findGranulationById(id);
+        Product product = gran.getProduct();
+		product.setPrice(gran.getPrice());
+		List<Granulation> grans = new ArrayList<>();
+		grans.add(gran.getGranulation());
+		product.setGranulations(grans);
+		addProductToCart(product.getId(), user);
+	}
+
+    public void addProductWithSizeToCart(Long sid, UsersDetails user) {
+		
+	    SizeQty size = enumService.findSizeById(sid);
+	    Product product = size.getProduct();
+	    List<Size> sizes = new ArrayList<>();
+	    sizes.add(size.getSize());
+	    product.setSizes(sizes);
+        addProductToCart(product.getId(), user);
+	}
+
+    public void removeProductToCart(Long id ,@AuthenticationPrincipal UsersDetails user) {
+	String user1 = loggedInUser(user);
+	Product product = productService.findProductById(id);
+	
+			
+		}
 		
 	}
 
