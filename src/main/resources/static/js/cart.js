@@ -5,44 +5,34 @@ if (document.readyState == 'loading') {
 }
 
 function ready() {
-    
 
-    var quantityInputs = document.getElementsByClassName('qty')
-    for (var i = 0; i < quantityInputs.length; i++) {
-        var input = quantityInputs[i]
-        input.addEventListener('change', quantityChanged)
-    }
+updateCartTotal();
 
-    
 }
-
-
-function quantityChanged(event) {
-    var input = event.target
-    if (isNaN(input.value) || input.value <= 0) {
-        input.value = 1
-    }
-    updateCartTotal()
-}
-
-
-
 function updateCartTotal() {
-    var cartItemContainer = document.getElementsByClassName('cart')[0]
-    var cartRows = cartItemContainer.getElementsByClassName('cart1')
-    var total = 0
+    var cartRows = document.getElementsByClassName('cart')
+    console.log(cartRows.length)
+    var total =0;
+    
     for (var i = 0; i < cartRows.length; i++) {
         var cartRow = cartRows[i]
-        var priceElement = cartRow.getElementsByClassName('price')[0]
-        var quantityElement = cartRow.getElementsByClassName('qty')[0]
+        console.log(cartRow)
+        var priceElement = cartRow.getElementsByClassName('price')[i]
+        var quantityElement = cartRow.getElementsByClassName('qty')[i]
+        
         var price = parseFloat(priceElement.innerText)
+        console.log(price)
         var quantity = quantityElement.value,
-        total = total + (price * quantity)
+        
+        subtotalPrice = price * quantity
+        cartRow.getElementsByClassName('subTotal')[i].innerText = subtotalPrice
+        console.log(subtotalPrice)
         
     }
-    total = Math.round(total * 100) / 100
-    document.getElementsByClassName('cart-total-price')[0].innerText = total
+    
 }
+
+      
 
 
 

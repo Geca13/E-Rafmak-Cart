@@ -39,9 +39,9 @@
       <th>Quantity</th>
       <th>Subtotal</th>
      </tr>
-     <tr th:each="product : ${entry.value}">
+     <tr th:each="product : ${entry.value}" class="cart">
       <td>
-        <div class="cart-info cart">
+        <div class="cart-info ">
           <img th:src="${product.imageUrl}">
            <div class="cart1">
             <p th:text="${product.name}"></p>
@@ -50,12 +50,13 @@
             <p th:unless="${product.sizes eq null}" th:text="'Size: '+${product.sizes[0].displayValue}"></p>
             
             <br>
+            
             <a  sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/removeProductFromCart/{id}(id=${product.id})}">remove</a>
            </div>
         </div>
       </td>
       <td ><input class="qty"  type="number" min="1" value="1" /></td>
-      <td > <h5 class="subTotal" id="subTotal"></h5></td>
+      <td > <h5 class="subTotal" id="subTotal"></h5> </td>
      </tr>
     </table>
     <div class="total-price">
@@ -64,7 +65,7 @@
        
          <tr>
           <td  >Total</td>
-          <td class="cart-total-price">11.00</td>
+          <td id="total">11.00</td>
          </tr>
          
          <tr>
@@ -84,9 +85,10 @@
 <br>
 
 <div th:replace="fragments/footer :: footer"></div>
-<script type="text/javascript" th:src="@{/js/cart.js}"></script>
+
 <script type="text/javascript" th:src="@{/js/slider.js}"></script>
 <script type="text/javascript" th:src="@{/js/js.js}"></script>
+<script type="text/javascript" th:src="@{/js/cart.js}"></script>
 </body>
 
 </html>
